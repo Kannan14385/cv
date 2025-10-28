@@ -66,7 +66,8 @@
   .skill-card i {font-size:1.5rem; margin-bottom:0.5rem;}
   .skill-card:hover {
     transform: translateY(-10px) scale(1.05);
-    background: linear-gradient(135deg,#34d399,#10b981);
+    /* Changed from green -> blue gradient */
+    background: linear-gradient(135deg,#60a5fa,#2563eb);
     box-shadow: 0 15px 25px rgba(0,0,0,0.3), 0 0 25px rgba(255,255,255,0.3);
     animation: float-glow 1.5s ease-in-out infinite alternate;
   }
@@ -130,7 +131,7 @@
 <section id="about" data-aos="fade-up">
   <h2>About Me</h2>
   <div class="card">
-    <p>A fresher with a strong interest in technology and innovation, eager to leverage my skills and knowledge to make a meaningful impact in the tech industry. Experienced in multiple programming languages and applications, confident in designing, developing, and completing projects successfully.</p>
+  <p>A passionate and motivated fresher with a strong interest in technology, creativity, and problem-solving. I enjoy learning new tools and transforming ideas into meaningful digital solutions. My interests include data analytics, web development, and cloud computing, where I strive to create projects that are both useful and impactful. I believe that every small step in learning leads to big achievements, and I’m excited to continue growing as a developer and data enthusiast. My goal is to build a career where innovation meets purpose — contributing to projects that make a real difference.</p>
   </div>
 </section>
 
@@ -258,13 +259,13 @@
 <section id="contact" data-aos="fade-up">
   <form id="contactForm" action="https://formspree.io/f/mpwykqbg" method="POST">
     <label for="name">Your Name:</label>
-    <input type="text" id="name" name="name" required placeholder="Your Name">
+    <input type="text" id="name" name="name">
 
     <label for="email">Your Email:</label>
-    <input type="email" id="email" name="email" required placeholder="you@example.com">
+    <input type="email" id="email" name="email">
 
     <label for="message">Your Message:</label>
-    <textarea id="message" name="message" required placeholder="Type your message here..." rows="5"></textarea>
+    <textarea id="message" name="message" required placeholder="message me  😁 ..." rows="5"></textarea>
 
     <button type="submit">Send</button>
   </form>
@@ -285,7 +286,7 @@
   AOS.init({duration:1000, once:true});
 
   // Typing effect
-  const texts=["MCA Graduate","Data Scientist","Developer","Data Analyst"];
+  const texts=["MCA Graduate","Data Analyst","Developer"];
   let index=0,charIndex=0;
   const typingElement=document.getElementById("typing");
 
