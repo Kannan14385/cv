@@ -25,7 +25,7 @@
   nav a:hover, nav a.active {background:#2563eb; color:white;}
 
   /* Hero Section */
-  .hero {height:100vh; background: linear-gradient(135deg,#2563eb,#1e3a8a); color:white; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:2rem;}
+  .hero {height:100vh; background: linear-gradient(135deg,#2563eb,#1e3a8a); color:white; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding[...]}
   .hero img {width:250px; height:250px; border-radius:50%; border:5px solid #fff; margin-bottom:1rem; object-fit:cover;}
   .hero h1 {font-size:3rem; margin-bottom:0.5rem;}
   .typing {font-size:1.3rem; margin-bottom:1.5rem; color:#fcd34d; font-weight:bold;}
@@ -73,9 +73,9 @@
   }
 
   @keyframes float-glow {
-    0% { transform: translateY(-10px) scale(1.05); box-shadow: 0 15px 25px rgba(0,0,0,0.3), 0 0 15px rgba(255,255,255,0.2);}
-    50% { transform: translateY(-15px) scale(1.07); box-shadow: 0 20px 30px rgba(0,0,0,0.35), 0 0 25px rgba(255,255,255,0.35);}
-    100% { transform: translateY(-10px) scale(1.05); box-shadow: 0 15px 25px rgba(0,0,0,0.3), 0 0 15px rgba(255,255,255,0.2);}
+    0% { transform: translateY(-10px) scale(1.05); box-shadow: 0 15px 25px rgba(0,0,0,0.3), 0 0 15px rgba(255,255,255,0.2);} 
+    50% { transform: translateY(-15px) scale(1.07); box-shadow: 0 20px 30px rgba(0,0,0,0.35), 0 0 25px rgba(255,255,255,0.35);} 
+    100% { transform: translateY(-10px) scale(1.05); box-shadow: 0 15px 25px rgba(0,0,0,0.3), 0 0 15px rgba(255,255,255,0.2);} 
   }
 
   /* Contact Form */
@@ -94,8 +94,8 @@
   footer {background:#1f2937; color:white; text-align:center; padding:1.5rem; margin-top:2rem; font-size:0.9rem;}
 
   /* Back to Top Button */
-  #backToTop {position:fixed; bottom:30px; right:30px; background:#2563eb; color:white; border:none; padding:12px 18px; border-radius:50%; cursor:pointer; font-size:20px; display:none; box-shadow:0 4px 10px rgba(0,0,0,0.3); transition:0.3s; z-index:1500;}
-  #backToTop:hover {background:#1e3a8a; transform:scale(1.1);}
+  #backToTop {position:fixed; bottom:30px; right:30px; background:#2563eb; color:white; border:none; padding:12px 18px; border-radius:50%; cursor:pointer; font-size:20px; display:none; box-shadow:[...]}
+  #backToTop:hover {background:#1e3a8a; transform:scale(1.1);} 
 </style>
 </head>
 <body>
@@ -131,7 +131,7 @@
 <section id="about" data-aos="fade-up">
   <h2>About Me</h2>
   <div class="card">
-  <p>A passionate and motivated fresher with a strong interest in technology, creativity, and problem-solving. I enjoy learning new tools and transforming ideas into meaningful digital solutions. My interests include data analytics, web development, and cloud computing, where I strive to create projects that are both useful and impactful. I believe that every small step in learning leads to big achievements, and I’m excited to continue growing as a developer and data enthusiast. My goal is to build a career where innovation meets purpose — contributing to projects that make a real difference.</p>
+  <p>A passionate and motivated fresher with a strong interest in technology, creativity, and problem-solving. I enjoy learning new tools and transforming ideas into meaningful digital solutions[...] 
   </div>
 </section>
 
@@ -167,7 +167,7 @@
     <div class="skill-card"><i class="fas fa-paint-brush"></i> Canva</div>
     <div class="skill-card"><i class="fas fa-robot"></i> LLMs</div>
     <div class="skill-card"><i class="fas fa-desktop"></i> Visual Studio</div>
-    <div class="skill-card"><i class="fas fa-file-github"></i> GitHub</div>
+    <div class="skill-card"><i class="fab fa-github"></i> GitHub</div>
     <div class="skill-card"><i class="fas fa-file-powerpoint"></i> PowerPoint</div>
   </div>
 
@@ -297,14 +297,14 @@
       typingElement.textContent+=texts[index].charAt(charIndex);
       charIndex++;
       setTimeout(type,100);
-    } else {setTimeout(erase,2000);}
+    } else {setTimeout(erase,2000);} 
   }
   function erase(){
     if(charIndex>0){
       typingElement.textContent=texts[index].substring(0,charIndex-1);
       charIndex--;
       setTimeout(erase,50);
-    } else {index=(index+1)%texts.length; setTimeout(type,200);}
+    } else {index=(index+1)%texts.length; setTimeout(type,200);} 
   }
   document.addEventListener("DOMContentLoaded",type);
 
