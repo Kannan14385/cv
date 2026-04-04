@@ -11,94 +11,450 @@
 <!-- Font Awesome for icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+<!-- Comprehensive Styling -->
 <style>
-  * {margin: 0; padding: 0; box-sizing: border-box;}
-  body {font-family: "Segoe UI", sans-serif; background: #f5f7fb; color: #333; scroll-behavior: smooth;}
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  /* Base Styles */
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  /* Navigation */
+  nav {
+    position: sticky;
+    top: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 15px 30px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: all 0.3s;
+  }
+
+  nav a:hover, nav a.active {
+    background-color: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+  }
 
   /* Progress Bar */
-  #progress-container {position: fixed; top: 0; left: 0; width: 100%; height: 5px; background: rgba(0,0,0,0.1); z-index: 2000;}
-  #progress-bar {height: 5px; width: 0%; transition: width 0.2s, background 0.5s;}
+  #progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background: #e0e0e0;
+    z-index: 101;
+  }
 
-  /* Navbar */
-  nav {position: fixed; top: 5px; width: 100%; background: rgba(31,41,55,0.95); padding: 1rem 2rem; display: flex; justify-content: center; gap: 1.5rem; z-index: 1000;}
-  nav a {color:#f3f4f6; text-decoration:none; font-weight:500; transition:0.3s; padding:0.5rem 1rem; border-radius:6px;}
-  nav a:hover, nav a.active {background:#2563eb; color:white;}
+  #progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    width: 0%;
+    transition: width 0.2s;
+  }
+
+  /* Sections */
+  section {
+    padding: 80px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #333;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 15px;
+  }
+
+  .skills-subheading {
+    font-size: 1.5rem;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: #555;
+  }
 
   /* Hero Section */
-  .hero {height:100vh; background: linear-gradient(135deg,#2563eb,#1e3a8a); color:white; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding[...]}
-  .hero img {width:250px; height:250px; border-radius:50%; border:5px solid #fff; margin-bottom:1rem; object-fit:cover;}
-  .hero h1 {font-size:3rem; margin-bottom:0.5rem;}
-  .typing {font-size:1.3rem; margin-bottom:1.5rem; color:#fcd34d; font-weight:bold;}
-  .hero .buttons a {display:inline-block; margin:0 10px; padding:12px 24px; background:#fff; color:#2563eb; font-weight:bold; border-radius:30px; text-decoration:none; transition:0.3s;}
-  .hero .buttons a:hover {background:#1e3a8a; color:white; transform:scale(1.05);}
+  .hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+    padding: 100px 40px;
+  }
 
-  /* Section Headers */
-  section {padding:5rem 2rem; max-width:1100px; margin:auto;}
-  section h2 {text-align:center; font-size:2rem; margin-bottom:2rem; color:#1e3a8a; position:relative;}
-  section h2::after {content:''; width:60px; height:4px; background:#2563eb; display:block; margin:0.5rem auto; border-radius:2px;}
+  .hero img {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 5px solid white;
+    margin-bottom: 20px;
+    object-fit: cover;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+  }
+
+  .typing {
+    font-size: 1.5rem;
+    min-height: 35px;
+    color: #ffd700;
+    font-weight: bold;
+  }
+
+  .buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .buttons a {
+    padding: 12px 30px;
+    background: white;
+    color: #667eea;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s;
+  }
+
+  .buttons a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
 
   /* Cards */
-  .card-container {display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:20px;}
   .card {
-    background: linear-gradient(135deg,#2563eb,#1e40af);
-    color:white; padding:2rem; border-radius:15px; box-shadow:0 6px 20px rgba(0,0,0,0.15);
-    transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.3s ease;
-    opacity:0; transform: translateY(20px);
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+    border-left: 4px solid #667eea;
   }
-  .card.show {opacity:1; transform: translateY(0);}
+
   .card:hover {
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 15px 25px rgba(0,0,0,0.3), 0 0 25px rgba(255,255,255,0.3);
-    background: linear-gradient(135deg,#1e40af,#2563eb);
-    animation: float-glow 1.5s ease-in-out infinite alternate;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
   }
 
-  /* Skills Grid */
-  .skills-grid {display:grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap:20px; margin-top:1rem;}
+  .card h3 {
+    color: #667eea;
+    margin-bottom: 10px;
+  }
+
+  .card ul {
+    margin-left: 20px;
+    color: #555;
+  }
+
+  .card ul li {
+    margin-bottom: 10px;
+  }
+
+  /* Grid Containers */
+  .card-container, .skills-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    margin-bottom: 30px;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  /* Skill Cards */
   .skill-card {
-    background: linear-gradient(135deg,#2563eb,#1e40af);
-    color:white; padding:1.5rem; border-radius:12px; text-align:center; font-weight:bold; box-shadow:0 4px 15px rgba(0,0,0,0.15);
-    transition: transform 0.4s ease, background 0.3s ease, box-shadow 0.4s ease;
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    opacity:0; transform: translateY(20px);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+    cursor: pointer;
   }
-  .skill-card.show {opacity:1; transform:translateY(0);}
-  .skill-card i {font-size:1.5rem; margin-bottom:0.5rem;}
+
   .skill-card:hover {
-    transform: translateY(-10px) scale(1.05);
-    /* Changed from green -> blue gradient */
-    background: linear-gradient(135deg,#60a5fa,#2563eb);
-    box-shadow: 0 15px 25px rgba(0,0,0,0.3), 0 0 25px rgba(255,255,255,0.3);
-    animation: float-glow 1.5s ease-in-out infinite alternate;
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
   }
 
-  @keyframes float-glow {
-    0% { transform: translateY(-10px) scale(1.05); box-shadow: 0 15px 25px rgba(0,0,0,0.3), 0 0 15px rgba(255,255,255,0.2);} 
-    50% { transform: translateY(-15px) scale(1.07); box-shadow: 0 20px 30px rgba(0,0,0,0.35), 0 0 25px rgba(255,255,255,0.35);} 
-    100% { transform: translateY(-10px) scale(1.05); box-shadow: 0 15px 25px rgba(0,0,0,0.3), 0 0 15px rgba(255,255,255,0.2);} 
+  .skill-card i {
+    font-size: 2rem;
+    color: #667eea;
+    margin-bottom: 10px;
   }
-
-  /* Contact Form */
-  form {background:white; padding:2rem; border-radius:15px; box-shadow:0 6px 15px rgba(0,0,0,0.1); max-width:600px; margin:auto;}
-  form label {display:block; font-weight:bold; color:#1e3a8a; margin-top:1rem;}
-  form input, form textarea {width:100%; padding:10px; margin-top:8px; border:1px solid #ccc; border-radius:8px; font-size:1rem; font-family:"Segoe UI", sans-serif;}
-  form button {background:#2563eb; color:white; padding:10px 20px; border:none; border-radius:8px; cursor:pointer; font-weight:bold; width:100%; margin-top:15px; transition:0.3s;}
-  form button:hover {background:#1e3a8a; transform:scale(1.05);}
 
   /* Contact Links */
-  .contact-links {display:flex; flex-wrap:wrap; justify-content:center; gap:15px; margin-top:20px;}
-  .contact-links a {padding:10px 18px; background:#2563eb; color:white; border-radius:8px; text-decoration:none; transition:0.3s; display:flex; align-items:center; gap:8px;}
-  .contact-links a:hover {background:#1e3a8a; transform:translateY(-5px);}
+  .contact-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 30px 0;
+  }
+
+  .contact-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: #667eea;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s;
+  }
+
+  .contact-links a:hover {
+    background: #764ba2;
+    transform: translateY(-2px);
+  }
+
+  /* Forms */
+  form {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 30px auto;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+    transition: border 0.3s;
+  }
+
+  input:focus, textarea:focus {
+    outline: none;
+    border: 2px solid #667eea;
+    box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+  }
+
+  button[type="submit"], button[type="reset"] {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  button[type="submit"] {
+    background: #667eea;
+    color: white;
+  }
+
+  button[type="submit"]:hover {
+    background: #764ba2;
+    transform: translateY(-2px);
+  }
 
   /* Footer */
-  footer {background:#1f2937; color:white; text-align:center; padding:1.5rem; margin-top:2rem; font-size:0.9rem;}
+  footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    margin-top: 50px;
+  }
 
   /* Back to Top Button */
-  #backToTop {position:fixed; bottom:30px; right:30px; background:#2563eb; color:white; border:none; padding:12px 18px; border-radius:50%; cursor:pointer; font-size:20px; display:none; box-shadow:[...]}
-  #backToTop:hover {background:#1e3a8a; transform:scale(1.1);} 
+  #backToTop {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+    z-index: 999;
+    transition: all 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  }
+
+  #backToTop:hover {
+    background: #764ba2;
+    transform: scale(1.1);
+  }
+
+  /* Dark Mode Floating Button */
+  #darkModeToggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 1.3rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: all 0.3s;
+  }
+
+  #darkModeToggle:hover {
+    transform: scale(1.1);
+  }
+
+  /* Dark Mode Styles */
+  body.dark-mode {
+    background-color: #0a0a0a;
+    color: #e0e0e0;
+  }
+
+  body.dark-mode section, body.dark-mode footer {
+    background-color: #0a0a0a;
+    color: #e0e0e0;
+  }
+
+  body.dark-mode .card, body.dark-mode .skill-card {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    border-left-color: #ffd700;
+    box-shadow: 0 5px 15px rgba(255,215,0,0.1);
+  }
+
+  body.dark-mode nav {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-bottom: 1px solid #ffd700;
+  }
+
+  body.dark-mode nav a {
+    color: #e0e0e0;
+  }
+
+  body.dark-mode input, body.dark-mode textarea {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    border: 1px solid #555;
+  }
+
+  body.dark-mode h1, body.dark-mode h2, body.dark-mode h3 {
+    color: #a8d5ff;
+  }
+
+  body.dark-mode section h2 {
+    border-bottom-color: #a8d5ff;
+  }
+
+  body.dark-mode #darkModeToggle {
+    background: #a8d5ff;
+    color: #0a0a0a;
+  }
+
+  /* Custom Scrollbar */
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: #667eea #f5f5f5;
+  }
+
+  html.dark-mode {
+    scrollbar-color: #ffd700 #0a0a0a;
+  }
+
+  html::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  html::-webkit-scrollbar-track {
+    background: #f5f5f5;
+  }
+
+  html::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 10px;
+  }
+
+  html::-webkit-scrollbar-thumb:hover {
+    background: #764ba2;
+  }
+
+  html.dark-mode::-webkit-scrollbar-track {
+    background: #0a0a0a;
+  }
+
+  html.dark-mode::-webkit-scrollbar-thumb {
+    background: #ffd700;
+  }
+
+  html.dark-mode::-webkit-scrollbar-thumb:hover {
+    background: #e6c200;
+  }
+
+  /* Smooth Theme Transition */
+  .theme-transition, .theme-transition *, .theme-transition *:before, .theme-transition *:after {
+    transition: all 0.4s ease !important;
+  }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    nav { flex-wrap: wrap; gap: 10px; }
+    section { padding: 50px 20px; }
+    section h2 { font-size: 1.8rem; }
+    .hero { padding: 60px 20px; }
+    .hero h1 { font-size: 2rem; }
+    .hero img { width: 160px; height: 160px; }
+    .card-container, .skills-grid { grid-template-columns: 1fr; }
+    .buttons { flex-direction: column; }
+    .buttons a { width: 100%; }
+    form { margin: 20px 10px; }
+  }
 </style>
 </head>
 <body>
+
+<!-- Dark Mode Toggle -->
+<button id="darkModeToggle" aria-label="Toggle Dark Mode">
+  <i class="fas fa-moon"></i>
+</button>
 
 <!-- Progress Bar -->
 <div id="progress-container"><div id="progress-bar"></div></div>
@@ -131,7 +487,7 @@
 <section id="about" data-aos="fade-up">
   <h2>About Me</h2>
   <div class="card">
-  <p>A passionate and motivated fresher with a strong interest in technology, creativity, and problem-solving. I enjoy learning new tools and transforming ideas into meaningful digital solutions[...] 
+  <p>A passionate and motivated fresher with a strong interest in technology, creativity, and problem-solving. I enjoy learning new tools and transforming ideas into meaningful digital solutions[...]</p>
   </div>
 </section>
 
@@ -146,15 +502,35 @@
 
 <!-- Experience -->
 <section id="experience" data-aos="fade-left">
-  <h2>Work Experience</h2>
-  <div class="card">
-    <h3><i class="fas fa-briefcase"></i> Intern – Junior Data Analyst</h3>
-    <p><b>Coactions Info Tech | May – June 2025</b></p>
-   <ul>
-    <li> Project Leadership: Led a team of 4 to develop a Fund Tracking System for multiple NGOs, centralizing financial data and improving audit transparency.</li>
-    <li> Data Visualization: Designed and deployed 5+ interactive Power BI dashboards, automating manual reporting and saving approximately 10 hours of work per week.</li>
-    <li> Marketing Strategy: Managed social media campaigns that resulted in a 15% increase in audience engagement across platforms.</li>
-   </ul>
+  <h2>Work Experience & Projects</h2>
+  <div class="card-container">
+    <div class="card">
+      <h3><i class="fas fa-laptop-code"></i> Intern – Full Stack Python Developer</h3>
+      <p><b>Coactions Info Tech | ERP-Based Youth Engagement & Fund Management Platform | Nov 2025 – Apr 2026</b></p>
+      <ul>
+        <li>Built a custom Odoo admin module in Python + PostgreSQL for 50+ users, boosting project tracking efficiency by 30%.</li>
+        <li>Resolved 20+ critical bugs during UAT — delivering a zero blocker release and accelerating go-live by ~2 weeks.</li>
+        <li>Designed normalized PostgreSQL schemas enabling real-time dashboard refresh for fund managers.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3><i class="fas fa-project-diagram"></i> Academic Project: GASC Blood Donor Bridge</h3>
+      <p><b>Aug 2025 – Mar 2026</b></p>
+      <ul>
+        <li>Built a campus-wide blood donation platform (PHP, MySQL, HTML/CSS) with real-time donor matching in emergencies.</li>
+        <li>Implemented secure registration with hashed credentials and role-based access for the full campus user base.</li>
+        <li>Optimized SQL queries enabling instant cross-blood type matching, reducing search latency under critical conditions.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3><i class="fas fa-chart-pie"></i> Intern – Junior Data Analyst</h3>
+      <p><b>Coactions Info Tech | Fund Tracking System for NGOs | May 2025 – Jun 2025</b></p>
+      <ul>
+        <li>Designed and deployed 5+ Power BI dashboards automating weekly reports, saving ~10 hours/week of manual work.</li>
+        <li>Led a 4-person team end-to-end — from requirements to stakeholder demo — with zero missed milestones.</li>
+        <li>Ran social media analytics campaigns, increasing donor engagement by 15% within 6 weeks.</li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -171,7 +547,7 @@
     <div class="skill-card"><i class="fas fa-file-powerpoint"></i> PowerPoint</div>
   </div>
 
-  <h2 style="margin-top:3rem;">Programming Skills</h2>
+  <h2 class="skills-subheading">Programming Skills</h2>
   <div class="skills-grid">
     <div class="skill-card"><i class="fab fa-java"></i> Java</div>
     <div class="skill-card"><i class="fab fa-python"></i> Python</div>
@@ -180,7 +556,7 @@
     <div class="skill-card"><i class="fab fa-css3-alt"></i> CSS</div>
   </div>
 
-  <h2 style="margin-top:3rem;">Personal Skills</h2>
+  <h2 class="skills-subheading">Personal Skills</h2>
   <div class="skills-grid">
     <div class="skill-card"><i class="fas fa-users"></i> Leadership</div>
     <div class="skill-card"><i class="fas fa-handshake"></i> Teamwork</div>
@@ -219,6 +595,7 @@
     <div class="card"><i class="fas fa-certificate"></i> AI Dashboard using Microsoft Power BI - Skill Nation</div>
     <div class="card"><i class="fas fa-certificate"></i> Data Science Job Simulation - British Airways</div>
     <div class="card"><i class="fas fa-certificate"></i> MasterClass in Data Analytics-  NoviTech R&D Private Limited </div>
+  </div>
 </section>
 
 <!-- References -->
@@ -255,21 +632,22 @@
     <p><i class="fas fa-phone"></i> Phone: 9688657903</p>
     <p><i class="fas fa-map-marker-alt"></i> Location: 283, Sakthinagar, Gobichettipalayam, Erode – 638453</p>
   </div>
-</section>
 
-<!-- Contact Form -->
-<section id="contact" data-aos="fade-up">
+  <!-- Contact Form -->
   <form id="contactForm" action="https://formspree.io/f/mpwykqbg" method="POST">
     <label for="name">Name:</label>
-    <input type="text" id="name" name="name">
+    <input type="text" id="name" name="name" required>
 
     <label for="email">Email:</label>
-    <input type="email" id="email" name="email">
+    <input type="email" id="email" name="email" required>
 
     <label for="message">Message:</label>
     <textarea id="message" name="message" required placeholder="message me  😁 ..." rows="5"></textarea>
 
-    <button type="submit">Send</button>
+    <div style="display: flex; gap: 10px; margin-top: 10px;">
+      <button type="submit" style="flex: 1;">Send</button>
+      <button type="reset" style="flex: 1; background-color: #6c757d; color: white;">Clear</button>
+    </div>
   </form>
 </section>
 
@@ -286,6 +664,37 @@
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
   AOS.init({duration:1000, once:true});
+
+  // Dark Mode Toggle Logic
+  const darkModeToggle = document.getElementById("darkModeToggle");
+  const body = document.body;
+  const themeIcon = darkModeToggle.querySelector("i");
+
+  if (localStorage.getItem("darkMode") === "enabled") {
+    body.classList.add("dark-mode");
+    document.documentElement.classList.add("dark-mode");
+    themeIcon.className = "fas fa-sun";
+  }
+
+  darkModeToggle.addEventListener("click", () => {
+    // Add transition class for smooth animation
+    document.documentElement.classList.add("theme-transition");
+
+    body.classList.toggle("dark-mode");
+    document.documentElement.classList.toggle("dark-mode");
+    if (body.classList.contains("dark-mode")) {
+      localStorage.setItem("darkMode", "enabled");
+      themeIcon.className = "fas fa-sun";
+    } else {
+      localStorage.setItem("darkMode", "disabled");
+      themeIcon.className = "fas fa-moon";
+    }
+
+    // Remove transition class after animation completes
+    setTimeout(() => {
+      document.documentElement.classList.remove("theme-transition");
+    }, 400);
+  });
 
   // Typing effect
   const texts=["MCA Graduate","Data Analyst","Developer"];
@@ -316,11 +725,11 @@
     let current="";
     sections.forEach(section=>{
       const sectionTop=section.offsetTop-100;
-      if(pageYOffset>=sectionTop){current=section.getAttribute("id");}
+      if(window.scrollY>=sectionTop){current=section.getAttribute("id");}
     });
     navLinks.forEach(link=>{
       link.classList.remove("active");
-      if(link.getAttribute("href").includes(current)){link.classList.add("active");}
+      if(current && link.getAttribute("href") === "#" + current){link.classList.add("active");}
     });
 
     const scrollTop=window.scrollY;
