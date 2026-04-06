@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gokula Kannan - Portfolio</title>
 
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <!-- AOS Animation Library -->
 <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
@@ -16,10 +19,13 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   
   /* Base Styles */
+  html {
+    scroll-behavior: smooth;
+  }
   html, body {
     overflow-x: hidden;
     width: 100%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
     background-color: #f5f5f5;
     color: #333;
     line-height: 1.6;
@@ -29,13 +35,13 @@
   nav {
     position: sticky;
     top: 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
     padding: 15px 30px;
     display: flex;
-    gap: 20px;
+    gap: 10px;
     flex-wrap: nowrap;
     overflow-x: auto;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     z-index: 100;
@@ -43,17 +49,23 @@
   }
 
   nav a {
+    display: inline-block;
+    flex: 0 0 auto;
     color: white;
     text-decoration: none;
     font-weight: 600;
-    padding: 8px 15px;
-    border-radius: 5px;
+    padding: 8px 18px;
+    border-radius: 6px;
     transition: all 0.3s;
+    white-space: nowrap;
+    background-color: rgba(255, 255, 255, 0.15);
   }
 
   nav a:hover, nav a.active {
-    background-color: rgba(255,255,255,0.2);
+    background-color: white;
+    color: #2563eb;
     transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
   }
 
   /* Progress Bar */
@@ -69,7 +81,7 @@
 
   #progress-bar {
     height: 100%;
-    background: linear-gradient(90deg, #667eea, #764ba2);
+    background: linear-gradient(90deg, #2563eb, #1e40af);
     width: 0%;
     transition: width 0.2s;
   }
@@ -85,7 +97,7 @@
     font-size: 2.5rem;
     margin-bottom: 30px;
     color: #333;
-    border-bottom: 3px solid #667eea;
+    border-bottom: 4px solid #2563eb;\n    display: inline-block;
     padding-bottom: 15px;
   }
 
@@ -98,7 +110,7 @@
 
   /* Hero Section */
   .hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
     color: white;
     text-align: center;
     padding: 100px 40px;
@@ -137,9 +149,9 @@
   .buttons a {
     padding: 12px 30px;
     background: white;
-    color: #667eea;
+    color: #2563eb;
     text-decoration: none;
-    border-radius: 25px;
+    border-radius: 6px;
     font-weight: 600;
     transition: all 0.3s;
   }
@@ -153,19 +165,19 @@
   .card {
     background: white;
     padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
     transition: all 0.3s;
-    border-left: 4px solid #667eea;
+    border-left: 4px solid #2563eb;
   }
 
   .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
   }
 
   .card h3 {
-    color: #667eea;
+    color: #2563eb;
     margin-bottom: 10px;
   }
 
@@ -194,9 +206,9 @@
   .skill-card {
     background: white;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 8px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
     transition: all 0.3s;
     cursor: pointer;
   }
@@ -208,7 +220,7 @@
 
   .skill-card i {
     font-size: 2rem;
-    color: #667eea;
+    color: #2563eb;
     margin-bottom: 10px;
   }
 
@@ -218,31 +230,39 @@
     gap: 20px;
     flex-wrap: wrap;
     margin: 30px 0;
+    width: 100%;
   }
 
   .contact-links a {
-    display: inline-flex;
+    display: flex;
+    flex: 1;
+    min-width: 200px;
     align-items: center;
+    justify-content: center;
     gap: 10px;
-    padding: 12px 20px;
-    background: #667eea;
+    padding: 20px;
+    background: #2563eb;
     color: white;
     text-decoration: none;
-    border-radius: 25px;
+    border-radius: 8px;
     transition: all 0.3s;
+    font-size: 1.2rem;
+    font-weight: bold;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
   }
 
   .contact-links a:hover {
-    background: #764ba2;
-    transform: translateY(-2px);
+    background: #1e40af;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
   }
 
   /* Forms */
   form {
     background: white;
     padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
     max-width: 600px;
     margin: 30px auto;
   }
@@ -266,7 +286,7 @@
 
   input:focus, textarea:focus {
     outline: none;
-    border: 2px solid #667eea;
+    border: 2px solid #2563eb;
     box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
   }
 
@@ -280,13 +300,28 @@
   }
 
   button[type="submit"] {
-    background: #667eea;
+    background: #2563eb;
     color: white;
   }
 
   button[type="submit"]:hover {
-    background: #764ba2;
+    background: #1e40af;
     transform: translateY(-2px);
+  }
+
+  .form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .form-actions button {
+    flex: 1;
+  }
+
+  .form-actions button[type="reset"] {
+    background-color: #6c757d;
+    color: white;
   }
 
   /* Footer */
@@ -303,7 +338,7 @@
     position: fixed;
     bottom: 80px;
     right: 20px;
-    background: #667eea;
+    background: #2563eb;
     color: white;
     border: none;
     border-radius: 50%;
@@ -318,7 +353,7 @@
   }
 
   #backToTop:hover {
-    background: #764ba2;
+    background: #1e40af;
     transform: scale(1.1);
   }
 
@@ -328,7 +363,7 @@
     bottom: 20px;
     right: 20px;
     z-index: 1000;
-    background: #667eea;
+    background: #2563eb;
     color: white;
     border: none;
     border-radius: 50%;
@@ -346,25 +381,25 @@
 
   /* Dark Mode Styles */
   body.dark-mode {
-    background-color: #0a0a0a;
+    background-color: #121212;
     color: #e0e0e0;
   }
 
   body.dark-mode section, body.dark-mode footer {
-    background-color: #0a0a0a;
+    background-color: #121212;
     color: #e0e0e0;
   }
 
   body.dark-mode .card, body.dark-mode .skill-card {
-    background-color: #1a1a1a;
+    background-color: #1e1e1e;
     color: #e0e0e0;
-    border-left-color: #ffd700;
-    box-shadow: 0 5px 15px rgba(255,215,0,0.1);
+    border-left-color: #60a5fa;
+    box-shadow: 0 5px 15px rgba(168,213,255,0.1);
   }
 
   body.dark-mode nav {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    border-bottom: 1px solid #ffd700;
+    border-bottom: 1px solid #60a5fa;
   }
 
   body.dark-mode nav a {
@@ -378,26 +413,33 @@
   }
 
   body.dark-mode h1, body.dark-mode h2, body.dark-mode h3 {
-    color: #a8d5ff;
+    color: #60a5fa;
   }
 
   body.dark-mode section h2 {
-    border-bottom-color: #a8d5ff;
+    border-bottom-color: #60a5fa;
   }
 
   body.dark-mode #darkModeToggle {
-    background: #a8d5ff;
-    color: #0a0a0a;
+    background: #60a5fa;
+    color: #121212;
   }
 
   /* Custom Scrollbar */
-  html {
-    scrollbar-width: thin;
-    scrollbar-color: #667eea #f5f5f5;
+  @supports (scrollbar-width: thin) {
+    html {
+      scrollbar-width: thin;
+    }
   }
 
-  html.dark-mode {
-    scrollbar-color: #ffd700 #0a0a0a;
+  @supports (scrollbar-color: #2563eb #f5f5f5) {
+    html {
+      scrollbar-color: #2563eb #f5f5f5;
+    }
+
+    html.dark-mode {
+      scrollbar-color: #60a5fa #121212;
+    }
   }
 
   html::-webkit-scrollbar {
@@ -409,24 +451,24 @@
   }
 
   html::-webkit-scrollbar-thumb {
-    background: #667eea;
-    border-radius: 10px;
+    background: #2563eb;
+    border-radius: 8px;
   }
 
   html::-webkit-scrollbar-thumb:hover {
-    background: #764ba2;
+    background: #1e40af;
   }
 
   html.dark-mode::-webkit-scrollbar-track {
-    background: #0a0a0a;
+    background: #121212;
   }
 
   html.dark-mode::-webkit-scrollbar-thumb {
-    background: #ffd700;
+    background: #60a5fa;
   }
 
   html.dark-mode::-webkit-scrollbar-thumb:hover {
-    background: #e6c200;
+    background: #80bfff;
   }
 
   /* Smooth Theme Transition */
@@ -447,6 +489,29 @@
     .buttons a { width: 100%; }
     form { margin: 20px 10px; }
   }
+
+  /* Modal Styles */
+  .modal { display: none; position: fixed; z-index: 1001; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.5); align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; }
+  .modal.show { display: flex; opacity: 1; }
+  .modal-content { background-color: #fefefe; margin: auto; padding: 30px; border: 1px solid #888; width: 90%; max-width: 400px; border-radius: 8px; position: relative; text-align: center; transform: translateY(-20px); transition: transform 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+  .modal.show .modal-content { transform: translateY(0); }
+  .close-modal { color: #aaa; position: absolute; top: 10px; right: 15px; font-size: 28px; font-weight: bold; cursor: pointer; }
+  .close-modal:hover, .close-modal:focus { color: #333; text-decoration: none; }
+  .format-options { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
+  .format-btn { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px; background-color: #2563eb; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; transition: all 0.3s; }
+  .format-btn:hover { background-color: #1e40af; transform: translateY(-2px); }
+  body.dark-mode .modal-content { background-color: #1e1e1e; border-color: #555; color: #e0e0e0; }
+  body.dark-mode .close-modal:hover { color: #fff; }
+
+
+  /* Deck Slider Styles */
+  .deck-container { position: relative; width: 100%; height: 280px; margin-top: 25px; background: transparent; border-radius: 8px; display: flex; justify-content: center; }
+  .deck-card { position: absolute; width: 90%; height: 100%; object-fit: contain; border-radius: 8px; border: 3px solid white; box-shadow: 0 10px 20px rgba(0,0,0,0.2); background-color: #fff; transform: translateY(-150%) rotate(15deg); opacity: 0; transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.8s ease; z-index: 1; }
+  body.dark-mode .deck-card { border-color: #444; background-color: #1e1e1e; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+  .deck-card.active { transform: translateY(0) rotate(0deg); opacity: 1; z-index: 10; }
+  .deck-card.prev { transform: translateY(15px) scale(0.95); opacity: 0.6; z-index: 5; }
+  .deck-card.old { transform: translateY(30px) scale(0.9); opacity: 0; z-index: 1; transition: all 0.5s ease; }
+
 </style>
 </head>
 <body>
@@ -478,8 +543,9 @@
   <h1 data-aos="fade-up">Gokula Kannan M</h1>
   <div class="typing" id="typing"></div>
   <div class="buttons" data-aos="fade-up" data-aos-delay="400">
-    <a href="#contact">Hire Me</a>
-    <a href="#skills">View Skills</a>
+    <a href="#" id="downloadCvBtn"><i class="fas fa-download"></i> Download CV</a>
+    <a href="#skills"><i class="fas fa-layer-group"></i> View My Tech Stack</a>
+    <a href="#contact"><i class="fas fa-paper-plane"></i> Let's Connect</a>
   </div>
 </section>
 
@@ -512,6 +578,21 @@
         <li>Resolved 20+ critical bugs during UAT — delivering a zero blocker release and accelerating go-live by ~2 weeks.</li>
         <li>Designed normalized PostgreSQL schemas enabling real-time dashboard refresh for fund managers.</li>
       </ul>
+      
+      <!-- Odoo Image Deck -->
+      <div class="deck-container odoo-deck">
+        <img src="odoo/Picture1.png" class="deck-card" loading="lazy" alt="Odoo Project Image 1">
+        <img src="odoo/Picture2.png" class="deck-card" loading="lazy" alt="Odoo Project Image 2">
+        <img src="odoo/Picture3.png" class="deck-card" loading="lazy" alt="Odoo Project Image 3">
+        <img src="odoo/Picture4.png" class="deck-card" loading="lazy" alt="Odoo Project Image 4">
+        <img src="odoo/Picture5.png" class="deck-card" loading="lazy" alt="Odoo Project Image 5">
+        <img src="odoo/Picture6.png" class="deck-card" loading="lazy" alt="Odoo Project Image 6">
+        <img src="odoo/Picture7.png" class="deck-card" loading="lazy" alt="Odoo Project Image 7">
+        <img src="odoo/Picture8.png" class="deck-card" loading="lazy" alt="Odoo Project Image 8">
+        <img src="odoo/Picture9.png" class="deck-card" loading="lazy" alt="Odoo Project Image 9">
+        <img src="odoo/Picture10.png" class="deck-card" loading="lazy" alt="Odoo Project Image 10">
+        <img src="odoo/Picture11.png" class="deck-card" loading="lazy" alt="Odoo Project Image 11">
+      </div>
     </div>
     <div class="card">
       <h3><i class="fas fa-project-diagram"></i> Academic Project: GASC Blood Donor Bridge</h3>
@@ -521,6 +602,24 @@
         <li>Implemented secure registration with hashed credentials and role-based access for the full campus user base.</li>
         <li>Optimized SQL queries enabling instant cross-blood type matching, reducing search latency under critical conditions.</li>
       </ul>
+
+      <!-- Blood Donor Bridge Image Deck -->
+      <div class="deck-container blood-deck">
+        <img src="blood/Picture1.png" class="deck-card" loading="lazy" alt="Blood Project Image 1">
+        <img src="blood/Picture2.png" class="deck-card" loading="lazy" alt="Blood Project Image 2">
+        <img src="blood/Picture3.png" class="deck-card" loading="lazy" alt="Blood Project Image 3">
+        <img src="blood/Picture4.png" class="deck-card" loading="lazy" alt="Blood Project Image 4">
+        <img src="blood/Picture5.png" class="deck-card" loading="lazy" alt="Blood Project Image 5">
+        <img src="blood/Picture6.png" class="deck-card" loading="lazy" alt="Blood Project Image 6">
+        <img src="blood/Picture7.png" class="deck-card" loading="lazy" alt="Blood Project Image 7">
+        <img src="blood/Picture8.png" class="deck-card" loading="lazy" alt="Blood Project Image 8">
+        <img src="blood/Picture9.png" class="deck-card" loading="lazy" alt="Blood Project Image 9">
+        <img src="blood/Picture10.png" class="deck-card" loading="lazy" alt="Blood Project Image 10">
+        <img src="blood/Picture11.png" class="deck-card" loading="lazy" alt="Blood Project Image 11">
+        <img src="blood/Picture12.png" class="deck-card" loading="lazy" alt="Blood Project Image 12">
+        <img src="blood/Picture13.png" class="deck-card" loading="lazy" alt="Blood Project Image 13">
+        <img src="blood/Picture14.png" class="deck-card" loading="lazy" alt="Blood Project Image 14">
+      </div>
     </div>
     <div class="card">
       <h3><i class="fas fa-chart-pie"></i> Intern – Junior Data Analyst</h3>
@@ -530,6 +629,25 @@
         <li>Led a 4-person team end-to-end — from requirements to stakeholder demo — with zero missed milestones.</li>
         <li>Ran social media analytics campaigns, increasing donor engagement by 15% within 6 weeks.</li>
       </ul>
+
+      <!-- Power BI Image Deck -->
+      <div class="deck-container pbi-deck">
+        <img src="pbi/Screenshot 2026-04-06 142735.png" class="deck-card" loading="lazy" alt="Power BI Dashboard 1">
+        <img src="pbi/Screenshot 2026-04-06 143035.png" class="deck-card" loading="lazy" alt="Power BI Dashboard 2">
+        <img src="pbi/Screenshot 2026-04-06 143054.png" class="deck-card" loading="lazy" alt="Power BI Dashboard 3">
+        <img src="pbi/Screenshot 2026-04-06 143104.png" class="deck-card" loading="lazy" alt="Power BI Dashboard 4">
+        <img src="pbi/Screenshot 2026-04-06 143116.png" class="deck-card" loading="lazy" alt="Power BI Dashboard 5">
+        <img src="pbi/Screenshot 2026-04-06 143134.png" class="deck-card" loading="lazy" alt="Power BI Dashboard 6">
+        <img src="pbi/Screenshot 2026-04-06 143150.png" class="deck-card" loading="lazy" alt="Power BI Dashboard 7">
+        <img src="pbi/Screenshot 2026-04-06 143203.png" class="deck-card" loading="lazy" alt="Power BI Dashboard 8">
+        <img src="pbi/Screenshot 2026-04-06 143212.png" class="deck-card" loading="lazy" alt="Power BI Dashboard 9">
+        <img src="pbi/Screenshot 2026-04-06 143227.png" class="deck-card" loading="lazy" alt="Power BI Dashboard 10">
+        <img src="pbi/Screenshot 2026-04-06 143259.png" class="deck-card" loading="lazy" alt="Power BI Dashboard 11">
+        <img src="pbi/Screenshot 2026-04-06 143317.png" class="deck-card" loading="lazy" alt="Power BI Dashboard 12">
+        <img src="pbi/Screenshot 2026-04-06 143326.png" class="deck-card" loading="lazy" alt="Power BI Dashboard 13">
+        <img src="pbi/Screenshot 2026-04-06 143346.png" class="deck-card" loading="lazy" alt="Power BI Dashboard 14">
+        <img src="pbi/Screenshot 2026-04-06 143359.png" class="deck-card" loading="lazy" alt="Power BI Dashboard 15">
+      </div>
     </div>
   </div>
 </section>
@@ -644,12 +762,27 @@
     <label for="message">Message:</label>
     <textarea id="message" name="message" required placeholder="message me  😁 ..." rows="5"></textarea>
 
-    <div style="display: flex; gap: 10px; margin-top: 10px;">
-      <button type="submit" style="flex: 1;">Send</button>
-      <button type="reset" style="flex: 1; background-color: #6c757d; color: white;">Clear</button>
+    <div class="form-actions">
+      <button type="submit">Send</button>
+      <button type="reset">Clear</button>
     </div>
   </form>
 </section>
+
+
+<!-- Download Modal -->
+<div id="downloadModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <h3>Select Resume Format</h3>
+    <p style="margin-top: 10px; font-size: 0.95rem;">Please select an ATS-friendly format to download:</p>
+    <div class="format-options">
+      <a href="Gokula_Kannan_Resume_CV.pdf" download="Gokula_Kannan_Resume_CV.pdf" class="format-btn"><i class="fas fa-file-pdf"></i> PDF Document</a>
+      <a href="Gokula_Kannan_Resume_CV.docx" download="Gokula_Kannan_Resume_CV.docx" class="format-btn"><i class="fas fa-file-word"></i> Word (DOCX)</a>
+      <a href="Gokula_Kannan_Resume_CV.jpg" download="Gokula_Kannan_Resume_CV.jpg" class="format-btn"><i class="fas fa-image"></i> JPEG Image</a>
+    </div>
+  </div>
+</div>
 
 <!-- Footer -->
 <footer>
@@ -757,6 +890,45 @@
   }, {threshold: 0.2});
 
   document.querySelectorAll('section').forEach(section => observer.observe(section));
+</script>
+<script>
+  const downloadCvBtn = document.getElementById('downloadCvBtn');
+  const downloadModal = document.getElementById('downloadModal');
+  const closeModal = document.querySelector('.close-modal');
+  if(downloadCvBtn) downloadCvBtn.addEventListener('click', (e) => { e.preventDefault(); downloadModal.classList.add('show'); });
+  if(closeModal) closeModal.addEventListener('click', () => { downloadModal.classList.remove('show'); });
+  window.addEventListener('click', (e) => { if (e.target === downloadModal) downloadModal.classList.remove('show'); });
+  document.querySelectorAll('.format-btn').forEach(btn => btn.addEventListener('click', () => { setTimeout(() => { downloadModal.classList.remove('show'); }, 500); }));
+</script>
+<script>
+  function initDeck(deckSelector) {
+    const deck = document.querySelectorAll(deckSelector + ' .deck-card');
+    if (deck.length === 0) return;
+    let idx = 0;
+    deck[idx].classList.add('active');
+    
+    setInterval(() => {
+      const activeCard = deck[idx];
+      activeCard.classList.remove('active');
+      activeCard.classList.add('prev');
+      
+      const prevIdx = (idx - 1 + deck.length) % deck.length;
+      const prevCard = deck[prevIdx];
+      if (prevCard.classList.contains('prev')) {
+        prevCard.classList.remove('prev');
+        prevCard.classList.add('old');
+        setTimeout(() => { prevCard.classList.remove('old'); }, 500);
+      }
+      
+      idx = (idx + 1) % deck.length;
+      deck[idx].classList.add('active');
+    }, 3000);
+  }
+  document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => initDeck('.odoo-deck'), 0);
+    setTimeout(() => initDeck('.blood-deck'), 1000);
+    setTimeout(() => initDeck('.pbi-deck'), 2000);
+  });
 </script>
 </body>
 </html>
