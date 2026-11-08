@@ -1,0 +1,1692 @@
+<?php
+/*
+Template Name: Portfolio CV
+*/
+$assets = get_stylesheet_directory_uri() . '/cv-assets';
+?>
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php wp_head(); ?>
+
+<!-- Google Fonts -->
+<!-- AOS Animation Library -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Comprehensive Styling -->
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  /* Base Styles */
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+  }
+  html, body {
+    overflow-x: clip;
+    width: 100%;
+    font-family: "Inter", sans-serif;
+    background-color: #f4f7f9;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  /* Navigation */
+  nav {
+    position: sticky;
+    top: 0;
+    background: linear-gradient(110deg, rgba(22, 56, 78, 0.97), rgba(23, 104, 112, 0.97));
+    padding: 12px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    z-index: 200;
+    box-shadow: 0 2px 10px rgba(9, 29, 43, 0.12);
+    backdrop-filter: blur(14px);
+    transition: box-shadow 0.25s ease, background 0.25s ease;
+  }
+
+  nav.is-scrolled {
+    box-shadow: 0 8px 24px rgba(9, 29, 43, 0.2);
+  }
+
+  .nav-brand {
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .nav-contact {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex: 0 0 auto;
+    padding: 9px 16px;
+    border: 1px solid #8fdcc3;
+    border-radius: 6px;
+    background: #8fdcc3;
+    color: #17324d;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .nav-contact:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(4,24,37,0.22);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nav-links a, .nav-more-toggle {
+    display: inline-block;
+    flex: 0 0 auto;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 18px;
+    border-radius: 6px;
+    transition: all 0.3s;
+    white-space: nowrap;
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .nav-more-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    min-width: 152px;
+    border: 0;
+    font: inherit;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .nav-links a:hover, .nav-links a.active {
+    background-color: white;
+    color: #345b70;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  }
+
+  .nav-more-toggle:hover { background-color: rgba(255,255,255,0.25); }
+
+  .nav-links a:focus-visible, .nav-toggle:focus-visible, .nav-more-toggle:focus-visible, .nav-contact:focus-visible {
+    outline: 3px solid #8fdcc3;
+    outline-offset: 3px;
+  }
+
+  .nav-more { position: relative; }
+
+  .nav-submenu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    z-index: 110;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 190px;
+    padding: 8px;
+    border: 1px solid rgba(255,255,255,0.16);
+    border-radius: 8px;
+    background: #17324d;
+    box-shadow: 0 14px 32px rgba(4,24,37,0.28);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  }
+
+  .nav-submenu.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav-submenu a { width: 100%; }
+
+  .nav-toggle {
+    display: none;
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 6px;
+    background: transparent;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+
+  /* Progress Bar */
+  #progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background: #e0e0e0;
+    z-index: 101;
+  }
+
+  #progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #345b70, #17324d);
+    width: 0%;
+    transition: width 0.2s;
+  }
+
+  /* Sections */
+  section {
+    padding: 56px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    scroll-margin-top: 88px;
+  }
+
+  section h2 {
+    font-size: 2.15rem;
+    margin-bottom: 24px;
+    color: #333;
+    border-bottom: 3px solid #345b70;
+    display: inline-block;
+    padding-bottom: 10px;
+  }
+
+  .skills-subheading {
+    font-size: 1.5rem;
+    margin-top: 28px;
+    margin-bottom: 16px;
+    color: #555;
+  }
+
+  /* Hero Section */
+  .hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr);
+    align-items: center;
+    gap: 56px;
+    overflow: hidden;
+    background-color: #17324d;
+    background-image: linear-gradient(115deg, #17324d 0%, #294b61 58%, #345b70 100%);
+    color: white;
+    text-align: left;
+    padding: 88px 8%;
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+    background-size: 36px 36px;
+    mask-image: linear-gradient(110deg, black, transparent 80%);
+    pointer-events: none;
+  }
+
+  .hero img {
+    position: relative;
+    width: 250px;
+    height: 300px;
+    border-radius: 14px;
+    border: 4px solid rgba(255,255,255,0.9);
+    object-fit: cover;
+    box-shadow: 0 20px 48px rgba(4, 24, 37, 0.35);
+  }
+
+  .hero-copy {
+    position: relative;
+    max-width: 680px;
+  }
+
+  .hero-kicker {
+    margin-bottom: 12px;
+    color: #8fdcc3;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .hero-summary {
+    max-width: 600px;
+    margin-top: 18px;
+    color: rgba(255,255,255,0.82);
+    font-size: 1.05rem;
+  }
+
+  .hero h1 {
+    color: #fff;
+    font-size: 3.2rem;
+    margin-bottom: 15px;
+  }
+
+  .typing {
+    font-size: 1.5rem;
+    min-height: 35px;
+    color: #8fdcc3;
+    font-weight: bold;
+  }
+
+  .buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .buttons a {
+    padding: 12px 30px;
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.55);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.3s;
+  }
+
+  .buttons a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+
+  .buttons a:first-child {
+    background: #8fdcc3;
+    border-color: #8fdcc3;
+    color: #17324d;
+  }
+
+  /* Cards */
+  .card {
+    background: white;
+    padding: 22px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+    transition: all 0.3s;
+    border-left: 4px solid #345b70;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+  }
+
+  .card, .skill-card {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.2, 0.75, 0.25, 1), box-shadow 0.3s ease;
+  }
+
+  .card.show, .skill-card.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .card.show:hover { transform: translateY(-5px); }
+  .skill-card.show:hover { transform: scale(1.05); }
+
+  .card h3 {
+    color: #345b70;
+    margin-bottom: 10px;
+  }
+
+  .card ul {
+    margin-left: 20px;
+    color: #555;
+  }
+
+  .card ul li {
+    margin-bottom: 10px;
+  }
+
+  /* Grid Containers */
+  .card-container, .skills-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    margin-bottom: 24px;
+  }
+
+  #experience .card-container { grid-template-columns: 1fr; max-width: 920px; }
+  #projects .card-container { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  /* Skill Cards */
+  .skill-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  .skill-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+  }
+
+  .skill-card i {
+    font-size: 2rem;
+    color: #345b70;
+    margin-bottom: 10px;
+  }
+
+  /* Contact Links */
+  .contact-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 30px 0;
+    width: 100%;
+  }
+
+  .contact-links a {
+    display: flex;
+    flex: 1;
+    min-width: 200px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    background: #345b70;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s;
+    font-size: 1.2rem;
+    font-weight: bold;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+  }
+
+  .contact-links a:hover {
+    background: #294b61;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  }
+
+  /* Forms */
+  form {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+    max-width: 600px;
+    margin: 30px auto;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+    transition: border 0.3s;
+  }
+
+  input:focus, textarea:focus {
+    outline: none;
+    border: 2px solid #345b70;
+    box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+  }
+
+  button[type="submit"], button[type="reset"] {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  button[type="submit"] {
+    background: #345b70;
+    color: white;
+  }
+
+  button[type="submit"]:hover {
+    background: #294b61;
+    transform: translateY(-2px);
+  }
+
+  .form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .form-actions button {
+    flex: 1;
+  }
+
+  .form-actions button[type="reset"] {
+    background-color: #6c757d;
+    color: white;
+  }
+
+  /* Footer */
+  footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    margin-top: 32px;
+  }
+
+  /* Back to Top Button */
+  #backToTop {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background: #345b70;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+    z-index: 999;
+    transition: all 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  }
+
+  #backToTop:hover {
+    background: #294b61;
+    transform: scale(1.1);
+  }
+
+  /* Dark Mode Floating Button */
+  #darkModeToggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: #345b70;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 1.3rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: all 0.3s;
+  }
+
+  #darkModeToggle:hover {
+    transform: scale(1.1);
+  }
+
+  /* Dark Mode Styles */
+  body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+
+  body.dark-mode section, body.dark-mode footer {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+
+  body.dark-mode .card, body.dark-mode .skill-card {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    border-left-color: #a5d6c8;
+    box-shadow: 0 5px 15px rgba(168,213,255,0.1);
+  }
+
+  body.dark-mode nav {
+    background: linear-gradient(110deg, rgba(18, 31, 40, 0.98), rgba(18, 57, 62, 0.98));
+    border-bottom: 1px solid #a5d6c8;
+  }
+
+  body.dark-mode .nav-links a {
+    color: #e0e0e0;
+  }
+
+  body.dark-mode .nav-more-toggle { color: #e0e0e0; }
+  body.dark-mode .nav-submenu { background: #172a35; border-color: #3d5967; }
+  body.dark-mode .nav-contact { color: #17324d; }
+
+  body.dark-mode .nav-links a:hover,
+  body.dark-mode .nav-links a.active {
+    color: #121212;
+  }
+
+  body.dark-mode .nav-toggle {
+    color: #e0e0e0;
+    border-color: rgba(124, 184, 175, 0.6);
+  }
+
+  body.dark-mode input, body.dark-mode textarea {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    border: 1px solid #555;
+  }
+
+  body.dark-mode h1, body.dark-mode h2, body.dark-mode h3 {
+    color: #a5d6c8;
+  }
+
+  body.dark-mode section h2 {
+    border-bottom-color: #a5d6c8;
+  }
+
+  body.dark-mode #darkModeToggle {
+    background: #a5d6c8;
+    color: #121212;
+  }
+
+  /* Custom Scrollbar */
+  @supports (scrollbar-width: thin) {
+    html {
+      scrollbar-width: thin;
+    }
+  }
+
+  @supports (scrollbar-color: #345b70 #f4f7f9) {
+    html {
+      scrollbar-color: #345b70 #f4f7f9;
+    }
+
+    html.dark-mode {
+      scrollbar-color: #a5d6c8 #121212;
+    }
+  }
+
+  html::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  html::-webkit-scrollbar-track {
+    background: #f4f7f9;
+  }
+
+  html::-webkit-scrollbar-thumb {
+    background: #345b70;
+    border-radius: 8px;
+  }
+
+  html::-webkit-scrollbar-thumb:hover {
+    background: #294b61;
+  }
+
+  html.dark-mode::-webkit-scrollbar-track {
+    background: #121212;
+  }
+
+  html.dark-mode::-webkit-scrollbar-thumb {
+    background: #a5d6c8;
+  }
+
+  html.dark-mode::-webkit-scrollbar-thumb:hover {
+    background: #80bfff;
+  }
+
+  /* Smooth Theme Transition */
+  .theme-transition, .theme-transition *, .theme-transition *:before, .theme-transition *:after {
+    transition: all 0.4s ease !important;
+  }
+
+  /* Tablet and mobile navigation */
+  @media (max-width: 1100px) {
+    nav { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; column-gap: 8px; row-gap: 0; padding: 10px 20px; }
+    .nav-brand { grid-column: 1; grid-row: 1; }
+    .nav-contact { grid-column: 2; grid-row: 1; }
+    .nav-toggle { display: inline-flex; grid-column: 3; grid-row: 1; align-items: center; justify-content: center; }
+    .nav-links { display: flex; grid-column: 1 / -1; grid-row: 2; flex-basis: auto; flex-direction: column; align-items: stretch; gap: 6px; max-height: 0; overflow: hidden; padding-top: 0; opacity: 0; visibility: hidden; transform: translateY(-10px); transition: max-height 0.35s ease, opacity 0.25s ease, transform 0.25s ease, padding 0.25s ease, visibility 0.25s; }
+    .nav-links.is-open { max-height: min(75vh, 620px); padding-top: 10px; opacity: 1; visibility: visible; transform: translateY(0); }
+    .nav-links a, .nav-more-toggle { width: 100%; text-align: left; }
+    .nav-more { width: 100%; }
+    .nav-submenu { position: static; min-width: 0; max-height: 0; overflow: hidden; margin-top: 0; padding: 0 8px; border: 0; box-shadow: none; opacity: 0; visibility: hidden; transform: translateY(-6px); transition: max-height 0.25s ease, opacity 0.2s ease, transform 0.2s ease, padding 0.2s ease, visibility 0.2s; }
+    .nav-submenu.is-open { max-height: 280px; margin-top: 4px; padding: 8px; opacity: 1; visibility: visible; transform: translateY(0); }
+  }
+
+  @media (max-width: 820px) {
+    .hero { grid-template-columns: 1fr; gap: 24px; padding: 52px clamp(20px, 5vw, 56px); text-align: center; }
+    .hero img { width: 170px; height: 210px; margin: 0 auto; }
+    .hero-copy { margin: 0 auto; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 2.6rem); }
+    .hero-summary { margin-left: auto; margin-right: auto; }
+    #projects .card-container { grid-template-columns: 1fr; }
+  }
+
+  /* Mobile layout */
+  @media (max-width: 768px) {
+    nav { padding: 10px 16px; }
+    .nav-brand { font-size: 0.95rem; min-width: 0; }
+    .nav-contact { gap: 6px; padding: 8px 10px; font-size: 0.9rem; }
+    .nav-toggle { width: 40px; height: 40px; }
+    section { padding: 38px clamp(16px, 5vw, 28px); }
+    section h2 { font-size: 1.65rem; margin-bottom: 20px; }
+    #experience .card-container, #projects .card-container { grid-template-columns: 1fr; }
+    .hero { padding: 44px clamp(16px, 5vw, 28px); }
+    .hero img { width: 150px; height: 180px; }
+    .card-container { grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
+    .skills-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr)); }
+    .buttons { flex-direction: column; }
+    .buttons a { width: 100%; }
+    form { margin: 20px 10px; }
+  }
+
+  @media (max-width: 420px) {
+    nav { padding-inline: 10px; column-gap: 6px; }
+    .nav-contact { padding: 7px 8px; font-size: 0.82rem; }
+    .nav-contact i { display: none; }
+    .nav-toggle { width: 38px; height: 38px; }
+    .certification-flip-face { padding: 20px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+    .card, .skill-card { opacity: 1; transform: none; }
+  }
+
+  /* Modal Styles */
+  .modal { display: none; position: fixed; z-index: 1001; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.5); align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; }
+  .modal.show { display: flex; opacity: 1; }
+  .modal-content { background-color: #fefefe; margin: auto; padding: 30px; border: 1px solid #888; width: 92%; max-width: 900px; max-height: 92vh; overflow-y: auto; border-radius: 8px; position: relative; text-align: center; transform: translateY(-20px); transition: transform 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+  .modal.show .modal-content { transform: translateY(0); }
+  .close-modal { color: #aaa; position: absolute; top: 10px; right: 15px; font-size: 28px; font-weight: bold; cursor: pointer; }
+  .close-modal:hover, .close-modal:focus { color: #333; text-decoration: none; }
+  .format-options { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
+  .format-btn { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px; background-color: #345b70; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; transition: all 0.3s; }
+  .format-btn:hover { background-color: #294b61; transform: translateY(-2px); }
+  .resume-preview { display: block; width: 100%; height: 65vh; margin-top: 20px; border: 1px solid #d1d5db; background: #f3f4f6; }
+  body.dark-mode .modal-content { background-color: #1e1e1e; border-color: #555; color: #e0e0e0; }
+  body.dark-mode .close-modal:hover { color: #fff; }
+
+
+  /* Deck Slider Styles */
+  .deck-container { position: relative; width: 100%; height: 280px; margin-top: 25px; background: transparent; border-radius: 8px; display: flex; justify-content: center; }
+  .deck-card { position: absolute; width: 90%; height: 100%; object-fit: contain; border-radius: 8px; border: 3px solid white; box-shadow: 0 10px 20px rgba(0,0,0,0.2); background-color: #fff; transform: translateY(-150%) rotate(15deg); opacity: 0; transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.8s ease; z-index: 1; }
+  body.dark-mode .deck-card { border-color: #444; background-color: #1e1e1e; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+  .deck-card.active { transform: translateY(0) rotate(0deg); opacity: 1; z-index: 10; }
+  .deck-card.prev { transform: translateY(15px) scale(0.95); opacity: 0.6; z-index: 5; }
+  .deck-card.old { transform: translateY(30px) scale(0.9); opacity: 0; z-index: 1; transition: all 0.5s ease; }
+
+  .stackly-project { grid-column: 1 / -1; }
+  .stackly-project > p { max-width: 850px; }
+  .stackly-deck { height: 560px; overflow: hidden; border: 1px solid #d8e0e2; border-radius: 8px; background: #f3f5f5; }
+  .stackly-deck .deck-card { width: 100%; border: 0; border-radius: 6px; object-fit: contain; }
+  .stackly-live-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 18px; }
+  .stackly-live-links a { color: #345b70; font-weight: 700; text-decoration: none; }
+  .stackly-live-links a:hover { text-decoration: underline; }
+  .stackly-live-links a:focus-visible { outline: 3px solid #345b70; outline-offset: 4px; }
+  body.dark-mode .stackly-live-links a { color: #8fdcc3; }
+
+  :root {
+    --portfolio-primary: #17324d;
+    --portfolio-secondary: #345b70;
+    --portfolio-text: #334155;
+    --portfolio-accent: #8fdcc3;
+    --portfolio-background: #f4f7f9;
+    --portfolio-surface: #ffffff;
+  }
+
+  html, body, button, input, textarea, select {
+    font-family: "Inter", sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Spectral", serif;
+  }
+
+  body:not(.dark-mode) {
+    background-color: var(--portfolio-background);
+    color: var(--portfolio-text);
+  }
+
+  body:not(.dark-mode) section,
+  body:not(.dark-mode) footer {
+    background-color: var(--portfolio-background);
+    color: var(--portfolio-text);
+  }
+
+  body:not(.dark-mode) nav#navbar {
+    background: linear-gradient(110deg, rgba(23, 50, 77, 0.98), rgba(52, 91, 112, 0.98));
+  }
+
+  body:not(.dark-mode) .hero {
+    background-color: var(--portfolio-primary);
+    background-image: linear-gradient(115deg, #17324d 0%, #294b61 58%, #345b70 100%);
+  }
+
+  body:not(.dark-mode) section h2,
+  body:not(.dark-mode) .card h3,
+  body:not(.dark-mode) .skill-card i,
+  body:not(.dark-mode) .stackly-live-links a {
+    color: var(--portfolio-secondary);
+  }
+
+  body:not(.dark-mode) .card,
+  body:not(.dark-mode) .skill-card,
+  body:not(.dark-mode) .modal-content {
+    background-color: var(--portfolio-surface);
+    color: var(--portfolio-text);
+  }
+
+  body:not(.dark-mode) .card {
+    border-left-color: var(--portfolio-secondary);
+  }
+
+  body:not(.dark-mode) .nav-contact,
+  body:not(.dark-mode) .buttons a:first-child,
+  body:not(.dark-mode) .format-btn,
+  body:not(.dark-mode) #backToTop {
+    background-color: var(--portfolio-accent);
+    border-color: var(--portfolio-accent);
+    color: var(--portfolio-primary);
+  }
+
+  body:not(.dark-mode) .format-btn:hover {
+    background-color: #75c9ae;
+  }
+
+  body.dark-mode {
+    --portfolio-primary: #e2e8f0;
+    --portfolio-secondary: #7cb8af;
+    --portfolio-text: #d3dde7;
+    --portfolio-accent: #8fdcc3;
+    --portfolio-background: #111a22;
+    --portfolio-surface: #1c2a36;
+    background-color: var(--portfolio-background);
+    color: var(--portfolio-text);
+  }
+
+  body.dark-mode section,
+  body.dark-mode footer {
+    background-color: var(--portfolio-background);
+    color: var(--portfolio-text);
+  }
+
+  body.dark-mode .card,
+  body.dark-mode .skill-card,
+  body.dark-mode .modal-content,
+  body.dark-mode .deck-card {
+    background-color: var(--portfolio-surface);
+    color: var(--portfolio-text);
+  }
+
+  body.dark-mode h1,
+  body.dark-mode h2,
+  body.dark-mode h3,
+  body.dark-mode h4,
+  body.dark-mode h5,
+  body.dark-mode h6,
+  body.dark-mode .card ul,
+  body.dark-mode .stackly-live-links a {
+    color: var(--portfolio-text);
+  }
+
+  body.dark-mode section h2,
+  body.dark-mode .card h3,
+  body.dark-mode .skill-card i {
+    color: var(--portfolio-secondary);
+  }
+
+  body.dark-mode .nav-contact,
+  body.dark-mode .buttons a:first-child,
+  body.dark-mode .format-btn,
+  body.dark-mode #backToTop {
+    background-color: var(--portfolio-accent);
+    border-color: var(--portfolio-accent);
+    color: #17324d;
+  }
+
+  #certifications .card-container {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 235px), 1fr));
+    align-items: stretch;
+  }
+
+  #certifications .certification-flip-card {
+    position: relative;
+    display: block;
+    width: 100%;
+    min-width: 0;
+    height: 232px;
+    min-height: 232px;
+    padding: 0;
+    overflow: visible;
+    border: 0;
+    border-radius: 12px;
+    background: transparent;
+    box-shadow: none;
+    perspective: 1000px;
+    color: var(--portfolio-text);
+    text-align: left;
+    cursor: pointer;
+  }
+
+  #certifications .certification-flip-card.show:hover {
+    transform: translateY(-4px);
+  }
+
+  #certifications .certification-flip-inner {
+    position: relative;
+    display: grid;
+    grid-template: minmax(0, 1fr) / minmax(0, 1fr);
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.55s cubic-bezier(0.2, 0.75, 0.25, 1);
+  }
+
+  #certifications .certification-flip-card:hover .certification-flip-inner,
+  #certifications .certification-flip-card:focus-visible .certification-flip-inner,
+  #certifications .certification-flip-card.is-flipped .certification-flip-inner {
+    transform: rotateY(180deg);
+  }
+
+  #certifications .certification-flip-face {
+    grid-area: 1 / 1;
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    min-height: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 15px;
+    box-sizing: border-box;
+    overflow-wrap: anywhere;
+    border: 1px solid rgba(52, 91, 112, 0.14);
+    border-radius: 12px;
+    background: var(--portfolio-surface);
+    box-shadow: 0 8px 24px rgba(23, 50, 77, 0.09);
+    backface-visibility: hidden;
+    text-align: center;
+  }
+
+  #certifications .certification-flip-face > span {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  #certifications .certification-flip-front {
+    border-top: 3px solid var(--portfolio-secondary);
+  }
+
+  #certifications .certification-flip-front .icon {
+    color: var(--portfolio-secondary);
+    font-size: 2.2rem;
+  }
+
+  #certifications .certification-flip-back .certification-title {
+    color: #fff;
+  }
+
+  #certifications .icon::before {
+    font-family: elementskit !important;
+  }
+
+  #certifications .certification-title {
+    color: var(--portfolio-primary);
+    font-family: "Spectral", serif;
+    font-size: 1.08rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  #certifications .certification-flip-hint {
+    color: var(--portfolio-secondary);
+    font-size: 0.78rem;
+    font-weight: 600;
+  }
+
+  #certifications .certification-flip-back {
+    transform: rotateY(180deg);
+    border-color: transparent;
+    background: linear-gradient(145deg, #17324d, #345b70);
+    color: #fff;
+  }
+
+  #certifications .certification-flip-back .icon {
+    color: #a5d6c8;
+    font-size: 1.8rem;
+  }
+
+  #certifications .certification-issuer {
+    font-family: "Spectral", serif;
+    font-size: 1.12rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  #certifications .certification-flip-card:focus-visible {
+    outline: 3px solid var(--portfolio-secondary);
+    outline-offset: 4px;
+  }
+
+  body.dark-mode #certifications .certification-flip-face {
+    border-color: rgba(165, 214, 200, 0.22);
+    background: var(--portfolio-surface);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+  }
+
+  body.dark-mode #certifications .certification-flip-front {
+    border-top-color: var(--portfolio-secondary);
+  }
+
+  body.dark-mode #certifications .certification-flip-front .icon,
+  body.dark-mode #certifications .certification-flip-hint {
+    color: var(--portfolio-secondary);
+  }
+
+  body.dark-mode #certifications .certification-title {
+    color: var(--portfolio-text);
+  }
+
+  body.dark-mode #certifications .certification-flip-back .certification-title {
+    color: #fff;
+  }
+
+  body.dark-mode #certifications .certification-flip-back {
+    border-color: transparent;
+    background: linear-gradient(145deg, #1c2a36, #294b61);
+  }
+
+  @media (max-width: 768px) {
+    .stackly-deck { height: 360px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #certifications .certification-flip-inner {
+      transition-duration: 0.01ms;
+    }
+  }
+
+</style>
+</head>
+<body>
+<?php wp_body_open(); ?>
+
+<!-- Dark Mode Toggle -->
+<button id="darkModeToggle" aria-label="Toggle Dark Mode">
+  <i class="fas fa-moon"></i>
+</button>
+
+<!-- Progress Bar -->
+<div id="progress-container"><div id="progress-bar"></div></div>
+
+<!-- Navbar -->
+<nav id="navbar">
+  <a class="nav-brand" href="#home">Gokula Kannan</a>
+  <button class="nav-toggle" id="navToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks">
+    <i class="fas fa-bars" aria-hidden="true"></i>
+  </button>
+  <div class="nav-links" id="navLinks">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <div class="nav-more">
+      <button class="nav-more-toggle" id="navMoreToggle" type="button" aria-expanded="false" aria-controls="navMoreMenu"><span id="navMoreLabel">More</span><i class="fas fa-chevron-down" aria-hidden="true"></i></button>
+      <div class="nav-submenu" id="navMoreMenu">
+        <a href="#education">Education</a>
+        <a href="#languages">Languages</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#references">References</a>
+        <a href="#extracurriculars">Activities</a>
+      </div>
+    </div>
+  </div>
+  <a class="nav-contact" href="#contact"><i class="fas fa-paper-plane" aria-hidden="true"></i> Contact Me</a>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero" id="home" data-aos="fade-in">
+  <img src="<?php echo $assets; ?>/LinkedIn Profile.jpg" alt="Gokula Kannan" data-aos="zoom-in" data-aos-delay="100">
+  <div class="hero-copy" data-aos="fade-up" data-aos-delay="150">
+    <p class="hero-kicker">Portfolio · WordPress &amp; Web Development</p>
+    <h1>Gokula Kannan M</h1>
+    <div class="typing" id="typing"></div>
+    <p class="hero-summary">Building reliable WordPress experiences and thoughtful digital solutions, with a foundation in data analytics and full-stack development.</p>
+    <div class="buttons">
+      <a href="#" id="downloadCvBtn"><i class="fas fa-download"></i> Download CV</a>
+      <a href="#skills"><i class="fas fa-layer-group"></i> View My Tech Stack</a>
+      <a href="#contact"><i class="fas fa-paper-plane"></i> Let's Connect</a>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about" data-aos="fade-up">
+  <h2>About Me</h2>
+  <div class="card">
+  <p>Versatile and analytical WordPress Developer with experience supporting web development, Odoo customizations, data analytics, and full-stack engineering. Comfortable working with structured databases and helping organizations visualize insights through Power BI. Brings a methodical approach to frontend design and backend debugging, with a strong focus on technical accuracy and efficient problem-solving.</p>
+  </div>
+</section>
+
+<!-- Education -->
+<section id="education" data-aos="fade-right">
+  <h2>Education</h2>
+  <div class="card-container">
+    <div class="card"><i class="fas fa-graduation-cap"></i> <b>MCA</b> – Gobi Arts & Science College, Bharathiyar University (2024–2026)</div>
+    <div class="card"><i class="fas fa-graduation-cap"></i> <b>B.Sc CS</b> – Gobi Arts & Science College, Bharathiyar University (2021–2024)</div>
+  </div>
+</section>
+
+<!-- Work Experience -->
+<section id="experience" data-aos="fade-left">
+  <h2>Work Experience</h2>
+  <div class="card-container">
+    <div class="card">
+      <h3><i class="fab fa-wordpress"></i> WordPress Developer</h3>
+      <p><b>Zooye Info Technologies | Apr 2026 - Nov 2026</b></p>
+      <ul>
+        <li>Design, develop, and maintain dynamic WordPress websites, ensuring high-quality digital experiences and reliable functionality.</li>
+        <li>Provide technical guidance, support, and mentorship to a team of 3 colleagues to facilitate smooth project execution and collaborative problem-solving.</li>
+        <li>Optimize website performance, speed, and responsiveness to continuously enhance the company's digital platforms.</li>
+        <li>Apply creative problem-solving to build and deploy innovative web solutions aligned with business growth objectives.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3><i class="fas fa-laptop-code"></i> Full Stack Python Developer – Intern</h3>
+      <p><b>Coactions Info Tech | Nov 2025 – Apr 2026</b></p>
+      <p>Developed ERP functionality with Python, Odoo, and PostgreSQL for youth engagement and fund management workflows.</p>
+    </div>
+    <div class="card">
+      <h3><i class="fas fa-chart-pie"></i> Full Stack Python Developer – Intern</h3>
+      <p><b>Coactions Info Tech | Fund Tracking System for NGOs | May 2025 – Jun 2025</b></p>
+      <p>Built dashboards and supported data-driven reporting for nonprofit fund-management workflows.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects" data-aos="fade-up">
+  <h2>Selected Projects</h2>
+  <div class="card-container">
+    <div class="card stackly-project">
+      <h3><i class="fas fa-house"></i> Stackly Real Estate Websites</h3>
+      <p><b>Zooye Info Technologies | WordPress</b></p>
+      <p>Three real-estate website experiences showcasing sales and rental listings, property discovery, featured homes, and appointment or contact journeys.</p>
+      <ul>
+        <li>Showcases sales and rental listings, featured homes, and property details.</li>
+        <li>Includes appointment booking, property discovery, and contact journeys across three WordPress deployments.</li>
+      </ul>
+      <div class="deck-container stackly-deck">
+        <img src="<?php echo $assets; ?>/stackly/zooye-services-listings.png" class="deck-card" alt="Stackly featured apartment, villa, and workspace listings">
+        <img src="<?php echo $assets; ?>/stackly/zooye7-property-details.png" class="deck-card" alt="Stackly property detail screen showing home features and room counts">
+        <img src="<?php echo $assets; ?>/stackly/zooye9-property-grid.png" class="deck-card" alt="Stackly curated property grid with home listings">
+      </div>
+      <div class="stackly-live-links" aria-label="Stackly live websites">
+        <a href="https://zooye1.thestackly.in/" target="_blank" rel="noopener noreferrer">Real Estate Services</a>
+        <a href="https://zooye7.thestackly.cloud/" target="_blank" rel="noopener noreferrer">Property Details &amp; Booking</a>
+        <a href="https://zooye9.thestackly.cloud/" target="_blank" rel="noopener noreferrer">Featured Property Grid</a>
+      </div>
+    </div>
+    <div class="card">
+      <h3><i class="fas fa-laptop-code"></i> ERP-Based Youth Engagement &amp; Fund Management</h3>
+      <p><b>Coactions Info Tech | Odoo, Python, PostgreSQL</b></p>
+      <ul>
+        <li>Built a custom Odoo admin module for 50+ users, improving project tracking efficiency by 30%.</li>
+        <li>Resolved 20+ critical UAT bugs and designed normalized schemas for real-time dashboard refreshes.</li>
+      </ul>
+      <div class="deck-container odoo-deck">
+        <img src="<?php echo $assets; ?>/odoo/Picture1.png" class="deck-card" loading="lazy" alt="Odoo Project Image 1">
+        <img src="<?php echo $assets; ?>/odoo/Picture2.png" class="deck-card" loading="lazy" alt="Odoo Project Image 2">
+        <img src="<?php echo $assets; ?>/odoo/Picture3.png" class="deck-card" loading="lazy" alt="Odoo Project Image 3">
+        <img src="<?php echo $assets; ?>/odoo/Picture4.png" class="deck-card" loading="lazy" alt="Odoo Project Image 4">
+        <img src="<?php echo $assets; ?>/odoo/Picture5.png" class="deck-card" loading="lazy" alt="Odoo Project Image 5">
+        <img src="<?php echo $assets; ?>/odoo/Picture6.png" class="deck-card" loading="lazy" alt="Odoo Project Image 6">
+        <img src="<?php echo $assets; ?>/odoo/Picture7.png" class="deck-card" loading="lazy" alt="Odoo Project Image 7">
+        <img src="<?php echo $assets; ?>/odoo/Picture8.png" class="deck-card" loading="lazy" alt="Odoo Project Image 8">
+        <img src="<?php echo $assets; ?>/odoo/Picture9.png" class="deck-card" loading="lazy" alt="Odoo Project Image 9">
+        <img src="<?php echo $assets; ?>/odoo/Picture10.png" class="deck-card" loading="lazy" alt="Odoo Project Image 10">
+        <img src="<?php echo $assets; ?>/odoo/Picture11.png" class="deck-card" loading="lazy" alt="Odoo Project Image 11">
+      </div>
+    </div>
+    <div class="card">
+      <h3><i class="fas fa-project-diagram"></i> GASC Blood Donor Bridge</h3>
+      <p><b>Academic Project | Aug 2025 – Mar 2026</b></p>
+      <ul>
+        <li>Built a campus-wide blood donation platform (PHP, MySQL, HTML/CSS) with real-time emergency donor matching.</li>
+        <li>Implemented hashed credentials, role-based access, and optimized cross-blood-type matching queries.</li>
+      </ul>
+      <div class="deck-container blood-deck">
+        <img src="<?php echo $assets; ?>/blood/Picture1.png" class="deck-card" loading="lazy" alt="Blood Project Image 1">
+        <img src="<?php echo $assets; ?>/blood/Picture2.png" class="deck-card" loading="lazy" alt="Blood Project Image 2">
+        <img src="<?php echo $assets; ?>/blood/Picture3.png" class="deck-card" loading="lazy" alt="Blood Project Image 3">
+        <img src="<?php echo $assets; ?>/blood/Picture4.png" class="deck-card" loading="lazy" alt="Blood Project Image 4">
+        <img src="<?php echo $assets; ?>/blood/Picture5.png" class="deck-card" loading="lazy" alt="Blood Project Image 5">
+        <img src="<?php echo $assets; ?>/blood/Picture6.png" class="deck-card" loading="lazy" alt="Blood Project Image 6">
+        <img src="<?php echo $assets; ?>/blood/Picture7.png" class="deck-card" loading="lazy" alt="Blood Project Image 7">
+        <img src="<?php echo $assets; ?>/blood/Picture8.png" class="deck-card" loading="lazy" alt="Blood Project Image 8">
+        <img src="<?php echo $assets; ?>/blood/Picture9.png" class="deck-card" loading="lazy" alt="Blood Project Image 9">
+        <img src="<?php echo $assets; ?>/blood/Picture10.png" class="deck-card" loading="lazy" alt="Blood Project Image 10">
+        <img src="<?php echo $assets; ?>/blood/Picture11.png" class="deck-card" loading="lazy" alt="Blood Project Image 11">
+        <img src="<?php echo $assets; ?>/blood/Picture12.png" class="deck-card" loading="lazy" alt="Blood Project Image 12">
+        <img src="<?php echo $assets; ?>/blood/Picture13.png" class="deck-card" loading="lazy" alt="Blood Project Image 13">
+        <img src="<?php echo $assets; ?>/blood/Picture14.png" class="deck-card" loading="lazy" alt="Blood Project Image 14">
+      </div>
+    </div>
+    <div class="card">
+      <h3><i class="fas fa-chart-pie"></i> NGO Fund Tracking &amp; Power BI Dashboards</h3>
+      <p><b>Coactions Info Tech | May 2025 – Jun 2025</b></p>
+      <ul>
+        <li>Designed 5+ dashboards that automated weekly reporting and saved about 10 hours of manual work per week.</li>
+        <li>Led a four-person team through requirements, delivery, and stakeholder demos; supported campaigns that increased donor engagement by 15%.</li>
+      </ul>
+      <div class="deck-container pbi-deck">
+        <img src="<?php echo $assets; ?>/pbi/Screenshot 2026-04-06 142735.png" class="deck-card" loading="lazy" alt="Power BI Dashboard 1">
+        <img src="<?php echo $assets; ?>/pbi/Screenshot 2026-04-06 143035.png" class="deck-card" loading="lazy" alt="Power BI Dashboard 2">
+        <img src="<?php echo $assets; ?>/pbi/Screenshot 2026-04-06 143054.png" class="deck-card" loading="lazy" alt="Power BI Dashboard 3">
+        <img src="<?php echo $assets; ?>/pbi/Screenshot 2026-04-06 143104.png" class="deck-card" loading="lazy" alt="Power BI Dashboard 4">
+        <img src="<?php echo $assets; ?>/pbi/Screenshot 2026-04-06 143116.png" class="deck-card" loading="lazy" alt="Power BI Dashboard 5">
+        <img src="<?php echo $assets; ?>/pbi/Screenshot 2026-04-06 143134.png" class="deck-card" loading="lazy" alt="Power BI Dashboard 6">
+        <img src="<?php echo $assets; ?>/pbi/Screenshot 2026-04-06 143150.png" class="deck-card" loading="lazy" alt="Power BI Dashboard 7">
+        <img src="<?php echo $assets; ?>/pbi/Screenshot 2026-04-06 143203.png" class="deck-card" loading="lazy" alt="Power BI Dashboard 8">
+        <img src="<?php echo $assets; ?>/pbi/Screenshot 2026-04-06 143212.png" class="deck-card" loading="lazy" alt="Power BI Dashboard 9">
+        <img src="<?php echo $assets; ?>/pbi/Screenshot 2026-04-06 143227.png" class="deck-card" loading="lazy" alt="Power BI Dashboard 10">
+        <img src="<?php echo $assets; ?>/pbi/Screenshot 2026-04-06 143259.png" class="deck-card" loading="lazy" alt="Power BI Dashboard 11">
+        <img src="<?php echo $assets; ?>/pbi/Screenshot 2026-04-06 143317.png" class="deck-card" loading="lazy" alt="Power BI Dashboard 12">
+        <img src="<?php echo $assets; ?>/pbi/Screenshot 2026-04-06 143326.png" class="deck-card" loading="lazy" alt="Power BI Dashboard 13">
+        <img src="<?php echo $assets; ?>/pbi/Screenshot 2026-04-06 143346.png" class="deck-card" loading="lazy" alt="Power BI Dashboard 14">
+        <img src="<?php echo $assets; ?>/pbi/Screenshot 2026-04-06 143359.png" class="deck-card" loading="lazy" alt="Power BI Dashboard 15">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section id="skills" data-aos="fade-up">
+  <h2>Application Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-card"><i class="fas fa-table"></i> Excel</div>
+    <div class="skill-card"><i class="fas fa-chart-line"></i> Power BI</div>
+    <div class="skill-card"><i class="fas fa-paint-brush"></i> Canva</div>
+    <div class="skill-card"><i class="fas fa-robot"></i> LLMs</div>
+    <div class="skill-card"><i class="fas fa-desktop"></i> Visual Studio</div>
+    <div class="skill-card"><i class="fab fa-github"></i> GitHub</div>
+    <div class="skill-card"><i class="fas fa-file-powerpoint"></i> PowerPoint</div>
+  </div>
+
+  <h2 class="skills-subheading">Development Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-card"><i class="fab fa-python"></i> Python</div>
+    <div class="skill-card"><i class="fas fa-database"></i> SQL</div>
+    <div class="skill-card"><i class="fab fa-wordpress"></i> WordPress Development</div>
+    <div class="skill-card"><i class="fas fa-mobile-alt"></i> Responsive Web Design</div>
+    <div class="skill-card"><i class="fas fa-screwdriver-wrench"></i> Website Maintenance</div>
+    <div class="skill-card"><i class="fas fa-gauge-high"></i> Website Performance Optimization</div>
+    <div class="skill-card"><i class="fas fa-database"></i> PostgreSQL</div>
+    <div class="skill-card"><i class="fas fa-database"></i> MySQL</div>
+    <div class="skill-card"><i class="fas fa-chart-bar"></i> Data Visualization</div>
+    <div class="skill-card"><i class="fas fa-code"></i> R</div>
+    <div class="skill-card"><i class="fab fa-html5"></i> HTML</div>
+    <div class="skill-card"><i class="fab fa-css3-alt"></i> CSS</div>
+  </div>
+
+  <h2 class="skills-subheading">Personal Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-card"><i class="fas fa-users"></i> Leadership</div>
+    <div class="skill-card"><i class="fas fa-handshake"></i> Teamwork</div>
+    <div class="skill-card"><i class="fas fa-comments"></i> Communication</div>
+    <div class="skill-card"><i class="fas fa-clock"></i> Time Management</div>
+    <div class="skill-card"><i class="fas fa-lightbulb"></i> Critical Thinking</div>
+    <div class="skill-card"><i class="fas fa-sync-alt"></i> Adaptability</div>
+  </div>
+</section>
+
+<!-- Languages -->
+<section id="languages" data-aos="fade-right">
+  <h2>Languages</h2>
+  <div class="skills-grid">
+    <div class="skill-card"><i class="fas fa-language"></i> Tamil - Fluent</div>
+    <div class="skill-card"><i class="fas fa-language"></i> English - Fluent</div>
+  </div>
+</section>
+
+<!-- Certifications -->
+<section id="certifications" data-aos="fade-up">
+  <h2>Certifications</h2>
+  <div class="card-container">
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="Software Engineer Intern Certification, issued by HackerRank">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="icon icon-license"></i><span class="certification-title">Software Engineer Intern</span><span class="certification-flip-hint">HackerRank · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="icon icon-laptop"></i><span class="certification-title">Software Engineer Intern Certification</span><span class="certification-issuer">HackerRank</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="MasterClass in Data Analytics, issued by NoviTech R and D Private Limited">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="icon icon-chart-bars"></i><span class="certification-title">MasterClass in Data Analytics</span><span class="certification-flip-hint">NoviTech R&amp;D · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="icon icon-chart-bars"></i><span class="certification-title">MasterClass in Data Analytics</span><span class="certification-issuer">NoviTech R&amp;D Private Limited</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="Frontend Developer React Certification, issued by HackerRank">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="icon icon-screen"></i><span class="certification-title">Frontend Developer (React)</span><span class="certification-flip-hint">HackerRank · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="icon icon-screen"></i><span class="certification-title">Frontend Developer (React) Certification</span><span class="certification-issuer">HackerRank</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="Certificate Program in Applied AI, issued by HCL GUVI">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="icon icon-magic-wand"></i><span class="certification-title">Applied AI</span><span class="certification-flip-hint">HCL GUVI · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="icon icon-magic-wand"></i><span class="certification-title">Certificate Program in Applied AI</span><span class="certification-issuer">HCL GUVI</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="C sharp certification, issued by HackerRank">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="icon icon-code"></i><span class="certification-title">C#</span><span class="certification-flip-hint">HackerRank · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="icon icon-code"></i><span class="certification-title">C# Certification</span><span class="certification-issuer">HackerRank</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="Data Visualisation: Empowering Business with Effective Insights Job Simulation, issued by Tata">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="icon icon-pie-chart"></i><span class="certification-title">Data Visualisation: Empowering Business with Effective Insights</span><span class="certification-flip-hint">Tata · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="icon icon-pie-chart"></i><span class="certification-title">Data Visualisation Job Simulation</span><span class="certification-issuer">Tata</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="Problem Solving Basic Certificate, issued by HackerRank">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="icon icon-checkmark-circle"></i><span class="certification-title">Problem Solving (Basic)</span><span class="certification-flip-hint">HackerRank · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="icon icon-checkmark-circle"></i><span class="certification-title">Problem Solving (Basic) Certificate</span><span class="certification-issuer">HackerRank</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="SQL Intermediate certification, issued by HackerRank">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="icon icon-database1"></i><span class="certification-title">SQL (Intermediate)</span><span class="certification-flip-hint">HackerRank · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="icon icon-database1"></i><span class="certification-title">SQL (Intermediate) Certification</span><span class="certification-issuer">HackerRank</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="Problem Solving Advanced certification, issued by HackerRank">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="icon icon-checkmark-circle"></i><span class="certification-title">Problem Solving (Advanced)</span><span class="certification-flip-hint">HackerRank · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="icon icon-checkmark-circle"></i><span class="certification-title">Problem Solving (Advanced) Certification</span><span class="certification-issuer">HackerRank</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="SQL Advanced certification, issued by HackerRank">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="icon icon-database1"></i><span class="certification-title">SQL (Advanced)</span><span class="certification-flip-hint">HackerRank · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="icon icon-database1"></i><span class="certification-title">SQL (Advanced) Certification</span><span class="certification-issuer">HackerRank</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="Data Analytics Masterclass, issued by Pantech Pro Ed Pvt Ltd">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="icon icon-chart-bars"></i><span class="certification-title">Data Analytics Masterclass</span><span class="certification-flip-hint">Pantech Pro Ed · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="icon icon-chart-bars"></i><span class="certification-title">Data Analytics Masterclass</span><span class="certification-issuer">Pantech Pro Ed Pvt Ltd</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="Data Science and Analytics, Cyber Security Awareness, and Effective Leadership, issued by HP Foundations">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="icon icon-graduation-hat"></i><span class="certification-title">Data Science, Cyber Security &amp; Leadership</span><span class="certification-flip-hint">HP Foundations · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="icon icon-graduation-hat"></i><span class="certification-title">Data Science &amp; Analytics, Cyber Security Awareness, Effective Leadership</span><span class="certification-issuer">HP Foundations</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="Edunet Skills Build Orientation, issued by IBM Skills Build">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="icon icon-graduation-hat"></i><span class="certification-title">Skills Build Orientation</span><span class="certification-flip-hint">IBM Skills Build · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="icon icon-graduation-hat"></i><span class="certification-title">Edunet-Skills Build Orientation</span><span class="certification-issuer">IBM Skills Build</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="Basics of Python certification, issued by Infosys">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="icon icon-code"></i><span class="certification-title">Basics of Python</span><span class="certification-flip-hint">Infosys · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="icon icon-code"></i><span class="certification-title">Basics of Python Certification</span><span class="certification-issuer">Infosys</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="Prompt Engineering certification, issued by IBM">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="icon icon-pencil"></i><span class="certification-title">Prompt Engineering</span><span class="certification-flip-hint">IBM · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="icon icon-pencil"></i><span class="certification-title">Prompt Engineering Certification</span><span class="certification-issuer">IBM</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="Solution Architecture Job Simulation, issued by AWS">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="icon icon-cloud-check"></i><span class="certification-title">Solution Architecture Job Simulation</span><span class="certification-flip-hint">AWS · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="icon icon-cloud-check"></i><span class="certification-title">Solution Architecture Job Simulation</span><span class="certification-issuer">AWS</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="Software Engineering Job Simulation, issued by Accenture">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="icon icon-cog"></i><span class="certification-title">Software Engineering Job Simulation</span><span class="certification-flip-hint">Accenture · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="icon icon-cog"></i><span class="certification-title">Software Engineering Job Simulation</span><span class="certification-issuer">Accenture</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="Generative AI Job Simulation, issued by BCG X">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="icon icon-magic-wand"></i><span class="certification-title">Generative AI Job Simulation</span><span class="certification-flip-hint">BCG X · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="icon icon-magic-wand"></i><span class="certification-title">Gen AI Job Simulation</span><span class="certification-issuer">BCG X</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="AI Dashboard using Microsoft Power BI, issued by Skill Nation">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="icon icon-pie-chart"></i><span class="certification-title">AI Dashboard using Microsoft Power BI</span><span class="certification-flip-hint">Skill Nation · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="icon icon-pie-chart"></i><span class="certification-title">AI Dashboard using Microsoft Power BI</span><span class="certification-issuer">Skill Nation</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="Data Science Job Simulation, issued by British Airways">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="icon icon-chart-bars"></i><span class="certification-title">Data Science Job Simulation</span><span class="certification-flip-hint">British Airways · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="icon icon-chart-bars"></i><span class="certification-title">Data Science Job Simulation</span><span class="certification-issuer">British Airways</span></span>
+      </span>
+    </button>
+  </div>
+</section>
+
+<!-- References -->
+<section id="references" data-aos="fade-left">
+  <h2>References</h2>
+  <div class="contact-links">
+    <a href="https://www.linkedin.com/in/gokula-kannan-m-/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    <a href="https://github.com/Kannan14385" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+    <a href="https://leetcode.com/u/Gokula_Kannan_M/" target="_blank" rel="noopener noreferrer"><i class="fas fa-code"></i> LeetCode</a>
+    <a href="https://www.hackerrank.com/profile/gokulakannan1431" target="_blank" rel="noopener noreferrer"><i class="fas fa-laptop-code"></i> HackerRank</a>
+  </div>
+</section>
+
+<!-- Extracurricular -->
+<section id="extracurriculars" data-aos="fade-up">
+  <h2>Extracurricular Activities</h2>
+  <div class="card-container">
+    <div class="card"><i class="fas fa-trophy"></i> GAIT Committee President (2024-2026) – Organized INTER & INTRA college events</div>
+    <div class="card"><i class="fas fa-paint-brush"></i> Web Designing & PPT Presentation Team Member (2024-2026)</div>
+    <div class="card"><i class="fas fa-boxing-glove"></i> Inter-Collegiate Boxing Tournament Medalist (2023,2024)</div>
+    <div class="card"><i class="fas fa-flag"></i> Participated in All India Boxing Championship – Punjab</div>
+    <div class="card"><i class="fas fa-chalkboard-teacher"></i> Student Coach – Boxing Team (2021-2025)</div>
+    <div class="card"><i class="fas fa-hands-helping"></i> Volunteered – NSS (2021-2025)</div>
+    <div class="card"><i class="fas fa-lightbulb"></i> Member – Career Pathway APEX Club (2024-2026)</div>
+    <div class="card"><i class="fas fa-utensils"></i> Hobby: Cooking</div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" data-aos="fade-up">
+  <h2>Contact</h2>
+  <div class="card">
+    <p><i class="fas fa-envelope"></i> Email: gokulakannan.0.official@gmail.com</p>
+    <p><i class="fas fa-phone"></i> Phone: 9688657903</p>
+    <p><i class="fas fa-map-marker-alt"></i> Location: 283, Sakthi Nagar, Gobichettipalayam, Erode – 638453</p>
+  </div>
+
+  <!-- Contact Form -->
+  <form id="contactForm" action="https://formspree.io/f/mpwykqbg" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" required placeholder="message me  😁 ..." rows="5"></textarea>
+
+    <div class="form-actions">
+      <button type="submit">Send</button>
+      <button type="reset">Clear</button>
+    </div>
+  </form>
+</section>
+
+
+<!-- Download Modal -->
+<div id="downloadModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <h3>Resume</h3>
+    <p style="margin-top: 10px; font-size: 0.95rem;">WordPress Developer · Zooye Info Technologies</p>
+    <div class="format-options">
+      <a href="<?php echo $assets; ?>/Gokula_Kannan_Resume_CV.pdf" download="Gokula_Kannan_Resume_CV.pdf" class="format-btn"><i class="fas fa-file-pdf"></i> PDF Resume</a>
+      <a href="<?php echo $assets; ?>/Gokula_Kannan_Resume_CV.docx" download="Gokula_Kannan_Resume_CV.docx" class="format-btn"><i class="fas fa-file-word"></i> Word Resume</a>
+      <a href="<?php echo $assets; ?>/Gokula_Kannan_Resume_CV.jpg" download="Gokula_Kannan_Resume_CV.jpg" class="format-btn"><i class="fas fa-image"></i> Resume Image</a>
+    </div>
+    <iframe class="resume-preview" src="<?php echo esc_url($assets . '/Gokula_Kannan_Resume_CV.pdf#view=FitH'); ?>" title="Resume PDF preview"></iframe>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>© 2025 Gokula Kannan. All Rights Reserved.</p>
+  <p>Designed & Developed with ❤️ by Gokula Kannan</p>
+</footer>
+
+<!-- Back to Top Button -->
+<button id="backToTop">↑</button>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({duration:1000, once:true});
+
+  // Dark Mode Toggle Logic
+  const darkModeToggle = document.getElementById("darkModeToggle");
+  const body = document.body;
+  const themeIcon = darkModeToggle.querySelector("i");
+
+  if (localStorage.getItem("darkMode") === "enabled") {
+    body.classList.add("dark-mode");
+    document.documentElement.classList.add("dark-mode");
+    themeIcon.className = "fas fa-sun";
+  }
+
+  darkModeToggle.addEventListener("click", () => {
+    // Add transition class for smooth animation
+    document.documentElement.classList.add("theme-transition");
+
+    body.classList.toggle("dark-mode");
+    document.documentElement.classList.toggle("dark-mode");
+    if (body.classList.contains("dark-mode")) {
+      localStorage.setItem("darkMode", "enabled");
+      themeIcon.className = "fas fa-sun";
+    } else {
+      localStorage.setItem("darkMode", "disabled");
+      themeIcon.className = "fas fa-moon";
+    }
+
+    // Remove transition class after animation completes
+    setTimeout(() => {
+      document.documentElement.classList.remove("theme-transition");
+    }, 400);
+  });
+
+  // Typing effect
+  const texts=["WordPress Developer","Data Analyst","MCA Graduate"];
+  let index=0,charIndex=0;
+  const typingElement=document.getElementById("typing");
+
+  function type(){
+    if(charIndex<texts[index].length){
+      typingElement.textContent+=texts[index].charAt(charIndex);
+      charIndex++;
+      setTimeout(type,100);
+    } else {setTimeout(erase,2000);}
+  }
+  function erase(){
+    if(charIndex>0){
+      typingElement.textContent=texts[index].substring(0,charIndex-1);
+      charIndex--;
+      setTimeout(erase,50);
+    } else {index=(index+1)%texts.length; setTimeout(type,200);}
+  }
+  document.addEventListener("DOMContentLoaded",type);
+
+  // Active nav + progress bar
+  const sections=document.querySelectorAll("section");
+  const navLinks=document.querySelectorAll(".nav-links a");
+  const navMoreToggle=document.getElementById("navMoreToggle");
+  const navMoreMenu=document.getElementById("navMoreMenu");
+  const navMoreLabel=document.getElementById("navMoreLabel");
+  const navMoreIcon=navMoreToggle.querySelector("i");
+
+  window.addEventListener("scroll",()=>{
+    const nav=document.getElementById("navbar");
+    nav.classList.toggle("is-scrolled", window.scrollY > 12);
+    let current="";
+    sections.forEach(section=>{
+      const sectionTop=section.offsetTop-100;
+      if(window.scrollY>=sectionTop){current=section.getAttribute("id");}
+    });
+    navLinks.forEach(link=>{
+      link.classList.remove("active");
+      link.removeAttribute("aria-current");
+      if(current && link.getAttribute("href") === "#" + current){
+        link.classList.add("active");
+        link.setAttribute("aria-current", "location");
+      }
+    });
+    const activeMoreLink=Array.from(navMoreMenu.querySelectorAll("a")).find(link=>link.classList.contains("active"));
+    if(activeMoreLink){
+      navMoreLabel.textContent=activeMoreLink.textContent.trim();
+      closeMoreMenu();
+    } else {
+      navMoreLabel.textContent="More";
+      closeMoreMenu();
+    }
+
+    const scrollTop=window.scrollY;
+    const docHeight=document.body.scrollHeight-window.innerHeight;
+    const scrollPercent=(scrollTop/docHeight)*100;
+    const progressBar=document.getElementById("progress-bar");
+    progressBar.style.width=scrollPercent+"%";
+
+    const backToTopBtn=document.getElementById("backToTop");
+    backToTopBtn.style.display=(scrollTop>300)?"block":"none";
+  });
+  window.dispatchEvent(new Event("scroll"));
+
+  document.getElementById("backToTop").addEventListener("click",()=>{window.scrollTo({top:0,behavior:"smooth"});});
+
+  const navToggle = document.getElementById("navToggle");
+  const navLinksContainer = document.getElementById("navLinks");
+  const navToggleIcon = navToggle.querySelector("i");
+
+  function closeMoreMenu() {
+    navMoreMenu.classList.remove("is-open");
+    navMoreToggle.setAttribute("aria-expanded", "false");
+    navMoreIcon.className = "fas fa-chevron-down";
+  }
+
+  function closeNavMenu() {
+    navLinksContainer.classList.remove("is-open");
+    navToggle.setAttribute("aria-expanded", "false");
+    navToggle.setAttribute("aria-label", "Open navigation menu");
+    navToggleIcon.className = "fas fa-bars";
+    closeMoreMenu();
+  }
+
+  navToggle.addEventListener("click", () => {
+    const isOpen = navLinksContainer.classList.toggle("is-open");
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+    navToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+    navToggleIcon.className = isOpen ? "fas fa-xmark" : "fas fa-bars";
+    if (!isOpen) closeMoreMenu();
+  });
+
+  navMoreToggle.addEventListener("click", () => {
+    const isOpen = navMoreMenu.classList.toggle("is-open");
+    navMoreToggle.setAttribute("aria-expanded", String(isOpen));
+    navMoreIcon.className = isOpen ? "fas fa-chevron-up" : "fas fa-chevron-down";
+  });
+
+  navLinksContainer.querySelectorAll("a").forEach(link => link.addEventListener("click", closeNavMenu));
+  document.addEventListener("click", event => {
+    if (!event.target.closest(".nav-more")) closeMoreMenu();
+  });
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") closeNavMenu();
+  });
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 1100) closeNavMenu();
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const cards = entry.target.querySelectorAll('.card, .skill-card');
+        cards.forEach((card, index) => {
+          setTimeout(() => { card.classList.add('show'); }, index * 150);
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.15, rootMargin: "0px 0px -40px 0px"});
+
+  document.querySelectorAll('section').forEach(section => observer.observe(section));
+</script>
+<script>
+  const downloadCvBtn = document.getElementById('downloadCvBtn');
+  const downloadModal = document.getElementById('downloadModal');
+  const closeModal = document.querySelector('.close-modal');
+  if(downloadCvBtn) downloadCvBtn.addEventListener('click', (e) => { e.preventDefault(); downloadModal.classList.add('show'); });
+  if(closeModal) closeModal.addEventListener('click', () => { downloadModal.classList.remove('show'); });
+  window.addEventListener('click', (e) => { if (e.target === downloadModal) downloadModal.classList.remove('show'); });
+  document.querySelectorAll('.format-btn').forEach(btn => btn.addEventListener('click', () => { setTimeout(() => { downloadModal.classList.remove('show'); }, 500); }));
+</script>
+<script>
+  function initDeck(deckSelector) {
+    const deck = document.querySelectorAll(deckSelector + ' .deck-card');
+    if (deck.length === 0) return;
+    let idx = 0;
+    deck[idx].classList.add('active');
+
+    setInterval(() => {
+      const activeCard = deck[idx];
+      activeCard.classList.remove('active');
+      activeCard.classList.add('prev');
+
+      const prevIdx = (idx - 1 + deck.length) % deck.length;
+      const prevCard = deck[prevIdx];
+      if (prevCard.classList.contains('prev')) {
+        prevCard.classList.remove('prev');
+        prevCard.classList.add('old');
+        setTimeout(() => { prevCard.classList.remove('old'); }, 500);
+      }
+
+      idx = (idx + 1) % deck.length;
+      deck[idx].classList.add('active');
+    }, 3000);
+  }
+  document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => initDeck('.odoo-deck'), 0);
+    setTimeout(() => initDeck('.blood-deck'), 1000);
+    setTimeout(() => initDeck('.pbi-deck'), 2000);
+    setTimeout(() => initDeck('.stackly-deck'), 500);
+  });
+
+  document.querySelectorAll('.certification-flip-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const isFlipped = card.classList.toggle('is-flipped');
+      card.setAttribute('aria-pressed', String(isFlipped));
+    });
+  });
+</script>
+<?php wp_footer(); ?>
+</body>
+</html>

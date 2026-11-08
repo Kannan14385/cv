@@ -6,7 +6,7 @@
 <title>Gokula Kannan - Portfolio</title>
 
 <!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Spectral:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <!-- AOS Animation Library -->
 <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
@@ -737,6 +737,322 @@
     .stackly-deck { height: 360px; }
   }
 
+  :root {
+    --portfolio-primary: #17324d;
+    --portfolio-secondary: #345b70;
+    --portfolio-text: #334155;
+    --portfolio-accent: #8fdcc3;
+    --portfolio-background: #f4f7f9;
+    --portfolio-surface: #fff;
+  }
+
+  html, body, button, input, textarea, select {
+    font-family: "Inter", sans-serif;
+  }
+
+  body {
+    background: var(--portfolio-background);
+    color: var(--portfolio-text);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Spectral", serif;
+  }
+
+  nav {
+    background: linear-gradient(110deg, rgba(23, 50, 77, 0.98), rgba(52, 91, 112, 0.98));
+  }
+
+  .nav-contact,
+  .buttons a:first-child,
+  #backToTop,
+  #darkModeToggle {
+    background: var(--portfolio-accent);
+    border-color: var(--portfolio-accent);
+    color: var(--portfolio-primary);
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    background: #fff;
+    color: var(--portfolio-primary);
+  }
+
+  .nav-links a:focus-visible,
+  .nav-toggle:focus-visible,
+  .nav-more-toggle:focus-visible,
+  .nav-contact:focus-visible {
+    outline-color: var(--portfolio-accent);
+  }
+
+  section h2,
+  .card h3,
+  .skill-card i,
+  .stackly-live-links a {
+    color: var(--portfolio-secondary);
+  }
+
+  section h2 {
+    border-bottom-color: var(--portfolio-secondary);
+  }
+
+  .hero {
+    background-color: var(--portfolio-primary);
+    background-image: linear-gradient(115deg, #17324d 0%, #294b61 58%, #345b70 100%);
+  }
+
+  .hero-kicker,
+  .typing {
+    color: var(--portfolio-accent);
+  }
+
+  .card,
+  .skill-card,
+  form {
+    border-color: var(--portfolio-secondary);
+  }
+
+  .contact-links a,
+  button[type="submit"],
+  .format-btn {
+    background: var(--portfolio-secondary);
+  }
+
+  .contact-links a:hover,
+  button[type="submit"]:hover,
+  .format-btn:hover {
+    background: #294b61;
+  }
+
+  #certifications .card-container {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 235px), 1fr));
+    align-items: stretch;
+  }
+
+  #certifications .certification-flip-card {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 232px;
+    min-width: 0;
+    min-height: 232px;
+    padding: 0;
+    overflow: visible;
+    border: 0;
+    border-radius: 12px;
+    background: transparent;
+    box-shadow: none;
+    perspective: 1000px;
+    color: var(--portfolio-text);
+    text-align: left;
+    cursor: pointer;
+  }
+
+  #certifications .certification-flip-card.show:hover {
+    transform: translateY(-4px);
+  }
+
+  #certifications .certification-flip-inner {
+    position: relative;
+    display: grid;
+    grid-template: minmax(0, 1fr) / minmax(0, 1fr);
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.55s cubic-bezier(0.2, 0.75, 0.25, 1);
+  }
+
+  #certifications .certification-flip-card:hover .certification-flip-inner,
+  #certifications .certification-flip-card:focus-visible .certification-flip-inner,
+  #certifications .certification-flip-card.is-flipped .certification-flip-inner {
+    transform: rotateY(180deg);
+  }
+
+  #certifications .certification-flip-face {
+    grid-area: 1 / 1;
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    min-height: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 1px solid rgba(52, 91, 112, 0.14);
+    border-radius: 12px;
+    background: var(--portfolio-surface);
+    box-shadow: 0 8px 24px rgba(23, 50, 77, 0.09);
+    backface-visibility: hidden;
+    text-align: center;
+  }
+
+  #certifications .certification-flip-face > span {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  #certifications .certification-flip-front {
+    border-top: 3px solid var(--portfolio-secondary);
+  }
+
+  #certifications .certification-flip-front .fa-solid {
+    color: var(--portfolio-secondary);
+    font-size: 2.2rem;
+  }
+
+  #certifications .certification-title {
+    color: var(--portfolio-primary);
+    font-family: "Spectral", serif;
+    font-size: 1.08rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+
+  #certifications .certification-flip-hint {
+    color: var(--portfolio-secondary);
+    font-size: 0.78rem;
+    font-weight: 600;
+  }
+
+  #certifications .certification-flip-back {
+    transform: rotateY(180deg);
+    border-color: transparent;
+    background: linear-gradient(145deg, #17324d, #345b70);
+    color: #fff;
+  }
+
+  #certifications .certification-flip-back .certification-title {
+    color: #fff;
+  }
+
+  #certifications .certification-flip-back .fa-solid {
+    color: #a5d6c8;
+    font-size: 1.8rem;
+  }
+
+  #certifications .certification-issuer {
+    font-family: "Spectral", serif;
+    font-size: 1.12rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  #certifications .certification-flip-card:focus-visible {
+    outline: 3px solid var(--portfolio-secondary);
+    outline-offset: 4px;
+  }
+
+  body.dark-mode {
+    --portfolio-primary: #e2e8f0;
+    --portfolio-secondary: #7cb8af;
+    --portfolio-text: #d3dde7;
+    --portfolio-background: #111a22;
+    --portfolio-surface: #1c2a36;
+    background: var(--portfolio-background);
+    color: var(--portfolio-text);
+  }
+
+  body.dark-mode section,
+  body.dark-mode footer {
+    background-color: var(--portfolio-background);
+    color: var(--portfolio-text);
+  }
+
+  body.dark-mode .card,
+  body.dark-mode .skill-card,
+  body.dark-mode form {
+    background-color: var(--portfolio-surface);
+    color: var(--portfolio-text);
+    border-left-color: var(--portfolio-secondary);
+  }
+
+  body.dark-mode h1,
+  body.dark-mode h2,
+  body.dark-mode h3,
+  body.dark-mode h4,
+  body.dark-mode h5,
+  body.dark-mode h6,
+  body.dark-mode .card ul {
+    color: var(--portfolio-text);
+  }
+
+  body.dark-mode section h2,
+  body.dark-mode .card h3,
+  body.dark-mode .skill-card i,
+  body.dark-mode .stackly-live-links a {
+    color: var(--portfolio-secondary);
+  }
+
+  body.dark-mode section h2 {
+    border-bottom-color: var(--portfolio-secondary);
+  }
+
+  body.dark-mode nav {
+    background: linear-gradient(110deg, rgba(17, 26, 34, 0.98), rgba(41, 75, 97, 0.98));
+    border-bottom-color: var(--portfolio-secondary);
+  }
+
+  body.dark-mode .nav-toggle {
+    border-color: rgba(124, 184, 175, 0.6);
+  }
+
+  body.dark-mode .nav-contact,
+  body.dark-mode .buttons a:first-child,
+  body.dark-mode #backToTop,
+  body.dark-mode #darkModeToggle {
+    background: var(--portfolio-accent);
+    border-color: var(--portfolio-accent);
+    color: #17324d;
+  }
+
+  body.dark-mode #certifications .certification-flip-face {
+    border-color: rgba(165, 214, 200, 0.22);
+    background: var(--portfolio-surface);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+  }
+
+  body.dark-mode #certifications .certification-flip-front .fa-solid,
+  body.dark-mode #certifications .certification-flip-hint {
+    color: var(--portfolio-secondary);
+  }
+
+  body.dark-mode #certifications .certification-title {
+    color: var(--portfolio-text);
+  }
+
+  body.dark-mode #certifications .certification-flip-back {
+    border-color: transparent;
+    background: linear-gradient(145deg, #1c2a36, #294b61);
+  }
+
+  body.dark-mode #certifications .certification-flip-back .certification-title {
+    color: #fff;
+  }
+
+  @media (max-width: 768px) {
+    #certifications .card-container {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 480px) {
+    #certifications .card-container {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #certifications .certification-flip-inner {
+      transition-duration: 0.01ms;
+    }
+  }
+
 </style>
 </head>
 <body>
@@ -813,7 +1129,7 @@
   <div class="card-container">
     <div class="card">
       <h3><i class="fab fa-wordpress"></i> WordPress Developer</h3>
-      <p><b>Zooye Info Technologies | Apr 2026 – Present</b></p>
+      <p><b>Zooye Info Technologies | Apr 2026 - Nov 2026</b></p>
       <ul>
         <li>Design, develop, and maintain dynamic WordPress websites, ensuring high-quality digital experiences and reliable functionality.</li>
         <li>Provide technical guidance, support, and mentorship to a team of 3 colleagues to facilitate smooth project execution and collaborative problem-solving.</li>
@@ -983,26 +1299,126 @@
 <section id="certifications" data-aos="fade-up">
   <h2>Certifications</h2>
   <div class="card-container">
-    <div class="card"><i class="fas fa-certificate"></i> Software Engineer Intern Certification - HackerRank</div>
-    <div class="card"><i class="fas fa-certificate"></i> MasterClass in Data Analytics-  NoviTech R&D Private Limited </div>
-    <div class="card"><i class="fas fa-certificate"></i> Frontend Developer (React) Certification - HackerRank</div>
-    <div class="card"><i class="fas fa-certificate"></i> Certificate Program in Applied AI - HCL GUVI</div>
-    <div class="card"><i class="fas fa-certificate"></i> C# - HackerRank</div>
-    <div class="card"><i class="fas fa-certificate"></i> Tata - Data Visualisation: Empowering Business with Effective Insights Job Simulation</div>
-    <div class="card"><i class="fas fa-certificate"></i> Problem Solving (Basic) Certificate - HackerRank</div>
-    <div class="card"><i class="fas fa-certificate"></i> SQL [Intermediate] - HackerRank</div>
-    <div class="card"><i class="fas fa-certificate"></i> Problem Solving (Advanced) certification - HackerRank</div>
-    <div class="card"><i class="fas fa-certificate"></i> SQL (Advanced) certification - HackerRank</div> 
-    <div class="card"><i class="fas fa-certificate"></i> Data Analytics Masterclass - Pantech Pro Ed Pvt Ltd</div>
-    <div class="card"><i class="fas fa-certificate"></i> Data Science & Analytics, Cyber Security Awareness, Effective Leadership - HP Foundations</div>
-    <div class="card"><i class="fas fa-certificate"></i> Edunet-Skills Build Orientation - IBM Skills Build</div>
-    <div class="card"><i class="fas fa-certificate"></i> Basics of Python - Infosys</div>
-    <div class="card"><i class="fas fa-certificate"></i> Prompt Engineering - IBM</div>
-    <div class="card"><i class="fas fa-certificate"></i> Solution Architecture Job Simulation - AWS</div>
-    <div class="card"><i class="fas fa-certificate"></i> Software Engineering Job Simulation - Accenture</div>
-    <div class="card"><i class="fas fa-certificate"></i> Gen AI Job Simulation - BCG X</div>
-    <div class="card"><i class="fas fa-certificate"></i> AI Dashboard using Microsoft Power BI - Skill Nation</div>
-    <div class="card"><i class="fas fa-certificate"></i> Data Science Job Simulation - British Airways</div>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="Software Engineer Intern Certification, issued by HackerRank">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="fa-solid fa-laptop-code"></i><span class="certification-title">Software Engineer Intern</span><span class="certification-flip-hint">HackerRank · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="fa-solid fa-laptop-code"></i><span class="certification-title">Software Engineer Intern Certification</span><span class="certification-issuer">HackerRank</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="MasterClass in Data Analytics, issued by NoviTech R and D Private Limited">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="fa-solid fa-chart-column"></i><span class="certification-title">MasterClass in Data Analytics</span><span class="certification-flip-hint">NoviTech R&amp;D · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="fa-solid fa-chart-column"></i><span class="certification-title">MasterClass in Data Analytics</span><span class="certification-issuer">NoviTech R&amp;D Private Limited</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="Frontend Developer React Certification, issued by HackerRank">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="fa-solid fa-code"></i><span class="certification-title">Frontend Developer (React)</span><span class="certification-flip-hint">HackerRank · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="fa-solid fa-code"></i><span class="certification-title">Frontend Developer (React) Certification</span><span class="certification-issuer">HackerRank</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="Certificate Program in Applied AI, issued by HCL GUVI">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="fa-solid fa-wand-magic-sparkles"></i><span class="certification-title">Applied AI</span><span class="certification-flip-hint">HCL GUVI · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="fa-solid fa-wand-magic-sparkles"></i><span class="certification-title">Certificate Program in Applied AI</span><span class="certification-issuer">HCL GUVI</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="C sharp certification, issued by HackerRank">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="fa-solid fa-code"></i><span class="certification-title">C#</span><span class="certification-flip-hint">HackerRank · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="fa-solid fa-code"></i><span class="certification-title">C# Certification</span><span class="certification-issuer">HackerRank</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="Data Visualisation: Empowering Business with Effective Insights Job Simulation, issued by Tata">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="fa-solid fa-chart-pie"></i><span class="certification-title">Data Visualisation: Empowering Business with Effective Insights</span><span class="certification-flip-hint">Tata · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="fa-solid fa-chart-pie"></i><span class="certification-title">Data Visualisation Job Simulation</span><span class="certification-issuer">Tata</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="Problem Solving Basic Certificate, issued by HackerRank">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="fa-solid fa-circle-check"></i><span class="certification-title">Problem Solving (Basic)</span><span class="certification-flip-hint">HackerRank · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="fa-solid fa-circle-check"></i><span class="certification-title">Problem Solving (Basic) Certificate</span><span class="certification-issuer">HackerRank</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="SQL Intermediate certification, issued by HackerRank">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="fa-solid fa-database"></i><span class="certification-title">SQL (Intermediate)</span><span class="certification-flip-hint">HackerRank · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="fa-solid fa-database"></i><span class="certification-title">SQL (Intermediate) Certification</span><span class="certification-issuer">HackerRank</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="Problem Solving Advanced certification, issued by HackerRank">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="fa-solid fa-circle-check"></i><span class="certification-title">Problem Solving (Advanced)</span><span class="certification-flip-hint">HackerRank · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="fa-solid fa-circle-check"></i><span class="certification-title">Problem Solving (Advanced) Certification</span><span class="certification-issuer">HackerRank</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="SQL Advanced certification, issued by HackerRank">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="fa-solid fa-database"></i><span class="certification-title">SQL (Advanced)</span><span class="certification-flip-hint">HackerRank · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="fa-solid fa-database"></i><span class="certification-title">SQL (Advanced) Certification</span><span class="certification-issuer">HackerRank</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="Data Analytics Masterclass, issued by Pantech Pro Ed Pvt Ltd">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="fa-solid fa-chart-column"></i><span class="certification-title">Data Analytics Masterclass</span><span class="certification-flip-hint">Pantech Pro Ed · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="fa-solid fa-chart-column"></i><span class="certification-title">Data Analytics Masterclass</span><span class="certification-issuer">Pantech Pro Ed Pvt Ltd</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="Data Science and Analytics, Cyber Security Awareness, and Effective Leadership, issued by HP Foundations">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="fa-solid fa-graduation-cap"></i><span class="certification-title">Data Science, Cyber Security &amp; Leadership</span><span class="certification-flip-hint">HP Foundations · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="fa-solid fa-graduation-cap"></i><span class="certification-title">Data Science &amp; Analytics, Cyber Security Awareness, Effective Leadership</span><span class="certification-issuer">HP Foundations</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="Edunet Skills Build Orientation, issued by IBM Skills Build">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="fa-solid fa-graduation-cap"></i><span class="certification-title">Skills Build Orientation</span><span class="certification-flip-hint">IBM Skills Build · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="fa-solid fa-graduation-cap"></i><span class="certification-title">Edunet-Skills Build Orientation</span><span class="certification-issuer">IBM Skills Build</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="Basics of Python certification, issued by Infosys">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="fa-solid fa-code"></i><span class="certification-title">Basics of Python</span><span class="certification-flip-hint">Infosys · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="fa-solid fa-code"></i><span class="certification-title">Basics of Python Certification</span><span class="certification-issuer">Infosys</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="Prompt Engineering certification, issued by IBM">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="fa-solid fa-wand-magic-sparkles"></i><span class="certification-title">Prompt Engineering</span><span class="certification-flip-hint">IBM · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="fa-solid fa-wand-magic-sparkles"></i><span class="certification-title">Prompt Engineering Certification</span><span class="certification-issuer">IBM</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="Solution Architecture Job Simulation, issued by AWS">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="fa-solid fa-cloud"></i><span class="certification-title">Solution Architecture Job Simulation</span><span class="certification-flip-hint">AWS · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="fa-solid fa-cloud"></i><span class="certification-title">Solution Architecture Job Simulation</span><span class="certification-issuer">AWS</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="Software Engineering Job Simulation, issued by Accenture">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="fa-solid fa-gear"></i><span class="certification-title">Software Engineering Job Simulation</span><span class="certification-flip-hint">Accenture · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="fa-solid fa-gear"></i><span class="certification-title">Software Engineering Job Simulation</span><span class="certification-issuer">Accenture</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="Generative AI Job Simulation, issued by BCG X">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="fa-solid fa-wand-magic-sparkles"></i><span class="certification-title">Generative AI Job Simulation</span><span class="certification-flip-hint">BCG X · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="fa-solid fa-wand-magic-sparkles"></i><span class="certification-title">Gen AI Job Simulation</span><span class="certification-issuer">BCG X</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="AI Dashboard using Microsoft Power BI, issued by Skill Nation">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="fa-solid fa-chart-pie"></i><span class="certification-title">AI Dashboard using Microsoft Power BI</span><span class="certification-flip-hint">Skill Nation · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="fa-solid fa-chart-pie"></i><span class="certification-title">AI Dashboard using Microsoft Power BI</span><span class="certification-issuer">Skill Nation</span></span>
+      </span>
+    </button>
+    <button class="card certification-flip-card" type="button" aria-pressed="false" aria-label="Data Science Job Simulation, issued by British Airways">
+      <span class="certification-flip-inner">
+        <span class="certification-flip-face certification-flip-front" aria-hidden="true"><i class="fa-solid fa-chart-line"></i><span class="certification-title">Data Science Job Simulation</span><span class="certification-flip-hint">British Airways · View details</span></span>
+        <span class="certification-flip-face certification-flip-back" aria-hidden="true"><i class="fa-solid fa-chart-line"></i><span class="certification-title">Data Science Job Simulation</span><span class="certification-issuer">British Airways</span></span>
+      </span>
+    </button>
   </div>
 </section>
 
@@ -1243,6 +1659,12 @@
   }, {threshold: 0.15, rootMargin: "0px 0px -40px 0px"});
 
   document.querySelectorAll('section').forEach(section => observer.observe(section));
+  document.querySelectorAll('.certification-flip-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const isFlipped = card.classList.toggle('is-flipped');
+      card.setAttribute('aria-pressed', String(isFlipped));
+    });
+  });
 </script>
 <script>
   const downloadCvBtn = document.getElementById('downloadCvBtn');

@@ -1,0 +1,108 @@
+/*
+Theme Name: Portfolio Child
+Description: Child theme for the Gokula Kannan portfolio on Hello Elementor.
+Author: Gokula Kannan
+Version: 1.1.0
+Template: hello-elementor
+Text Domain: portfolio-child
+*/
+
+:root {
+	--portfolio-primary: #17324d;
+	--portfolio-secondary: #345b70;
+	--portfolio-text: #334155;
+	--portfolio-accent: #8fdcc3;
+	--portfolio-background: #f4f7f9;
+	--portfolio-surface: #ffffff;
+	--e-global-color-primary: #17324d;
+	--e-global-color-secondary: #345b70;
+	--e-global-color-text: #334155;
+	--e-global-color-accent: #8fdcc3;
+	--e-global-typography-primary-font-family: "Spectral", serif;
+	--e-global-typography-secondary-font-family: "Spectral", serif;
+	--e-global-typography-text-font-family: "Inter", sans-serif;
+	--e-global-typography-accent-font-family: "Inter", sans-serif;
+}
+
+body[class*="elementor-kit-"] {
+	--e-global-color-primary: #17324d !important;
+	--e-global-color-secondary: #345b70 !important;
+	--e-global-color-text: #334155 !important;
+	--e-global-color-accent: #8fdcc3 !important;
+	--e-global-typography-primary-font-family: "Spectral", serif !important;
+	--e-global-typography-secondary-font-family: "Spectral", serif !important;
+	--e-global-typography-text-font-family: "Inter", sans-serif !important;
+	--e-global-typography-accent-font-family: "Inter", sans-serif !important;
+	font-family: "Inter", sans-serif !important;
+	color: var(--e-global-color-text) !important;
+}
+
+body.dark-mode[class*="elementor-kit-"] {
+	--e-global-color-primary: #e2e8f0 !important;
+	--e-global-color-secondary: #7cb8af !important;
+	--e-global-color-text: #d3dde7 !important;
+	--e-global-color-accent: #8fdcc3 !important;
+}
+
+body,
+button,
+input,
+select,
+textarea,
+.elementor-widget-text-editor {
+	font-family: "Inter", sans-serif;
+	color: var(--portfolio-text);
+}
+
+body[class*="elementor-kit-"] .elementor-widget-text-editor {
+	font-family: "Inter", sans-serif !important;
+	color: var(--e-global-color-text) !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.elementor-widget-heading .elementor-heading-title {
+	font-family: "Spectral", serif;
+	color: var(--portfolio-primary);
+}
+
+body[class*="elementor-kit-"] .elementor-widget-heading .elementor-heading-title {
+	font-family: "Spectral", serif !important;
+	color: var(--e-global-color-primary) !important;
+}
+
+#scc-cursor {
+	background: #345b70 !important;
+	mix-blend-mode: normal !important;
+}
+
+#scc-cursor-ring {
+	border-color: #345b70 !important;
+	mix-blend-mode: normal !important;
+}
+
+body.dark-mode #scc-cursor {
+	background: #a5d6c8 !important;
+}
+
+body.dark-mode #scc-cursor-ring {
+	border-color: #a5d6c8 !important;
+}
+
+@media (hover: none), (pointer: coarse) {
+	body,
+	body *,
+	body *::before,
+	body *::after {
+		cursor: auto !important;
+	}
+
+	#scc-cursor,
+	#scc-cursor-ring {
+		display: none !important;
+	}
+}
