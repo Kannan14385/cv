@@ -162,16 +162,10 @@ export const projects: Project[] = [
       'High-resolution architectural photography grids and floorplans',
     ],
     metrics: [
-      { value: '3', label: 'live cloud deployments' },
+      { value: '3', label: 'portal architectures' },
       { value: '100+', label: 'properties showcased' },
       { value: '40%', label: 'faster property discovery' },
       { value: '3 Colleagues', label: 'mentored as team lead' },
-    ],
-    live: 'https://zooye1.thestackly.in/',
-    liveLinks: [
-      { label: 'Real Estate Services', url: 'https://zooye1.thestackly.in/' },
-      { label: 'Property Details & Booking', url: 'https://zooye7.thestackly.cloud/' },
-      { label: 'Featured Property Grid', url: 'https://zooye9.thestackly.cloud/' },
     ],
     screenshots: [
       '/assets/stackly/zooye-services-listings.png',
@@ -492,8 +486,7 @@ export const galleryItems: GalleryItem[] = [
     title: 'Stackly Services & Property Listings',
     subtitle: 'Real Estate Discovery & Filtering Portal',
     src: '/assets/stackly/zooye-services-listings.png',
-    badge: 'Live Deployment',
-    link: 'https://zooye1.thestackly.in/',
+    badge: 'Services Portal',
   },
   {
     id: 'stack-2',
@@ -501,8 +494,7 @@ export const galleryItems: GalleryItem[] = [
     title: 'Property Details & Appointment Booking',
     subtitle: 'Visit Scheduling & Specifications Funnel',
     src: '/assets/stackly/zooye7-property-details.png',
-    badge: 'Cloud Instance 2',
-    link: 'https://zooye7.thestackly.cloud/',
+    badge: 'Property Details',
   },
   {
     id: 'stack-3',
@@ -510,8 +502,7 @@ export const galleryItems: GalleryItem[] = [
     title: 'Featured Property Grid',
     subtitle: 'Architectural Photography & Dynamic Masonry',
     src: '/assets/stackly/zooye9-property-grid.png',
-    badge: 'Cloud Instance 3',
-    link: 'https://zooye9.thestackly.cloud/',
+    badge: 'Masonry Grid',
   },
   {
     id: 'odoo-1',
