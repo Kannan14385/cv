@@ -24,12 +24,14 @@ export default function QuickNav({ onResume, onPlayIntro }: { onResume: () => vo
 
   const navItems = [
     { label: 'Hero Billboard', id: 'top', icon: '🎬' },
+    { label: 'About Gokul (Pilot)', id: 'about', icon: '👤' },
     { label: 'Originals (Projects)', id: 'originals', icon: '⭐' },
     { label: 'Project Gallery', id: 'gallery', icon: '🖼️' },
-    { label: 'My Journey (Seasons)', id: 'journey', icon: '⏳' },
+    { label: 'The Full Story (Resume)', id: 'story', icon: '📄' },
     { label: 'Skills Universe', id: 'skills', icon: '⚡' },
-    { label: 'Top Moments & GAIT', id: 'moments', icon: '🏆' },
-    { label: 'Contact & Formspree', id: 'contact', icon: '✉️' },
+    { label: 'Top Moments & Honors', id: 'moments', icon: '🏆' },
+    { label: 'Journey & Experience', id: 'journey', icon: '⏳' },
+    { label: 'Contact & Hire', id: 'contact', icon: '✉️' },
   ];
 
   const jump = (id: string) => {
