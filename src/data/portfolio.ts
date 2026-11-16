@@ -27,7 +27,9 @@ export const profile = {
     hackerrank: 'https://www.hackerrank.com/profile/gokulakannan1431',
     portfolio: 'https://gokula-kannan-m-portfolio.onrender.com/',
   },
-  resumePdf: '/assets/Gokula_Kannan_Resume_CV.pdf',
+  resumePdf: '/assets/Gokula_Kannan_Digital_eResume.pdf',
+  resumeEpdf: '/assets/Gokula_Kannan_Digital_eResume.pdf',
+  resumePrint: '/assets/Gokula_Kannan_Print_ATS_Resume.pdf',
   portrait: {
     src: '/assets/gokul-720.webp',
     srcSet: '/assets/gokul-420.webp 420w, /assets/gokul-720.webp 720w, /assets/gokul-1100.webp 1100w',

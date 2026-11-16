@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Gokula Kannan M - Digital e-Resume (The Full Story)</title>
+<style>
+  @page {
+    size: letter;
+    margin: 10mm 12mm 10mm 12mm;
+  }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #0f172a;
+    line-height: 1.4;
+    font-size: 8.8pt;
+    background: #ffffff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Header banner */
+  header {
+    border-bottom: 2.5px solid #e50914;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .header-left h1 {
+    font-size: 21pt;
+    font-weight: 800;
+    color: #09090b;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  .header-left .tagline {
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: #e50914;
+    margin-top: 3px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .header-right {
+    text-align: right;
+    font-size: 8.2pt;
+    color: #475569;
+    line-height: 1.45;
+  }
+  .header-right a {
+    color: #0f172a;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .header-right a:hover {
+    color: #e50914;
+    text-decoration: underline;
+  }
+  .pill {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 7.5pt;
+    font-weight: 700;
+    background: #f1f5f9;
+    color: #0f172a;
+    border: 1px solid #cbd5e1;
+  }
+
+  /* Two column grid matching "The Full Story" layout */
+  .layout-grid {
+    display: grid;
+    grid-template-columns: 1.45fr 1fr;
+    gap: 14px;
+  }
+
+  /* Section styles */
+  .section-title {
+    font-size: 9pt;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #e50914;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 2px;
+    margin-bottom: 6px;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .section-title:first-child {
+    margin-top: 0;
+  }
+
+  /* Entry cards */
+  .entry {
+    margin-bottom: 7px;
+    page-break-inside: avoid;
+  }
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 4px;
+  }
+  .entry-title {
+    font-size: 9pt;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  .entry-sub {
+    font-size: 8.2pt;
+    font-weight: 600;
+    color: #475569;
+  }
+  .entry-date {
+    font-size: 7.8pt;
+    font-weight: 700;
+    color: #64748b;
+    white-space: nowrap;
+  }
+  .entry-badge {
+    font-size: 7.2pt;
+    font-weight: 700;
+    color: #e50914;
+    background: #fef2f2;
+    padding: 0 4px;
+    border-radius: 3px;
+    margin-left: 4px;
+  }
+  ul {
+    list-style: none;
+    margin-top: 2px;
+    padding-left: 0;
+  }
+  li {
+    position: relative;
+    padding-left: 10px;
+    font-size: 8pt;
+    color: #334155;
+    margin-bottom: 1.5px;
+    line-height: 1.35;
+  }
+  li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #e50914;
+    font-weight: 800;
+  }
+
+  /* Right column styles */
+  .skill-group {
+    margin-bottom: 5px;
+  }
+  .skill-label {
+    font-weight: 700;
+    color: #0f172a;
+    font-size: 8.2pt;
+  }
+  .skill-items {
+    font-size: 7.8pt;
+    color: #475569;
+    line-height: 1.35;
+  }
+
+  .honor-item {
+    margin-bottom: 5px;
+    font-size: 8pt;
+    line-height: 1.35;
+  }
+  .honor-title {
+    font-weight: 700;
+    color: #0f172a;
+  }
+  .honor-org {
+    color: #e50914;
+    font-weight: 600;
+    font-size: 7.5pt;
+  }
+  .honor-desc {
+    color: #475569;
+    font-size: 7.6pt;
+  }
+
+  .cert-list {
+    font-size: 7.6pt;
+    color: #334155;
+    line-height: 1.35;
+  }
+  .cert-issuer {
+    font-weight: 700;
+    color: #0f172a;
+  }
+
+  .footer-note {
+    margin-top: 8px;
+    padding-top: 4px;
+    border-top: 1px dashed #cbd5e1;
+    font-size: 7pt;
+    color: #94a3b8;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <h1>Gokula Kannan M</h1>
+    <div class="tagline">Python &amp; WordPress Developer · Data Analyst · MCA Graduate</div>
+  </div>
+  <div class="header-right">
+    <div><strong>Email:</strong> <a href="mailto:gokulakannan.0.official@gmail.com">gokulakannan.0.official@gmail.com</a></div>
+    <div><strong>Phone:</strong> +91 76049 84501 · <strong>Location:</strong> Tiruppur / Coimbatore, TN</div>
+    <div>
+      <a href="https://linkedin.com/in/gokula-kannan-m">LinkedIn ↗</a> · 
+      <a href="https://github.com/Kannan14385">GitHub ↗</a> · 
+      <a href="https://gokula-kannan-m-portfolio.onrender.com/">Live Portfolio ↗</a>
+    </div>
+  </div>
+</header>
+
+<div class="layout-grid">
+  <!-- LEFT COLUMN (Major Stream) -->
+  <div>
+    <!-- WORK EXPERIENCE -->
+    <div class="section-title">Work Experience</div>
+    
+    <div class="entry">
+      <div class="entry-header">
+        <div>
+          <span class="entry-title">Zooye Info Technologies</span>
+          <span class="entry-sub">— Python Developer &amp; Data Analyst Intern</span>
+        </div>
+        <span class="entry-date">Apr 2026 – Nov 2026</span>
+      </div>
+      <ul>
+        <li>Engineered full-stack business automation scripts in Python, reducing manual data processing cycles by <strong>35%</strong>.</li>
+        <li>Architected 3 WordPress real estate web applications with custom post types and dynamic appointment funnels.</li>
+        <li>Led and mentored a technical team of 3 developer interns through code reviews and agile sprints.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <div>
+          <span class="entry-title">Coactions Info Tech</span>
+          <span class="entry-sub">— Web Developer &amp; BI Intern</span>
+        </div>
+        <span class="entry-date">Aug 2025 – Mar 2026</span>
+      </div>
+      <ul>
+        <li>Spearheaded interactive Power BI executive reporting dashboards automating weekly financial and donor analytics.</li>
+        <li>Led a 4-person analytics project team, delivering client-ready BI solutions that drove a <strong>15% increase</strong> in donor engagement.</li>
+        <li>Customized WordPress themes and optimized MySQL queries for sub-second database matching.</li>
+      </ul>
+    </div>
+
+    <!-- FEATURED PROJECTS -->
+    <div class="section-title">Featured Originals &amp; Projects</div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <div>
+          <span class="entry-title">Glamistry Makeover — Luxury Bridal Platform</span>
+          <span class="entry-badge">LIVE ON NETLIFY</span>
+        </div>
+        <span class="entry-date">2026</span>
+      </div>
+      <ul>
+        <li>Engineered high-performance bridal makeover platform deployed on Netlify Edge CDN (<a href="https://glamistrymakeover.netlify.app/" style="color:#e50914;text-decoration:none;">glamistrymakeover.netlify.app ↗</a>).</li>
+        <li>Architected appointment booking funnels, service showcases, and interactive bridal portfolio galleries.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <div>
+          <span class="entry-title">Stackly Real Estate — Multi-Portal Architecture</span>
+        </div>
+        <span class="entry-date">2026</span>
+      </div>
+      <ul>
+        <li>Delivered 3 synchronized web portals for property discovery, virtual tours, and appointment scheduling.</li>
+        <li>Built dynamic multi-attribute search filtering (pricing, location, floorplans) for 100+ property listings.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <div>
+          <span class="entry-title">ERP Youth &amp; Fund Management</span>
+          <span class="entry-sub">(Python, Odoo 18, PostgreSQL)</span>
+        </div>
+        <span class="entry-date">2025–2026</span>
+      </div>
+      <ul>
+        <li>Custom enterprise Odoo ERP admin module for 50+ users automating fund allocations and audit compliance.</li>
+        <li>Resolved 20+ critical UAT production bugs, increasing project tracking efficiency by <strong>30%</strong>.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <div>
+          <span class="entry-title">NGO Fund Tracking &amp; Power BI Analytics</span>
+        </div>
+        <span class="entry-date">2025</span>
+      </div>
+      <ul>
+        <li>Deployed 5+ Power BI dashboards with DAX measures, saving 10+ hours/week in manual report generation.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <div>
+          <span class="entry-title">GASC Blood Donor Bridge — Healthcare Platform</span>
+        </div>
+        <span class="entry-date">2025–2026</span>
+      </div>
+      <ul>
+        <li>Emergency blood donor platform with bcrypt security, geolocation matching, and sub-second SQL queries.</li>
+      </ul>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="section-title">Education</div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <div>
+          <span class="entry-title">Master of Computer Applications (MCA)</span>
+        </div>
+        <span class="entry-date">2024 – 2026</span>
+      </div>
+      <div class="entry-sub">Bharathiar University · CGPA: <strong>7.7 / 10</strong></div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <div>
+          <span class="entry-title">Bachelor of Science in Computer Science (B.Sc CS)</span>
+        </div>
+        <span class="entry-date">2021 – 2024</span>
+      </div>
+      <div class="entry-sub">Bharathiar University · Score: <strong>75%</strong></div>
+    </div>
+  </div>
+
+  <!-- RIGHT COLUMN (Side Stream) -->
+  <div>
+    <!-- SKILLS -->
+    <div class="section-title">Technical Skills</div>
+
+    <div class="skill-group">
+      <div class="skill-label">Web &amp; CMS Development</div>
+      <div class="skill-items">WordPress (Primary), PHP, Elementor, HTML5, CSS3, JavaScript, React, REST API, Responsive Design, Core Web Vitals</div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-label">Programming &amp; ERP</div>
+      <div class="skill-items">Python, Odoo 18 ERP, C#, C++, Git &amp; GitHub, Linux/Bash, OOP Architecture</div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-label">Data Analytics &amp; BI</div>
+      <div class="skill-items">Power BI, DAX Calculations, SQL Data Modeling, Excel Advanced, Business Intelligence Dashboards</div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-label">Database &amp; Storage</div>
+      <div class="skill-items">MySQL, PostgreSQL, Schema Normalization, Query Optimization, Bcrypt Security</div>
+    </div>
+
+    <!-- AWARDS & LEADERSHIP -->
+    <div class="section-title">Awards &amp; Leadership</div>
+
+    <div class="honor-item">
+      <div class="honor-title">GAIT Committee President</div>
+      <div class="honor-org">Collegiate IT Association (2024–2026)</div>
+      <div class="honor-desc">Elected President; spearheaded Qutrix 2k25 Inter-Collegiate Symposium, hackathons, and technical events for 500+ participants.</div>
+    </div>
+
+    <div class="honor-item">
+      <div class="honor-title">Boxing Tournament Medalist</div>
+      <div class="honor-org">Inter-Collegiate &amp; All India Championship</div>
+      <div class="honor-desc">Medalist in 2023 &amp; 2024; represented Bharathiar University at All India Championship in Punjab; coached student athletes.</div>
+    </div>
+
+    <div class="honor-item">
+      <div class="honor-title">Technical Team Lead &amp; Mentor</div>
+      <div class="honor-org">Zooye &amp; Coactions Info Tech</div>
+      <div class="honor-desc">Mentored 3 developer interns at Zooye; led 4-person analytics BI team at Coactions delivering client-ready solutions.</div>
+    </div>
+
+    <div class="honor-item">
+      <div class="honor-title">Community Service Volunteer</div>
+      <div class="honor-org">National Service Scheme (NSS) · 2021–2025</div>
+      <div class="honor-desc">Dedicated 4 years to rural empowerment, youth skill development, and health awareness drives.</div>
+    </div>
+
+    <!-- CERTIFICATIONS -->
+    <div class="section-title">Certifications (Selected)</div>
+    <div class="cert-list">
+      <p><span class="cert-issuer">HackerRank:</span> Software Engineer Intern, Frontend (React), Problem Solving (Basic &amp; Advanced), SQL (Advanced), C#</p>
+      <p style="margin-top:3px;"><span class="cert-issuer">Industry:</span> Applied AI (HCL GUVI), Data Visualisation (Tata), Solution Architecture (AWS), Software Engineering (Accenture), Generative AI (BCG X), Data Science (British Airways), Python (Infosys), Prompt Engineering (IBM)</p>
+    </div>
+  </div>
+</div>
+
+<div class="footer-note">
+  Interactive Digital e-Resume · Gokula Kannan M · Verified ATS &amp; Human-Readable Standard · <a href="https://gokula-kannan-m-portfolio.onrender.com/" style="color:#64748b;text-decoration:none;">gokula-kannan-m-portfolio.onrender.com</a>
+</div>
+
+</body>
+</html>
