@@ -38,16 +38,6 @@ export default function Achievements() {
                 <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#d9b46a]/70 to-transparent" />
                 <div aria-hidden className="absolute -top-24 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full bg-[#d9b46a]/10 blur-3xl transition duration-700 group-hover:bg-[#d9b46a]/25" />
 
-                {/* If GAIT or leadership image is available */}
-                {a.image && (
-                  <div className="relative mb-3 h-28 w-full overflow-hidden rounded-lg border border-[#d9b46a]/30 shadow-md">
-                    <img src={a.image} alt={a.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                    <span className="absolute bottom-1.5 left-2 rounded bg-black/60 px-1.5 py-0.5 text-[9px] font-bold text-[#d9b46a]">
-                      QUTRIX 2K25
-                    </span>
-                  </div>
-                )}
 
                 <div className="relative flex items-center gap-1">
                   <Laurel side="l" />

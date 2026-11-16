@@ -291,7 +291,6 @@ export const achievements: Achievement[] = [
     org: 'Collegiate IT Association (2024–2026)',
     detail: 'Elected President of GAIT; spearheaded and organized Inter & Intra College IT symposiums, technical paper presentations, and coding competitions.',
     laurel: 'Collegiate President',
-    image: '/assets/gait-president.jpg',
     link: 'https://www.linkedin.com/posts/gokula-kannan-m-_qutrix2k25-gait-leadership-ugcPost-7376264095420882945-7tUa/',
   },
   {
