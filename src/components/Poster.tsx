@@ -111,15 +111,27 @@ export function ProjectArt({ project, className = '' }: { project: Project; clas
 export function SeriesMark({ className = '' }: { className?: string }) {
   return (
     <span className={`inline-flex items-center gap-1.5 ${className}`}>
-      <svg viewBox="0 0 28 32" className="h-[1.1em] w-auto" aria-hidden>
-        <path
-          d="M22 9 C19 5 13 4 9 7 C4 11 4 19 8 23 C12 27 18 27 22 23 C24 21 25 18 25 15 L14 15"
-          fill="none"
-          stroke="#e5132b"
-          strokeWidth="3.6"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
+      <svg viewBox="0 0 28 32" className="h-[1.1em] w-auto overflow-visible" aria-hidden>
+        <defs>
+          <linearGradient id="seriesMarkGGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#ff2a4b" />
+            <stop offset="55%" stopColor="#e50914" />
+            <stop offset="100%" stopColor="#9a040d" />
+          </linearGradient>
+          <filter id="seriesMarkGlow" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="1" stdDeviation="1.5" floodColor="#e50914" floodOpacity="0.45" />
+          </filter>
+        </defs>
+        <g filter="url(#seriesMarkGlow)">
+          <path
+            d="M21 9 C18.5 5.5 13.5 4.5 9.5 6.5 C5 9 4.2 16 6.8 20.5 C9.2 24.5 14.8 25.5 18.8 23.2 C20.6 22.2 21.6 20.5 22 18.5 L22 15.5 L14 15.5"
+            fill="none"
+            stroke="url(#seriesMarkGGrad)"
+            strokeWidth="3.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </g>
       </svg>
       <span className="font-sans text-[0.62em] font-bold tracking-[0.36em] text-mist">SERIES</span>
     </span>

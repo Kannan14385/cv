@@ -133,7 +133,7 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
                     id="name"
                     name="name"
                     required
-                    placeholder="Sri Sushmita / John Doe"
+                    placeholder="John Doe / Hiring Partner"
                     className="w-full rounded-lg border border-white/15 bg-black/50 px-3.5 py-2.5 text-sm text-bone placeholder-smoke focus:border-crimson-2 focus:outline-none focus:ring-1 focus:ring-crimson-2"
                   />
                 </div>
