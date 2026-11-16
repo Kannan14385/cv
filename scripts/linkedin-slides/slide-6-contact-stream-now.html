@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+  body {
+    width: 1920px; height: 1080px; overflow: hidden;
+    background: radial-gradient(circle at 50% 40%, rgba(229,9,20,0.18) 0%, #07070a 70%);
+    color: #fff; position: relative; padding: 70px 80px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .header { text-align: center; }
+  .ch-tag { font-size: 16px; font-weight: 800; letter-spacing: 5px; color: #E50914; text-transform: uppercase; margin-bottom: 10px; }
+  .ch-title { font-size: 58px; font-weight: 900; letter-spacing: -1px; }
+
+  .center-box {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1500px; margin: 0 auto; width: 100%;
+  }
+  .c-card {
+    background: #111118; border: 1px solid rgba(255,255,255,0.08); border-radius: 20px;
+    padding: 36px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+  }
+  .c-card:hover { border-color: #E50914; }
+  .c-icon {
+    width: 70px; height: 70px; border-radius: 50%; background: rgba(229,9,20,0.15);
+    border: 1px solid rgba(229,9,20,0.4); display: flex; align-items: center; justify-content: center;
+    font-size: 32px; color: #ff525a; margin-bottom: 20px;
+  }
+  .c-name { font-size: 22px; font-weight: 800; margin-bottom: 8px; color: #fff; }
+  .c-val { font-size: 16px; color: #9ca3af; font-family: monospace; }
+
+  .stream-cta {
+    background: #161217; border: 1px solid rgba(229,9,20,0.4); border-radius: 20px;
+    padding: 30px 50px; display: flex; align-items: center; justify-content: space-between;
+    box-shadow: 0 15px 50px rgba(229,9,20,0.25);
+  }
+  .cta-title { font-size: 28px; font-weight: 800; }
+  .cta-sub { font-size: 16px; color: #aaa; margin-top: 6px; }
+  .btn-live {
+    background: #E50914; color: #fff; font-size: 20px; font-weight: 800;
+    padding: 16px 40px; border-radius: 10px; display: flex; align-items: center; gap: 12px;
+    box-shadow: 0 8px 30px rgba(229,9,20,0.5); text-decoration: none;
+  }
+</style>
+</head>
+<body>
+  <div class="header">
+    <div class="ch-tag">NOW STREAMING • PRODUCTION RELEASE</div>
+    <h2 class="ch-title">Connect with Gokula Kannan</h2>
+  </div>
+
+  <div class="center-box">
+    <div class="c-card">
+      <div class="c-icon">📩</div>
+      <div class="c-name">Direct Inbox (Formspree)</div>
+      <div class="c-val">gokulkannan200427@gmail.com</div>
+    </div>
+
+    <div class="c-card">
+      <div class="c-icon">💼</div>
+      <div class="c-name">LinkedIn Profile</div>
+      <div class="c-val">linkedin.com/in/gokulakannan-m</div>
+    </div>
+
+    <div class="c-card">
+      <div class="c-icon">💻</div>
+      <div class="c-name">GitHub Projects</div>
+      <div class="c-val">github.com/Kannan14385</div>
+    </div>
+  </div>
+
+  <div class="stream-cta">
+    <div>
+      <div class="cta-title">Ready to Stream the Complete Experience?</div>
+      <div class="cta-sub">Visit the live deployment on Render with interactive profile selectors & real-time controls.</div>
+    </div>
+    <div class="btn-live">
+      ▶ Visit Live Portfolio
+    </div>
+  </div>
+</body>
+</html>
