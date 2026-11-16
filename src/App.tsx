@@ -12,11 +12,13 @@ import Scene from './components/Scene';
 import About from './components/About';
 import Seasons from './components/Seasons';
 import Originals from './components/Originals';
+import Gallery from './components/Gallery';
 import TopPicks from './components/TopPicks';
 import Skills from './components/Skills';
 import Achievements from './components/Achievements';
 import ResumeSection from './components/ResumeViewer';
 import FinalCTA from './components/FinalCTA';
+import QuickNav from './components/QuickNav';
 import { EASE } from './components/fx';
 
 // Overlays are only needed on demand — split them out of the first load.
@@ -97,6 +99,7 @@ function Series() {
     about: <About />,
     journey: <Seasons />,
     originals: <Originals onOpen={setProject} />,
+    gallery: <Gallery />,
     picks: <TopPicks />,
     skills: <Skills />,
     moments: <Achievements />,
@@ -126,6 +129,7 @@ function Series() {
             ))}
             <FinalCTA onReplay={() => setStage('opening')} />
           </main>
+          <QuickNav onResume={() => setResumeOpen(true)} onPlayIntro={() => setPlaying(true)} />
         </motion.div>
       )}
 

@@ -101,18 +101,18 @@ export default function OpeningSequence({ onDone }: { onDone: () => void }) {
       {/* title */}
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 text-center">
         <motion.h1
-          className="font-display leading-[0.82] text-bone drop-shadow-[0_8px_40px_rgba(0,0,0,0.8)]"
-          style={{ fontSize: 'clamp(4.6rem, 20vw, 15rem)' }}
-          initial={{ opacity: 0, scale: 1.3, filter: 'blur(20px)', letterSpacing: '0.5em' }}
-          animate={beat >= 2 ? { opacity: 1, scale: 1, filter: 'blur(0px)', letterSpacing: '0.04em', y: beat >= 4 ? '-30vh' : 0 } : {}}
+          className="font-display leading-[0.88] text-bone drop-shadow-[0_8px_40px_rgba(0,0,0,0.8)]"
+          style={{ fontSize: 'clamp(2.5rem, 9.5vw, 8rem)' }}
+          initial={{ opacity: 0, scale: 1.3, filter: 'blur(20px)', letterSpacing: '0.25em' }}
+          animate={beat >= 2 ? { opacity: 1, scale: 1, filter: 'blur(0px)', letterSpacing: '0.02em', y: beat >= 4 ? '-28vh' : 0 } : {}}
           transition={{ duration: 1.3, ease: EASE }}
         >
           {profile.firstName}
         </motion.h1>
         <motion.p
-          className="font-sans text-sm font-bold text-crimson-2 [text-shadow:0_2px_20px_rgba(0,0,0,0.9)] sm:text-lg"
-          initial={{ opacity: 0, letterSpacing: '1.4em' }}
-          animate={beat >= 3 ? { opacity: 1, letterSpacing: '0.7em', y: beat >= 4 ? '-30vh' : 0 } : {}}
+          className="mt-2 font-sans text-xs font-bold text-crimson-2 [text-shadow:0_2px_20px_rgba(0,0,0,0.9)] sm:text-base"
+          initial={{ opacity: 0, letterSpacing: '1.2em' }}
+          animate={beat >= 3 ? { opacity: 1, letterSpacing: '0.6em', y: beat >= 4 ? '-28vh' : 0 } : {}}
           transition={{ duration: 1.1, ease: EASE }}
         >
           {profile.seriesTag}

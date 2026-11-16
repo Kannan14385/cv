@@ -11,7 +11,7 @@ export const profile = {
   firstName: 'GOKULA KANNAN',
   seriesTag: 'THE SERIES',
   originalLabel: 'A GOKULA KANNAN ORIGINAL',
-  role: 'WordPress & Web Developer | Data Analyst | MCA',
+  role: 'Full Stack & WordPress Developer | Python & Odoo | Data Analyst',
   tagline: ['WordPress & Web Developer', 'Python & Odoo ERP', 'Data Analytics', 'MCA Graduate'],
   intro:
     'Building reliable WordPress experiences, high-performance web applications, and insightful business intelligence dashboards with a proven foundation in full-stack engineering, Python/Odoo ERP, and data analytics.',
@@ -19,11 +19,13 @@ export const profile = {
   email: 'gokulakannan.0.official@gmail.com',
   phone: '+91 9688657903',
   address: '283, Sakthi Nagar, Gobichettipalayam, Erode – 638453',
+  formspreeEndpoint: 'https://formspree.io/f/mpwykqbg',
   links: {
     linkedin: 'https://www.linkedin.com/in/gokula-kannan-m-/',
     github: 'https://github.com/Kannan14385',
     leetcode: 'https://leetcode.com/u/Gokula_Kannan_M/',
     hackerrank: 'https://www.hackerrank.com/profile/gokulakannan1431',
+    portfolio: 'https://gokula-kannan-m-portfolio.onrender.com/',
   },
   resumePdf: '/assets/Gokula_Kannan_Resume_CV.pdf',
   portrait: {
@@ -31,7 +33,9 @@ export const profile = {
     srcSet: '/assets/gokul-420.webp 420w, /assets/gokul-720.webp 720w, /assets/gokul-1100.webp 1100w',
     alt: 'Portrait of Gokula Kannan M',
   },
-  interests: ['WordPress & Headless CMS', 'Full-Stack Development', 'Data Analytics (Power BI)', 'Enterprise ERP (Odoo)', 'Boxing & Fitness'],
+  aboutPortrait: '/assets/about-gokul.webp',
+  gaitPresidentImage: '/assets/gait-president.jpg',
+  interests: ['WordPress & Headless CMS', 'Full-Stack Web Engineering', 'Enterprise ERP (Odoo 18)', 'Data Analytics & Power BI', 'Competitive Boxing & Fitness'],
 };
 
 export const education = [
@@ -58,10 +62,10 @@ export const experience = [
     place: 'Chennai / Remote',
     period: 'Apr 2026 – Nov 2026',
     points: [
-      'Design, develop, and maintain dynamic WordPress websites, ensuring high-quality digital experiences and reliable functionality.',
-      'Provide technical guidance, support, and mentorship to a team of 3 colleagues to facilitate smooth project execution and collaborative problem-solving.',
-      'Optimize website performance, speed, and responsiveness to continuously enhance the company’s digital platforms and Core Web Vitals.',
-      'Apply creative problem-solving to build and deploy innovative web solutions aligned with business growth objectives.',
+      'Design, develop, and maintain dynamic WordPress websites, ensuring responsive cross-browser layouts, reliable functionality, and high-quality user experiences.',
+      'Provide technical guidance, debugging support, and mentorship to a team of 3 colleagues to streamline project execution and standardize code quality.',
+      'Optimize website performance, page speed, and responsiveness to continuously enhance the company’s digital platforms and Core Web Vitals.',
+      'Build and deploy custom web solutions aligned with business growth objectives.',
     ],
   },
   {
@@ -70,9 +74,9 @@ export const experience = [
     place: 'Coimbatore, Tamil Nadu',
     period: 'Nov 2025 – Apr 2026',
     points: [
-      'Developed ERP functionality with Python, Odoo, and PostgreSQL for youth engagement and fund management workflows.',
-      'Built custom Odoo backend modules for 50+ users, designed normalized relational schemas, and improved project tracking efficiency by 30%.',
-      'Resolved 20+ critical UAT bugs and built automated data synchronization pipelines.',
+      'Developed ERP functionality with Python, Odoo 18, and PostgreSQL for youth engagement and fund management workflows serving 50+ users.',
+      'Built custom Odoo backend modules, designed normalized relational schemas, and improved project tracking efficiency by 30%.',
+      'Resolved 20+ critical UAT production bugs and implemented real-time backend data synchronization with external web portals.',
     ],
   },
   {
@@ -82,7 +86,7 @@ export const experience = [
     period: 'May 2025 – Jun 2025',
     points: [
       'Engineered an NGO Fund Tracking system with automated data-driven reporting and business intelligence workflows.',
-      'Designed 5+ interactive Power BI dashboards that automated weekly reporting and saved about 10 hours of manual work per week.',
+      'Designed 5+ interactive Power BI dashboards that automated weekly reporting and saved about 10 hours of manual data collation per week.',
       'Led a 4-person team through requirements, delivery, and stakeholder demos; supported campaigns that increased donor engagement by 15%.',
     ],
   },
@@ -276,6 +280,7 @@ export type Achievement = {
   org: string;
   detail: string;
   laurel: string;
+  image?: string;
   link?: string;
 };
 
@@ -286,6 +291,8 @@ export const achievements: Achievement[] = [
     org: 'Collegiate IT Association (2024–2026)',
     detail: 'Elected President of GAIT; spearheaded and organized Inter & Intra College IT symposiums, technical paper presentations, and coding competitions.',
     laurel: 'Collegiate President',
+    image: '/assets/gait-president.jpg',
+    link: 'https://www.linkedin.com/posts/gokula-kannan-m-_qutrix2k25-gait-leadership-ugcPost-7376264095420882945-7tUa/',
   },
   {
     id: 'boxing-medalist',
@@ -429,6 +436,172 @@ export const skillEvidence: Record<string, string[]> = {
   Leadership: ['GAIT Committee President (2024–2026)', 'Student Coach – Boxing Team'],
   Netlify: ['Glamistry Makeover (Production Edge Deployment)'],
 };
+
+export type GalleryCategory = 'all' | 'glamistry' | 'stackly' | 'odoo' | 'pbi' | 'blood' | 'leadership';
+
+export type GalleryItem = {
+  id: string;
+  category: GalleryCategory;
+  title: string;
+  subtitle: string;
+  src: string;
+  badge?: string;
+  link?: string;
+};
+
+export const galleryItems: GalleryItem[] = [
+  {
+    id: 'glam-1',
+    category: 'glamistry',
+    title: 'Glamistry Makeover Banner',
+    subtitle: 'Luxury Bridal Studio Hero Experience',
+    src: '/assets/glamistry/hero-banner.jpg',
+    badge: 'Latest 2026',
+    link: 'https://glamistrymakeover.netlify.app',
+  },
+  {
+    id: 'glam-2',
+    category: 'glamistry',
+    title: 'Bridal Makeover Showcase',
+    subtitle: 'Muhurtham & Reception Glam Styling',
+    src: '/assets/glamistry/bridal.jpg',
+    badge: 'Luxury Portfolio',
+    link: 'https://glamistrymakeover.netlify.app',
+  },
+  {
+    id: 'glam-3',
+    category: 'glamistry',
+    title: 'Studio Artist Profile & Services',
+    subtitle: 'Saree Pre-Pleating, Hair Styling & Nail Art',
+    src: '/assets/glamistry/about1.jpg',
+    badge: 'Service Tiers',
+    link: 'https://glamistrymakeover.netlify.app',
+  },
+  {
+    id: 'gait-lead',
+    category: 'leadership',
+    title: 'GAIT Committee President',
+    subtitle: 'Qutrix 2k25 Inter-Collegiate Symposium',
+    src: '/assets/gait-president.jpg',
+    badge: 'President',
+    link: 'https://www.linkedin.com/posts/gokula-kannan-m-_qutrix2k25-gait-leadership-ugcPost-7376264095420882945-7tUa/',
+  },
+  {
+    id: 'stack-1',
+    category: 'stackly',
+    title: 'Stackly Services & Property Listings',
+    subtitle: 'Real Estate Discovery & Filtering Portal',
+    src: '/assets/stackly/zooye-services-listings.png',
+    badge: 'Live Deployment',
+    link: 'https://zooye1.thestackly.in/',
+  },
+  {
+    id: 'stack-2',
+    category: 'stackly',
+    title: 'Property Details & Appointment Booking',
+    subtitle: 'Visit Scheduling & Specifications Funnel',
+    src: '/assets/stackly/zooye7-property-details.png',
+    badge: 'Cloud Instance 2',
+    link: 'https://zooye7.thestackly.cloud/',
+  },
+  {
+    id: 'stack-3',
+    category: 'stackly',
+    title: 'Featured Property Grid',
+    subtitle: 'Architectural Photography & Dynamic Masonry',
+    src: '/assets/stackly/zooye9-property-grid.png',
+    badge: 'Cloud Instance 3',
+    link: 'https://zooye9.thestackly.cloud/',
+  },
+  {
+    id: 'odoo-1',
+    category: 'odoo',
+    title: 'Odoo 18 ERP Admin Dashboard',
+    subtitle: 'Youth Engagement & Fund Management',
+    src: '/assets/odoo/Picture1.png',
+    badge: '50+ Users',
+  },
+  {
+    id: 'odoo-2',
+    category: 'odoo',
+    title: 'Role-Based Access & Security Ledger',
+    subtitle: 'Normalized Schemas & Approval Workflows',
+    src: '/assets/odoo/Picture2.png',
+    badge: 'RBAC',
+  },
+  {
+    id: 'odoo-3',
+    category: 'odoo',
+    title: 'Real-time Fund Tracking & Disbursements',
+    subtitle: 'Audited Financial Workflows & Allocations',
+    src: '/assets/odoo/Picture3.png',
+    badge: 'Enterprise',
+  },
+  {
+    id: 'odoo-4',
+    category: 'odoo',
+    title: 'Automated Synchronization Pipeline',
+    subtitle: 'Odoo PostgreSQL Backend Integration',
+    src: '/assets/odoo/Picture4.png',
+    badge: 'Data Sync',
+  },
+  {
+    id: 'pbi-1',
+    category: 'pbi',
+    title: 'NGO Fund Contribution Overview',
+    subtitle: 'Executive Summary & Financial Metrics',
+    src: '/assets/pbi/Screenshot 2026-04-06 142735.png',
+    badge: 'Power BI',
+  },
+  {
+    id: 'pbi-2',
+    category: 'pbi',
+    title: 'Donor Engagement Analytics Funnel',
+    subtitle: '+15% Donor Surge Campaign Analysis',
+    src: '/assets/pbi/Screenshot 2026-04-06 143035.png',
+    badge: '10 hrs/wk saved',
+  },
+  {
+    id: 'pbi-3',
+    category: 'pbi',
+    title: 'Regional Fund Allocation Breakdown',
+    subtitle: 'DAX Measures & Interactive Slicers',
+    src: '/assets/pbi/Screenshot 2026-04-06 143203.png',
+    badge: 'Analytics',
+  },
+  {
+    id: 'pbi-4',
+    category: 'pbi',
+    title: 'Multi-Year Trend Projections',
+    subtitle: 'Data Modeling & Forecast Dashboards',
+    src: '/assets/pbi/Screenshot 2026-04-06 143326.png',
+    badge: 'Reporting',
+  },
+  {
+    id: 'blood-1',
+    category: 'blood',
+    title: 'GASC Blood Donor Emergency Bridge',
+    subtitle: 'Collegiate Real-Time Matching Portal',
+    src: '/assets/blood/Picture1.png',
+    badge: 'Healthcare',
+  },
+  {
+    id: 'blood-2',
+    category: 'blood',
+    title: 'Cross-Blood-Type Compatibility Search',
+    subtitle: 'Sub-200ms SQL Emergency Matching',
+    src: '/assets/blood/Picture2.png',
+    badge: 'PHP / MySQL',
+  },
+  {
+    id: 'blood-3',
+    category: 'blood',
+    title: 'Verified Donor Management System',
+    subtitle: 'Bcrypt Credentials & Role Access',
+    src: '/assets/blood/Picture3.png',
+    badge: 'Security',
+  },
+];
 
 export type Episode = {
   code: string;
@@ -662,7 +835,7 @@ export const introSlides: IntroSlide[] = [
 ];
 
 export type ProfileId = 'gokul' | 'recruiter' | 'developer' | 'creative';
-export type SectionId = 'about' | 'journey' | 'originals' | 'picks' | 'skills' | 'moments' | 'story';
+export type SectionId = 'about' | 'journey' | 'originals' | 'gallery' | 'picks' | 'skills' | 'moments' | 'story';
 
 export const viewerProfiles: {
   id: ProfileId;
@@ -675,29 +848,29 @@ export const viewerProfiles: {
     id: 'gokul',
     name: 'Gokula Kannan',
     blurb: 'The full series, in order',
-    color: '#e5132b',
-    order: ['about', 'journey', 'originals', 'picks', 'skills', 'moments', 'story'],
+    color: '#e50914',
+    order: ['about', 'originals', 'gallery', 'journey', 'picks', 'skills', 'moments', 'story'],
   },
   {
     id: 'recruiter',
     name: 'Recruiter',
     blurb: 'Resume, achievements & skills first',
-    color: '#4cc9ff',
-    order: ['story', 'moments', 'skills', 'originals', 'about', 'journey', 'picks'],
+    color: '#38bdf8',
+    order: ['story', 'moments', 'skills', 'originals', 'gallery', 'about', 'journey', 'picks'],
   },
   {
     id: 'developer',
     name: 'Developer',
-    blurb: 'Originals, stack & GitHub first',
-    color: '#46e3a8',
-    order: ['originals', 'skills', 'journey', 'moments', 'about', 'picks', 'story'],
+    blurb: 'Originals, stack & gallery first',
+    color: '#34d399',
+    order: ['originals', 'gallery', 'skills', 'journey', 'moments', 'about', 'picks', 'story'],
   },
   {
     id: 'creative',
     name: 'Creative',
-    blurb: 'The story arc & highlights first',
-    color: '#ffb547',
-    order: ['journey', 'picks', 'originals', 'moments', 'about', 'skills', 'story'],
+    blurb: 'Visual gallery, story arc & highlights',
+    color: '#fbbf24',
+    order: ['gallery', 'originals', 'journey', 'picks', 'moments', 'about', 'skills', 'story'],
   },
 ];
 
@@ -705,8 +878,9 @@ export const sectionMeta: Record<SectionId, { nav: string; card: string; meta: s
   about: { nav: 'About', card: 'About Me', meta: 'The Pilot • Education & journey', palette: violet },
   journey: { nav: 'Journey', card: 'My Journey', meta: `${seasons.length} Seasons • ${seasons.reduce((n, s) => n + s.episodes.length, 0)} Episodes`, palette: amber },
   originals: { nav: 'Originals', card: 'My Projects', meta: `${projects.length} Originals • Live Deployments`, palette: crimson },
+  gallery: { nav: 'Gallery', card: 'Production Stills', meta: `${galleryItems.length} Behind-The-Scenes Captures`, palette: ocean },
   picks: { nav: 'Top Picks', card: 'Top Picks', meta: 'Top 10 from the resume', palette: jade },
   skills: { nav: 'Skills', card: 'My Skills', meta: `${skillCategories.length} Categories`, palette: ocean },
   moments: { nav: 'Moments', card: 'Achievements', meta: `${achievements.length} Moments • ${certifications.length} Certifications`, palette: crimson },
-  story: { nav: 'Resume', card: 'The Full Story', meta: 'Resume • View & download', palette: violet },
+  story: { nav: 'Resume', card: 'The Full Story', meta: 'ATS Resume • View & download', palette: violet },
 };

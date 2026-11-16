@@ -6,7 +6,7 @@ import { RailButtons } from './Rail';
 
 function Laurel({ side }: { side: 'l' | 'r' }) {
   return (
-    <svg viewBox="0 0 30 64" className={`h-14 w-auto text-[#d9b46a] ${side === 'r' ? '-scale-x-100' : ''}`} aria-hidden>
+    <svg viewBox="0 0 30 64" className={`h-12 w-auto text-[#d9b46a] ${side === 'r' ? '-scale-x-100' : ''}`} aria-hidden>
       <path d="M26 62C10 52 4 36 8 4" fill="none" stroke="currentColor" strokeWidth="1.4" />
       {[10, 18, 26, 34, 42, 50].map((y, i) => (
         <ellipse key={y} cx={i < 2 ? 9 : 8 + i * 1.6} cy={y} rx="5" ry="2.2" fill="currentColor" opacity="0.85" transform={`rotate(-40 ${8 + i * 1.6} ${y})`} />
@@ -21,7 +21,7 @@ export default function Achievements() {
 
   return (
     <>
-      <SectionHeading kicker="Awards season" title="Top Moments" />
+      <SectionHeading kicker="Awards & Leadership" title="Top Moments" />
 
       <div className="gutter grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 [perspective:1400px]">
         {achievements.map((a, i) => (
@@ -33,9 +33,22 @@ export default function Achievements() {
             transition={{ duration: 0.9, delay: i * 0.08, ease: EASE }}
           >
             <Tilt max={8} className="group h-full rounded-2xl">
-              <article className="relative flex h-full min-h-[340px] flex-col items-center overflow-hidden rounded-2xl bg-[radial-gradient(120%_80%_at_50%_0%,#2a1f10,#0d0b08_60%,#07070a)] px-5 pb-6 pt-8 text-center ring-1 ring-[#d9b46a]/20 transition duration-500 group-hover:ring-[#d9b46a]/60">
+              <article className="relative flex h-full min-h-[360px] flex-col items-center overflow-hidden rounded-2xl bg-[radial-gradient(120%_80%_at_50%_0%,#2a1f10,#0d0b08_60%,#07070a)] px-5 pb-6 pt-6 text-center ring-1 ring-[#d9b46a]/20 transition duration-500 group-hover:ring-[#d9b46a]/60">
+                <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
                 <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#d9b46a]/70 to-transparent" />
                 <div aria-hidden className="absolute -top-24 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full bg-[#d9b46a]/10 blur-3xl transition duration-700 group-hover:bg-[#d9b46a]/25" />
+
+                {/* If GAIT or leadership image is available */}
+                {a.image && (
+                  <div className="relative mb-3 h-28 w-full overflow-hidden rounded-lg border border-[#d9b46a]/30 shadow-md">
+                    <img src={a.image} alt={a.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+                    <span className="absolute bottom-1.5 left-2 rounded bg-black/60 px-1.5 py-0.5 text-[9px] font-bold text-[#d9b46a]">
+                      QUTRIX 2K25
+                    </span>
+                  </div>
+                )}
+
                 <div className="relative flex items-center gap-1">
                   <Laurel side="l" />
                   <div className="px-1">
@@ -43,18 +56,20 @@ export default function Achievements() {
                   </div>
                   <Laurel side="r" />
                 </div>
-                <h3 className="relative mt-6 font-display text-[2.1rem] leading-[0.92] tracking-wide text-bone">{a.title}</h3>
-                <p className="relative mt-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#d9b46a]">{a.org}</p>
-                <p className="relative mt-4 text-[13px] leading-relaxed text-bone/70">{a.detail}</p>
+
+                <h3 className="relative mt-4 font-display text-[1.9rem] leading-[0.92] tracking-wide text-bone">{a.title}</h3>
+                <p className="relative mt-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-[#d9b46a]">{a.org}</p>
+                <p className="relative mt-3 text-[13px] leading-relaxed text-bone/70">{a.detail}</p>
+
                 {a.link && (
                   <a
                     href={a.link}
                     target="_blank"
                     rel="noreferrer"
                     data-cursor="link"
-                    className="relative mt-auto inline-flex min-h-10 items-center gap-1 pt-5 text-xs font-semibold tracking-wide text-bone underline decoration-[#d9b46a]/60 underline-offset-4 hover:decoration-[#d9b46a]"
+                    className="relative mt-auto inline-flex min-h-10 items-center gap-1.5 pt-4 text-xs font-semibold tracking-wide text-[#fbbf24] underline decoration-[#d9b46a]/60 underline-offset-4 hover:decoration-[#d9b46a]"
                   >
-                    View certificate ↗
+                    View on LinkedIn ↗
                   </a>
                 )}
               </article>

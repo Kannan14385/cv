@@ -1,15 +1,17 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-ink: #07070a;
-  --color-ink-2: #0e0e13;
-  --color-ink-3: #16161d;
-  --color-crimson: #e5132b;
-  --color-crimson-2: #ff3d5a;
-  --color-bone: #f4f1ec;
+  --color-ink: #060709;
+  --color-ink-2: #0d0f14;
+  --color-ink-3: #141720;
+  --color-crimson: #e50914;
+  --color-crimson-2: #ff2a4b;
+  --color-cyber-cyan: #00e5ff;
+  --color-gold: #fbbf24;
+  --color-bone: #f8f6f0;
   --color-mist: #a7a6ad;
   --color-smoke: #6d6c75;
-  --font-display: 'Bebas Neue', 'Oswald', Impact, sans-serif;
+  --font-display: 'Bebas Neue', 'Oswald', -apple-system, sans-serif;
   --font-serif: 'Instrument Serif', Georgia, serif;
   --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
   --ease-cine: cubic-bezier(0.22, 1, 0.36, 1);

@@ -22,24 +22,27 @@ export default function About() {
           transition={{ duration: 1.2, ease: EASE }}
         >
           <Tilt max={5} className="rounded-2xl">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl ring-1 ring-white/10">
-              <div className="absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_30%,#5a0b1b,#14060a_60%,#07070a)]" />
-              <div className="absolute inset-0 opacity-50 [background-image:repeating-linear-gradient(90deg,rgba(255,255,255,0.03)_0px,rgba(255,255,255,0.03)_1px,transparent_1px,transparent_28px)]" />
+            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl ring-1 ring-white/15 shadow-2xl">
+              <div className="absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_30%,#6b0d1e,#15060b_60%,#07070a)]" />
+              <div className="absolute inset-0 opacity-40 [background-image:repeating-linear-gradient(90deg,rgba(255,255,255,0.03)_0px,rgba(255,255,255,0.03)_1px,transparent_1px,transparent_28px)]" />
+
+              {/* Using Gokul's actual specified About photo */}
               <img
-                src={profile.portrait.src}
-                srcSet={profile.portrait.srcSet}
-                sizes="(max-width: 1024px) 90vw, 40vw"
-                alt={profile.portrait.alt}
+                src={profile.aboutPortrait || '/assets/about-gokul.webp'}
+                alt={profile.displayName}
                 loading="lazy"
-                className="absolute bottom-0 left-1/2 h-[92%] w-auto max-w-none -translate-x-1/2 object-contain object-bottom"
+                className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 ease-[var(--ease-cine)] hover:scale-105"
               />
-              <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/90 to-transparent" />
+
+              <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black via-black/70 to-transparent" />
               <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
                 <div>
                   <p className="text-[10px] font-bold tracking-[0.3em] text-crimson-2">STARRING</p>
                   <p className="font-display text-3xl leading-none text-bone">{profile.displayName}</p>
                 </div>
-                <span className="rounded border border-white/30 px-1.5 text-[10px] font-bold text-bone">S01–S05</span>
+                <span className="rounded border border-white/30 bg-black/50 px-2 py-0.5 text-[10px] font-bold text-bone backdrop-blur">
+                  S01–S05
+                </span>
               </div>
             </div>
           </Tilt>
@@ -47,7 +50,7 @@ export default function About() {
 
         <div>
           <motion.p
-            className="font-serif text-[clamp(1.6rem,3.2vw,2.6rem)] italic leading-[1.15] text-bone"
+            className="font-serif text-[clamp(1.5rem,3vw,2.4rem)] italic leading-[1.2] text-bone"
             initial={{ opacity: 0, y: 24, filter: 'blur(8px)' }}
             whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             viewport={{ once: true }}
@@ -81,7 +84,7 @@ export default function About() {
             <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.28em] text-smoke">Interests & Specializations</p>
             <div className="flex flex-wrap gap-2">
               {profile.interests.map((i) => (
-                <span key={i} className="glass rounded-full px-3 py-1.5 text-xs font-medium text-bone">
+                <span key={i} className="glass rounded-full px-3.5 py-1.5 text-xs font-medium text-bone">
                   {i}
                 </span>
               ))}
