@@ -204,7 +204,7 @@ export function ResumeSheet() {
           <a href={`mailto:${profile.email}`} className="block hover:text-bone">
             {profile.email}
           </a>
-          <span className="block text-smoke">+91 76049 84501 · Tiruppur / Coimbatore, TN</span>
+          <span className="block text-smoke">{profile.phone} · {profile.location}</span>
           <div className="mt-1 flex flex-wrap gap-2 sm:justify-end">
             <a href={profile.links.linkedin} target="_blank" rel="noreferrer" className="text-bone/90 hover:text-crimson-2">
               LinkedIn ↗
@@ -328,9 +328,9 @@ export function AtsSheet() {
         <p className="mt-2 text-xs text-slate-600 flex flex-wrap justify-center gap-x-3 gap-y-1">
           <span>{profile.email}</span>
           <span>•</span>
-          <span>+91 76049 84501</span>
+          <span>{profile.phone}</span>
           <span>•</span>
-          <span>Tiruppur / Coimbatore, TN</span>
+          <span>{profile.location}</span>
           <span>•</span>
           <span>LinkedIn: in/gokula-kannan-m</span>
           <span>•</span>

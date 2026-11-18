@@ -322,7 +322,7 @@ const slide2Html = `<!DOCTYPE html>
           <div class="stat-lbl">To Opportunities</div>
         </div>
       </div>
-      <div style="font-size: 13px; color: #6b7280;">Dindigul, Tamil Nadu, India • gokulkannan200427@gmail.com</div>
+      <div style="font-size: 13px; color: #6b7280;">Gobichettipalayam, Erode, Tamil Nadu • gokulakannan.0.official@gmail.com • +91 9688657903</div>
     </div>
 
     <div class="timeline-col">
@@ -697,7 +697,7 @@ const slide5Html = `<!DOCTYPE html>
             <div style="font-size: 16px; font-weight: 800; color: #111;">GOKULA KANNAN M</div>
             <div style="font-size: 10px; color: #E50914; font-weight: bold;">SOFTWARE DEVELOPER • TECH LEAD</div>
           </div>
-          <div style="font-size: 9px; color: #666; text-align: right;">gokulkannan200427@gmail.com<br>Dindigul, Tamil Nadu</div>
+          <div style="font-size: 9px; color: #666; text-align: right;">gokulakannan.0.official@gmail.com<br>Gobichettipalayam, Erode • +91 9688657903</div>
         </div>
         <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 14px;">
           <div>
@@ -731,7 +731,7 @@ const slide5Html = `<!DOCTYPE html>
 
       <div class="doc-mockup doc-ats">
         <div class="mock-title">GOKULA KANNAN M</div>
-        <div class="mock-sub">Dindigul, Tamil Nadu • gokulkannan200427@gmail.com • +91 87786 86398</div>
+        <div class="mock-sub">Gobichettipalayam, Erode • gokulakannan.0.official@gmail.com • +91 9688657903</div>
         <div style="font-size: 11px; font-weight: bold; border-bottom: 1px solid #000; margin: 8px 0 4px 0;">PROFESSIONAL SUMMARY</div>
         <div class="mock-item">Software Developer with deep expertise in Python, Odoo 18 ERP, React, and Full-Stack web engineering.</div>
         <div style="font-size: 11px; font-weight: bold; border-bottom: 1px solid #000; margin: 8px 0 4px 0;">EXPERIENCE</div>
@@ -767,21 +767,21 @@ const slide6Html = `<!DOCTYPE html>
   .ch-title { font-size: 58px; font-weight: 900; letter-spacing: -1px; }
 
   .center-box {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1500px; margin: 0 auto; width: 100%;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 1600px; margin: 0 auto; width: 100%;
   }
   .c-card {
     background: #111118; border: 1px solid rgba(255,255,255,0.08); border-radius: 20px;
-    padding: 36px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 30px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;
     box-shadow: 0 15px 40px rgba(0,0,0,0.5);
   }
   .c-card:hover { border-color: #E50914; }
   .c-icon {
-    width: 70px; height: 70px; border-radius: 50%; background: rgba(229,9,20,0.15);
+    width: 64px; height: 64px; border-radius: 50%; background: rgba(229,9,20,0.15);
     border: 1px solid rgba(229,9,20,0.4); display: flex; align-items: center; justify-content: center;
-    font-size: 32px; color: #ff525a; margin-bottom: 20px;
+    font-size: 28px; color: #ff525a; margin-bottom: 16px;
   }
-  .c-name { font-size: 22px; font-weight: 800; margin-bottom: 8px; color: #fff; }
-  .c-val { font-size: 16px; color: #9ca3af; font-family: monospace; }
+  .c-name { font-size: 19px; font-weight: 800; margin-bottom: 8px; color: #fff; }
+  .c-val { font-size: 14px; color: #9ca3af; font-family: monospace; word-break: break-all; }
 
   .stream-cta {
     background: #161217; border: 1px solid rgba(229,9,20,0.4); border-radius: 20px;
@@ -807,13 +807,19 @@ const slide6Html = `<!DOCTYPE html>
     <div class="c-card">
       <div class="c-icon">📩</div>
       <div class="c-name">Direct Inbox (Formspree)</div>
-      <div class="c-val">gokulkannan200427@gmail.com</div>
+      <div class="c-val">gokulakannan.0.official@gmail.com</div>
+    </div>
+
+    <div class="c-card">
+      <div class="c-icon">📞</div>
+      <div class="c-name">Direct Phone / Call</div>
+      <div class="c-val">+91 9688657903</div>
     </div>
 
     <div class="c-card">
       <div class="c-icon">💼</div>
       <div class="c-name">LinkedIn Profile</div>
-      <div class="c-val">linkedin.com/in/gokulakannan-m</div>
+      <div class="c-val">in/gokula-kannan-m-/</div>
     </div>
 
     <div class="c-card">
