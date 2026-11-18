@@ -307,11 +307,11 @@ const slide2Html = `<!DOCTYPE html>
       <div class="quick-stats">
         <div class="stat-box">
           <div class="stat-val">Nov 2026</div>
-          <div class="stat-lbl">Relieved Stackly</div>
+          <div class="stat-lbl">Relieved Zooye</div>
         </div>
         <div class="stat-box">
-          <div class="stat-val">79% (B.Sc)</div>
-          <div class="stat-lbl">G.T.N. College</div>
+          <div class="stat-val">MCA + B.Sc</div>
+          <div class="stat-lbl">Gobi Arts College</div>
         </div>
         <div class="stat-box">
           <div class="stat-val">5+ Shipped</div>
@@ -330,12 +330,12 @@ const slide2Html = `<!DOCTYPE html>
         <div class="icon-lead">💼</div>
         <div style="flex: 1;">
           <div class="c-meta">
-            <div class="c-title">Software Developer & Tech Lead</div>
-            <div class="c-date">Jul 2024 – Nov 2026</div>
+            <div class="c-title">WordPress & Full-Stack Developer</div>
+            <div class="c-date">Apr 2026 – Nov 2026</div>
           </div>
-          <div class="c-sub">Stackly Innovations • Dindigul</div>
+          <div class="c-sub">Zooye Info Technologies • Chennai / Remote</div>
           <div class="c-desc">
-            Led architecture and execution of multi-tenant enterprise portals, client-facing services, and internal management tools. Handled end-to-end frontend optimization, database schema modeling, and production cloud deployments.
+            Architected, developed, and maintained dynamic enterprise WordPress websites and real-estate portal deployments (Stackly). Led code reviews and mentored 3 junior developer colleagues.
           </div>
         </div>
       </div>
@@ -346,12 +346,12 @@ const slide2Html = `<!DOCTYPE html>
         </div>
         <div style="flex: 1;">
           <div class="c-meta">
-            <div class="c-title">President — GAIT Association</div>
-            <div class="c-date">2023 – 2024</div>
+            <div class="c-title">President — GAIT Committee</div>
+            <div class="c-date">2024 – 2026</div>
           </div>
-          <div class="c-sub">Graduate Association of Information Technology (G.T.N. Arts College)</div>
+          <div class="c-sub">Graduate Association of Information Technology (GASC, Bharathiar University)</div>
           <div class="c-desc">
-            Elected President representing the Department of Information Technology. Organized state-level symposiums, technical coding contests, and mentored junior developers across campus.
+            Elected President representing the Department of IT. Spearheaded Qutrix 2k25 Inter-Collegiate Symposium, coding contests, and hackathons for 500+ student participants.
           </div>
         </div>
       </div>
@@ -360,12 +360,12 @@ const slide2Html = `<!DOCTYPE html>
         <div class="icon-lead">🎓</div>
         <div style="flex: 1;">
           <div class="c-meta">
-            <div class="c-title">B.Sc. in Information Technology</div>
-            <div class="c-date">2021 – 2024</div>
+            <div class="c-title">MCA &amp; B.Sc. in Computer Science</div>
+            <div class="c-date">2021 – 2026</div>
           </div>
-          <div class="c-sub">G.T.N. Arts College (Autonomous), Dindigul</div>
+          <div class="c-sub">Gobi Arts &amp; Science College, Bharathiar University</div>
           <div class="c-desc">
-            Graduated with 79% First Class Distinction. Core focus on Object-Oriented Programming, Data Structures, Relational Database Management Systems, and Software Engineering methodologies.
+            Graduated First Class in Master of Computer Applications (CGPA 7.7/10) and B.Sc Computer Science (75%). Specialized in Python, Software Architecture, and RDBMS.
           </div>
         </div>
       </div>
@@ -702,14 +702,15 @@ const slide5Html = `<!DOCTYPE html>
         <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 14px;">
           <div>
             <div class="mock-sec">Experience / Production</div>
-            <div class="mock-item"><strong>Software Developer & Tech Lead</strong> — Stackly Innovations (Jul 2024 – Nov 2026)<br>Delivered scalable web portals & client logistics.</div>
+            <div class="mock-item"><strong>WordPress Developer</strong> — Zooye Info Technologies (Apr 2026 – Nov 2026)<br>Delivered enterprise WordPress portals &amp; Stackly property platforms.</div>
+            <div class="mock-item"><strong>Full Stack Python (Intern)</strong> — Coactions Info Tech (Nov 2025 – Apr 2026)<br>Python &amp; Odoo 18 ERP youth &amp; fund management system.</div>
             <div class="mock-sec">Core Flagships</div>
             <div class="mock-item"><strong>Glamistry Makeover:</strong> Live bridal artistry studio on Netlify.</div>
-            <div class="mock-item"><strong>Odoo 18 ERP:</strong> Inventory, invoices, CRM custom workflows.</div>
+            <div class="mock-item"><strong>Power BI Analytics:</strong> 5+ executive dashboards &amp; reporting suites.</div>
           </div>
           <div style="background: #f0f0f4; padding: 8px; border-radius: 4px;">
             <div style="font-size: 10px; font-weight: bold; color: #333; margin-bottom: 4px;">KEY SKILLS</div>
-            <div style="font-size: 9px; color: #555; line-height: 1.5;">Python • Odoo 18<br>React • TypeScript<br>Tailwind • Power BI<br>PostgreSQL • Git</div>
+            <div style="font-size: 9px; color: #555; line-height: 1.5;">WordPress • Elementor<br>Python • Odoo 18<br>React • Tailwind<br>Power BI • PostgreSQL</div>
           </div>
         </div>
       </div>
@@ -733,11 +734,11 @@ const slide5Html = `<!DOCTYPE html>
         <div class="mock-title">GOKULA KANNAN M</div>
         <div class="mock-sub">Gobichettipalayam, Erode • gokulakannan.0.official@gmail.com • +91 9688657903</div>
         <div style="font-size: 11px; font-weight: bold; border-bottom: 1px solid #000; margin: 8px 0 4px 0;">PROFESSIONAL SUMMARY</div>
-        <div class="mock-item">Software Developer with deep expertise in Python, Odoo 18 ERP, React, and Full-Stack web engineering.</div>
+        <div class="mock-item">Full Stack &amp; WordPress Developer with MCA and hands-on expertise in Python, Odoo 18 ERP, and Power BI analytics.</div>
         <div style="font-size: 11px; font-weight: bold; border-bottom: 1px solid #000; margin: 8px 0 4px 0;">EXPERIENCE</div>
-        <div class="mock-item"><strong>Junior Developer & Tech Lead</strong> — Stackly Innovations (Jul 2024 – Nov 2026)<br>Developed scalable client web applications, database pipelines, and production services.</div>
+        <div class="mock-item"><strong>WordPress Developer</strong> — Zooye Info Technologies (Apr 2026 – Nov 2026)<br>Architected enterprise WordPress websites, Stackly portal deployments, and mentored 3 colleagues.</div>
         <div style="font-size: 11px; font-weight: bold; border-bottom: 1px solid #000; margin: 8px 0 4px 0;">EDUCATION</div>
-        <div class="mock-item"><strong>B.Sc. Information Technology (79%)</strong> — G.T.N. Arts College (2021 – 2024)</div>
+        <div class="mock-item"><strong>MCA &amp; B.Sc Computer Science</strong> — Gobi Arts &amp; Science College (2021 – 2026)</div>
       </div>
 
       <div class="action-row">

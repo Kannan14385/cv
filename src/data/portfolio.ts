@@ -46,14 +46,14 @@ export const education = [
     place: 'Gobichettipalayam, Tamil Nadu',
     degree: 'Master of Computer Applications (MCA)',
     period: '2024 – 2026',
-    score: 'MCA Graduate',
+    score: 'CGPA: 7.7 / 10 (First Class)',
   },
   {
     school: 'Gobi Arts & Science College, Bharathiar University',
     place: 'Gobichettipalayam, Tamil Nadu',
     degree: 'Bachelor of Science in Computer Science (B.Sc CS)',
     period: '2021 – 2024',
-    score: 'B.Sc CS Graduate',
+    score: 'Score: 75% (First Class)',
   },
 ];
 

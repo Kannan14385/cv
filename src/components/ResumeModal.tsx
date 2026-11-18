@@ -11,6 +11,8 @@ export default function ResumeModal({ onClose }: { onClose: () => void }) {
   useScrollLock(true);
   const small = useMedia('(max-width: 767px)');
   const [format, setFormat] = useState<'epdf' | 'normal'>('epdf');
+  const [viewMode, setViewMode] = useState<'sheet' | 'pdf'>('sheet');
+  const [cacheKey] = useState(() => Date.now());
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
@@ -43,7 +45,7 @@ export default function ResumeModal({ onClose }: { onClose: () => void }) {
     >
       {/* Top action header */}
       <div className="gutter flex min-h-16 shrink-0 flex-wrap items-center justify-between gap-3 py-3 border-b border-white/10 pt-[max(0.75rem,env(safe-area-inset-top))]">
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3">
           <p className="font-display text-2xl tracking-wide text-bone">The Full Story</p>
 
           {/* 2 Format Section Switcher */}
@@ -65,6 +67,28 @@ export default function ResumeModal({ onClose }: { onClose: () => void }) {
               }`}
             >
               📄 Normal / Print-Ready
+            </button>
+          </div>
+
+          {/* View Mode Toggle (Interactive Sheet vs Compiled PDF) */}
+          <div className="hidden sm:flex rounded-lg bg-white/5 border border-white/10 p-0.5 text-[11px] font-semibold">
+            <button
+              type="button"
+              onClick={() => setViewMode('sheet')}
+              className={`rounded px-2.5 py-1 transition ${
+                viewMode === 'sheet' ? 'bg-white/20 text-white' : 'text-mist hover:text-white'
+              }`}
+            >
+              🖥️ Interactive View
+            </button>
+            <button
+              type="button"
+              onClick={() => setViewMode('pdf')}
+              className={`rounded px-2.5 py-1 transition ${
+                viewMode === 'pdf' ? 'bg-white/20 text-white' : 'text-mist hover:text-white'
+              }`}
+            >
+              📑 PDF Embed
             </button>
           </div>
         </div>
@@ -109,8 +133,8 @@ export default function ResumeModal({ onClose }: { onClose: () => void }) {
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.5, ease: EASE }}
       >
-        {small ? (
-          <div data-lenis-prevent className="h-full overflow-y-auto space-y-4 pr-1">
+        {small || viewMode === 'sheet' ? (
+          <div data-lenis-prevent className="h-full overflow-y-auto space-y-4 pr-1 max-w-4xl mx-auto">
             <AnimatePresence mode="wait">
               {format === 'epdf' ? (
                 <motion.div key="epdf" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
@@ -122,14 +146,14 @@ export default function ResumeModal({ onClose }: { onClose: () => void }) {
                 </motion.div>
               )}
             </AnimatePresence>
-            <div className="flex gap-2">
+            <div className="flex gap-2 pt-2">
               <a
                 href={activePdf}
                 target="_blank"
                 rel="noreferrer"
                 className="glass flex-1 flex min-h-11 items-center justify-center rounded-lg text-xs font-semibold text-bone"
               >
-                Open {format === 'epdf' ? 'e-PDF' : 'Normal'} in Browser ↗
+                Open {format === 'epdf' ? 'e-PDF' : 'Normal'} in New Tab ↗
               </a>
               <button
                 type="button"
@@ -142,9 +166,9 @@ export default function ResumeModal({ onClose }: { onClose: () => void }) {
           </div>
         ) : (
           <iframe
-            key={format}
+            key={`${format}-${cacheKey}`}
             title={`Gokula Kannan Resume - ${format === 'epdf' ? 'Digital e-Resume' : 'Print-Ready ATS'}`}
-            src={`${activePdf}#view=FitH`}
+            src={`${activePdf}?v=${cacheKey}#view=FitH`}
             className="h-full w-full rounded-xl bg-white shadow-2xl border border-white/10"
           />
         )}
