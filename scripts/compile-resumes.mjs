@@ -17,10 +17,14 @@ const targets = [
   }
 ];
 
+const userDataDir = path.join(scratchDir, 'scripts/.edge_profile');
+fs.mkdirSync(userDataDir, { recursive: true });
+
 for (const t of targets) {
   const scratchPdf = path.join(scratchDir, 'public/assets', t.outName);
+  const fileUrl = `file:///${t.src.replace(/\\/g, '/')}`;
   console.log(`Compiling ${t.src} -> ${scratchPdf}...`);
-  const cmd = `"${edgePath}" --headless --disable-gpu --no-pdf-header-footer --print-to-pdf="${scratchPdf}" "${t.src}"`;
+  const cmd = `"${edgePath}" --headless=new --user-data-dir="${userDataDir}" --disable-gpu --no-sandbox --no-pdf-header-footer --print-to-pdf="${scratchPdf}" "${fileUrl}"`;
   execSync(cmd, { stdio: 'inherit' });
 
   // Sync to desktop
