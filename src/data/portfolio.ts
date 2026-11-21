@@ -116,6 +116,50 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: 'gk-services-car-center',
+    title: 'GK Services – Futuristic Car Service Center',
+    year: '2026',
+    genre: 'Autonomous Engineering • React 19 • 3D WebGL & LiDAR',
+    logline:
+      'A next-generation hypercar service facility platform featuring real-time 3D Three.js WebGL inspection, sub-micron LiDAR telemetry, custom aerodynamic paint studio, and cleanroom bay diagnostics.',
+    stack: ['React 19', 'Three.js / WebGL', 'Draco 3D Compression', 'TypeScript', 'Tailwind CSS', 'Vite', 'Lucide React'],
+    build: [
+      'Architected a 100% native React 19 + Three.js WebGL 3D sports car visualizer and multi-elevation diagnostic studio with zero external iframe dependencies.',
+      'Implemented Draco-compressed 3D GLTF asset streaming, real-time metallic/matte/pearl shaders, dynamic carbon aerodynamic packages, and synthesized Web Audio turbo telemetry.',
+      'Engineered sub-micron LiDAR hotspot projection mapping 3D chassis coordinates to interactive Before & After service enhancement telemetry modals.',
+      'Designed an opposite & compatible light/dark theme system, 360° orbital drag scrubbing, aerial/under-chassis views, and an instant service cost calculator.',
+    ],
+    features: [
+      'Interactive 3D WebGL sports car inspection canvas with real-time orbit, zoom, pan, and auto-rotation',
+      'Real-time physical paint studio (Rosso Crimson, Bronze Warm, Stealth Onyx, Midnight Navy, Cyber Cyan)',
+      'Aero & Wheels Lab: GT Carbon Wing, Ducktail Lip, Active Vanes, and forged racing rims',
+      'LiDAR 48-point robotic scan nodes with interactive Before & After comparative split-screen modals',
+      'Multi-elevation studio: 360° horizontal turntable, top-down aerial canopy, and under-chassis venturi views',
+      'Hermetic robotics cleanroom bay telemetry monitoring and transparent live cost estimator',
+    ],
+    metrics: [
+      { value: '60 FPS', label: 'WebGL render loop' },
+      { value: '100%', label: 'pure React base' },
+      { value: '48-Point', label: 'robotic LiDAR scan' },
+      { value: '±0.005mm', label: 'laser calibration' },
+    ],
+    github: 'https://github.com/Kannan14385/GK-Services---Futuristic-Car-Service-Center',
+    live: 'https://gk-services-car-center.netlify.app',
+    liveLinks: [
+      { label: 'Live 3D Studio', url: 'https://gk-services-car-center.netlify.app' },
+      { label: 'GitHub Repository', url: 'https://github.com/Kannan14385/GK-Services---Futuristic-Car-Service-Center' },
+    ],
+    screenshots: [
+      '/assets/gk-services/gk-services-hero.png',
+      '/assets/gk-services/gk-services-3d-studio.png',
+      '/assets/gk-services/gk-services-multi-elevation.png',
+      '/assets/gk-services/gk-services-diagnostics.png',
+      '/assets/gk-services/gk-services-pricing.png',
+    ],
+    palette: { from: '#171719', via: '#d75151', to: '#0a0a0c', accent: '#ff4d4d' },
+    motif: 'hypercar',
+  },
+  {
     id: 'glamistry-makeover',
     title: 'Glamistry Makeover',
     year: '2026',
@@ -424,21 +468,23 @@ export const skillCategories: SkillCategory[] = [
 ];
 
 export const skillEvidence: Record<string, string[]> = {
+  React: ['GK Services 3D Center (React 19)', 'HackerRank Frontend Developer (React) Certified'],
+  'Three.js / WebGL': ['GK Services 3D Center (60 FPS WebGL Canvas)'],
+  TypeScript: ['GK Services 3D Center', 'Streaming Portfolio Series'],
   WordPress: ['Zooye Info Technologies (Developer)', 'Stackly Real Estate Portal', 'Glamistry Makeover'],
   PHP: ['GASC Blood Donor Bridge', 'Stackly Real Estate Portal'],
   Python: ['Coactions Info Tech (Full Stack Intern)', 'ERP Youth & Fund Management', 'Infosys Certified'],
   'Odoo ERP': ['ERP Youth Engagement & Fund Management (50+ Users)'],
   PostgreSQL: ['ERP Youth Engagement & Fund Management', 'Coactions Info Tech'],
   'Power BI': ['NGO Fund Tracking & Dashboards', 'Skill Nation AI Dashboard', 'Tata Data Visualisation'],
-  React: ['HackerRank Frontend Developer (React) Certified'],
   SQL: ['HackerRank SQL Advanced Certified', 'GASC Blood Donor Bridge'],
-  'Responsive Design': ['Glamistry Makeover', 'Stackly Real Estate Portal'],
+  'Responsive Design': ['GK Services 3D Center', 'Glamistry Makeover', 'Stackly Real Estate Portal'],
   'Team Mentorship': ['Mentored 3 developers at Zooye', 'Led 4-person analytics team at Coactions'],
   Leadership: ['GAIT Committee President (2024–2026)', 'Student Coach – Boxing Team'],
-  Netlify: ['Glamistry Makeover (Production Edge Deployment)'],
+  Netlify: ['GK Services (Production Live)', 'Glamistry Makeover (Production Edge Deployment)'],
 };
 
-export type GalleryCategory = 'all' | 'glamistry' | 'stackly' | 'odoo' | 'pbi' | 'blood' | 'leadership';
+export type GalleryCategory = 'all' | 'gk-services' | 'glamistry' | 'stackly' | 'odoo' | 'pbi' | 'blood' | 'leadership';
 
 export type GalleryItem = {
   id: string;
@@ -451,6 +497,42 @@ export type GalleryItem = {
 };
 
 export const galleryItems: GalleryItem[] = [
+  {
+    id: 'gk-1',
+    category: 'gk-services',
+    title: 'GK Services 3D Inspection Studio',
+    subtitle: 'Real-Time Three.js WebGL Interactive Sports Car Canvas',
+    src: '/assets/gk-services/gk-services-3d-studio.png',
+    badge: 'Live 3D WebGL',
+    link: 'https://gk-services-car-center.netlify.app/',
+  },
+  {
+    id: 'gk-2',
+    category: 'gk-services',
+    title: 'Multi-Elevation Turntable & Canopy Diagnostics',
+    subtitle: '360° Horizontal Orbit, Top-Down Aerial & Venturi Views',
+    src: '/assets/gk-services/gk-services-multi-elevation.png',
+    badge: 'Multi-Elevation',
+    link: 'https://gk-services-car-center.netlify.app/#studio',
+  },
+  {
+    id: 'gk-3',
+    category: 'gk-services',
+    title: 'Robotics Cleanroom & LiDAR Diagnostics',
+    subtitle: '48-Point Laser Calibration & Before/After Telemetry',
+    src: '/assets/gk-services/gk-services-diagnostics.png',
+    badge: 'Robotics Bay',
+    link: 'https://gk-services-car-center.netlify.app/#services',
+  },
+  {
+    id: 'gk-4',
+    category: 'gk-services',
+    title: 'Precision Calibration & Cost Calculator',
+    subtitle: 'Dynamic Pricing Engine & Instant Service Booking',
+    src: '/assets/gk-services/gk-services-pricing.png',
+    badge: 'Cost Engine',
+    link: 'https://gk-services-car-center.netlify.app/#pricing',
+  },
   {
     id: 'glam-1',
     category: 'glamistry',
@@ -767,18 +849,26 @@ export const seasons: Season[] = [
     number: 5,
     title: 'The Premier Launch',
     period: '2026 – Present',
-    synopsis: 'Launching Glamistry Makeover on Netlify edge CDN and streaming modern, high-speed digital experiences.',
+    synopsis: 'Launching GK Services 3D platform and Glamistry Makeover on Netlify edge CDN, streaming modern high-speed digital experiences.',
     episodes: [
       {
         code: 'S05 E01',
-        title: 'Glamistry Makeover',
-        description: 'Luxury bridal makeover and hair styling platform deployed on Netlify edge CDN with sub-second page loads and online booking.',
-        tags: ['Netlify CDN', 'Luxury UI', 'Live Demo'],
+        title: 'GK Services – 3D Car Center',
+        description: 'Next-generation 3D Three.js WebGL sports car inspection canvas, interactive paint/aero customizer, and cleanroom telemetry.',
+        tags: ['React 19', 'Three.js', 'WebGL', 'Netlify Live'],
         runtime: 'Now Live',
         palette: crimson,
       },
       {
         code: 'S05 E02',
+        title: 'Glamistry Makeover',
+        description: 'Luxury bridal makeover and hair styling platform deployed on Netlify edge CDN with sub-second page loads and online booking.',
+        tags: ['Netlify CDN', 'Luxury UI', 'Live Demo'],
+        runtime: 'Now Live',
+        palette: amber,
+      },
+      {
+        code: 'S05 E03',
         title: 'The Streaming Series',
         description: 'Modernizing personal digital presence from traditional WordPress into a cinematic React & Vite streaming portfolio.',
         tags: ['React 18', 'TypeScript', 'Tailwind', 'Framer Motion'],
@@ -792,6 +882,7 @@ export const seasons: Season[] = [
 export type TopPick = { label: string; title: string; detail: string; palette: Palette };
 
 export const topPicks: TopPick[] = [
+  { label: '3D WebGL Platform', title: 'GK Services Car Center', detail: 'Real-Time 3D WebGL Inspection • Netlify Live', palette: crimson },
   { label: 'Latest Original', title: 'Glamistry Makeover', detail: 'Luxury Bridal Studio Platform • Netlify Edge CDN', palette: amber },
   { label: 'Cloud Deployments', title: 'Stackly Portals', detail: '3 Live Real Estate Environments • Zooye', palette: ocean },
   { label: 'Enterprise ERP', title: 'Odoo & Python', detail: '50+ Users • 30% Efficiency Boost', palette: violet },
@@ -807,6 +898,12 @@ export const topPicks: TopPick[] = [
 export type IntroSlide = { kicker: string; title: string; lines: string[]; chips?: string[] };
 
 export const introSlides: IntroSlide[] = [
+  {
+    kicker: '3D WebGL Flagship',
+    title: 'GK Services 3D Center',
+    lines: ['Futuristic Car Service Center & Real-Time Three.js WebGL', 'Customizer Studio, LiDAR Telemetry, Cleanroom Diagnostics'],
+    chips: ['React 19', 'Three.js / WebGL', 'TypeScript', 'Netlify Live'],
+  },
   {
     kicker: 'Education',
     title: 'MCA Graduate',

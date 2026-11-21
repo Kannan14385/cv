@@ -5,6 +5,7 @@ import { EASE, SectionHeading } from './fx';
 
 const CATEGORIES: { id: GalleryCategory; label: string }[] = [
   { id: 'all', label: 'All Stills' },
+  { id: 'gk-services', label: 'GK Services 3D' },
   { id: 'glamistry', label: 'Glamistry Makeover' },
   { id: 'stackly', label: 'Stackly Real Estate' },
   { id: 'odoo', label: 'Odoo ERP' },

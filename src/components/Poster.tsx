@@ -41,6 +41,32 @@ export function ProjectArt({ project, className = '' }: { project: Project; clas
         </defs>
         <circle cx="290" cy="120" r="130" fill={`url(#g-${project.id})`} />
 
+        {/* GK Services – Futuristic Car Service Center motif: Aerodynamic Hypercar & Radar LiDAR */}
+        {project.motif === 'hypercar' && (
+          <g fill="none" stroke={a}>
+            {/* Aerodynamic Hypercar Silhouette */}
+            <path
+              d="M170,140 C190,130 220,105 260,98 C290,92 315,102 335,118 L365,128 C375,132 380,138 380,144 L375,152 C370,154 360,154 350,154 C345,142 332,134 318,134 C304,134 292,142 288,154 L225,154 C220,142 208,134 194,134 C180,134 168,142 164,154 L150,154 C145,154 140,150 142,145 L150,140 Z"
+              strokeWidth="2.4"
+              strokeOpacity="0.95"
+              fill={a}
+              fillOpacity="0.15"
+            />
+            {/* GT Carbon Wing */}
+            <path d="M142,130 L165,125 L160,135 Z" fill={a} fillOpacity="0.8" />
+            <line x1="150" y1="130" x2="152" y2="140" strokeWidth="2" strokeOpacity="0.8" />
+            {/* Wheels */}
+            <circle cx="194" cy="154" r="14" strokeWidth="2.5" strokeOpacity="0.9" />
+            <circle cx="194" cy="154" r="6" fill={a} fillOpacity="0.6" />
+            <circle cx="318" cy="154" r="14" strokeWidth="2.5" strokeOpacity="0.9" />
+            <circle cx="318" cy="154" r="6" fill={a} fillOpacity="0.6" />
+            {/* Radar / LiDAR scan pulses */}
+            <path d="M260,82 C285,78 310,85 330,98" strokeWidth="1.5" strokeDasharray="3 3" strokeOpacity="0.6" />
+            <path d="M250,70 C285,64 325,74 350,90" strokeWidth="1.2" strokeDasharray="2 4" strokeOpacity="0.4" />
+            <circle cx="280" cy="94" r="3" fill={a} />
+          </g>
+        )}
+
         {/* Glamistry Makeover motif: Luxury Diamond / Crown / Sparkles */}
         {project.motif === 'glam' && (
           <g transform="translate(210 40)" fill="none" stroke={a} strokeOpacity="0.85">

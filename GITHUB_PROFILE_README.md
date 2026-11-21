@@ -24,7 +24,7 @@ I am a results-driven **Full Stack & WordPress Developer** with an **MCA (CGPA: 
 - 💼 **WordPress Developer** at **Zooye Info Technologies** (Apr 2026 – Nov 2026): Engineered 3 synchronized real-estate cloud portals (**Stackly**), optimized asset pipelines for sub-second Core Web Vitals, and mentored a team of 3 developer colleagues.
 - 🐍 **Full Stack Python & ERP Intern** at **Coactions Info Tech** (Nov 2025 – Apr 2026): Architected custom Odoo 18 ERP modules with PostgreSQL and RBAC for 50+ concurrent users, resolving 20+ critical UAT bugs and boosting tracking efficiency by 30%.
 - 📊 **Data Analytics & Power BI Intern** at **Coactions Info Tech** (May 2025 – Jun 2025): Deployed 5+ interactive Power BI dashboards saving 10 hours/week in manual collation; led a 4-person analytics team driving a 15% donor surge.
-- 🚀 **Flagship Launch**: Built and deployed **[Glamistry Makeover](https://glamistrymakeover.netlify.app/)** on Netlify Edge CDN featuring online appointment funnels and luxury bridal styling portfolios.
+- 🚀 **Flagship Launch**: Built and deployed **[GK Services – 3D Car Center](https://gk-services-car-center.netlify.app/)** with React 19 & Three.js WebGL, and **[Glamistry Makeover](https://glamistrymakeover.netlify.app/)** on Netlify Edge CDN featuring online appointment funnels and luxury bridal styling portfolios.
 - 🥊 **Leadership & Sports**: Elected **President of GAIT Committee** (spearheaded Qutrix 2k25 Inter-Collegiate Symposium for 500+ participants) and **Inter-Collegiate Boxing Tournament Medalist** (represented Bharathiar University at the All India Championship in Punjab).
 
 ---
@@ -33,6 +33,7 @@ I am a results-driven **Full Stack & WordPress Developer** with an **MCA (CGPA: 
 
 | Project | Domain / Type | Core Tech Stack | Highlights & Links |
 | :--- | :--- | :--- | :--- |
+| **[GK Services – 3D Car Center](https://gk-services-car-center.netlify.app/)** | 3D WebGL Autonomous Engineering | `React 19` `Three.js` `WebGL` `TypeScript` | Live on Netlify; real-time 3D sports car customizer, multi-elevation studio & LiDAR diagnostics. |
 | **[Glamistry Makeover](https://glamistrymakeover.netlify.app/)** | Luxury Bridal E-Commerce | `WordPress` `Netlify CDN` `Tailwind` | Live on Netlify Edge CDN; sub-second loads, online appointment booking funnel. |
 | **[Streaming Portfolio](https://gokula-kannan-m-portfolio.onrender.com/)** | Cinematic Portfolio Platform | `React 18` `TypeScript` `Vite` `Tailwind` | Streaming UI with interactive e-PDF & ATS resume viewer, video walkthrough. |
 | **Stackly Real Estate** | Enterprise Multi-Site Portal | `WordPress` `PHP` `MySQL` `REST API` | 3 synchronized cloud portal instances for property discovery & agent tours. |
